@@ -3,17 +3,17 @@
 ## Source: https://github.com/hexojs/hexo/
 
 # Site
-title: CrazyMilk's blog
-subtitle: 热爱生活的曾庆淼小帅锅
-description: 华南理工大学12级软件工程，在默默地等待着读研~
-author: CrazyMilk
-email: CatDringMilk@outlook.com
+title: Aric's blog
+subtitle: 爱生活、爱工作、爱运动
+description: From small beginnings comes great things
+author: Aric
+email: wangyuanqi518@163.com
 language: zh-Hans
-keywords: CrazyMilk
+keywords: Aric
 
 # URL
 ## If your site is put in a subdirectory, set url as 'http://yoursite.com/child' and root as '/child/'
-url: https://github.com/CrazyMilk
+url: https://github.com/Aric-sky
 root: /
 permalink: :year/:month/:day/:title/
 
@@ -87,11 +87,11 @@ theme: yilia
 ## Docs: http://hexo.io/docs/deployment.html
 deploy:
   type: git
-  repo: git@github.com:CrazyMilk/CrazyMilk.github.io.git
+  repo: git@github.com:Aric-sky/aric-sky.github.io.git
   branch: master
 
 
-duoshuo_shortname: crazymilk.duoshuo.com
+duoshuo_shortname: wangyuanqi.info
 
 jsonContent:
     meta: false
