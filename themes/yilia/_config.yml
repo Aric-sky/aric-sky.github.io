@@ -2,20 +2,20 @@
 
 menu:
   主页: /
-  随笔: /tags/随笔
+  随笔: /tags/随记
   技术: /tags/技术
 
 # SubNav
 subnav:
-  github: https://github.com/CrazyMilk
-  zhihu: https://zhihu.com/people/CrazyMilk
+  github: https://github.com/Aric-sky
+  #zhihu: https://zhihu.com/people/CrazyMilk
   #psn: "#"
   #zhihu: "#"
   #douban: "#"
-  #segmentfault: "#"
+  segmentfault: https://segmentfault.com/u/aric_sky
   #bilibili: "#"
   #acfun: "#"
-  #mail: "mailto:litten225@qq.com"
+  #mail: wangyuanqi518@163.com
   #facebook: "#"
   #google: "#"
   #twitter: "#"
@@ -58,10 +58,10 @@ open_in_new: true
 # Miscellaneous
 baidu_analytics: 'a30844fa2bcbce0a9e001fe06cefeddf'
 google_analytics: false
-favicon: /assets/img/favicon.ico
+favicon: /assets/images/favicon/favicon.ico
 
 #你的头像url
-avatar: /assets/images/avatar/avatar.png
+avatar: /assets/images/avatar/avatar.JPG
 
 #是否开启分享
 share_jia: true
@@ -103,11 +103,11 @@ slider:
 #  friends: false
 smart_menu:
   innerArchive: '所有文章'
-  friends: true
+  friends: false
   aboutme: '关于我'
 
 friends:
   JuniperPhoton: http://juniperphoton.net/
   yazoo: http://yazhuo.github.io/
 
-aboutme: 嗯...我是喵星人，我从火星来，任务是让你们猜不透~
+aboutme: I like codding bug !
