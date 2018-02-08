@@ -1,7 +1,7 @@
 layout: post
 title: call/bind/apply 的区别
 comment: true
-tags: []
+tags: [前端,js]
 date: 2018-02-08 15:05:16
 updated: 2018-02-08 15:05:16
 ---
