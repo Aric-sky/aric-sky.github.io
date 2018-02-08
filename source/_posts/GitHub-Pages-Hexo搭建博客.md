@@ -7,11 +7,10 @@ updated: 2017-12-29 15:12:00
 ---
 
 ------
+<!-- more -->
+
 # 一、 前言
 这是一篇使用GitHub Pages和Hexo搭建免费独立博客的总结。
-
-
-<!-- more -->
 
 如果是小小白，可以先花时间去了解下：
 * [Git](http://git-scm.com/book/zh/v2)

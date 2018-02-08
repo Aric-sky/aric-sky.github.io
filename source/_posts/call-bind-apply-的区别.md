@@ -7,6 +7,7 @@ updated: 2018-02-08 15:05:16
 ---
 
 ------
+<!-- more -->
 
 ```bash
 var name = '小刚'
@@ -25,8 +26,6 @@ person.fn.apply(window) // => 小刚撸代码
 person.fn.bind(window)() // => 小刚撸代码
 
 ```
-
-<!-- more -->
 
 显而易见，call 和 apply 更加类似，bind与两者形式不同
 那 call 和 apply 的区别在哪呢?
