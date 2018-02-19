@@ -6,19 +6,17 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="https://github.com/Aric-sky">
-  <title>Tag: 后端 | Aric&#39;s blog</title>
+  <title>js有用代码小总结 | Aric&#39;s blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="From small beginnings comes great things">
-<meta name="keywords" content="Aric">
-<meta property="og:type" content="website">
-<meta property="og:title" content="Aric&#39;s blog">
-<meta property="og:url" content="https://github.com/Aric-sky/tags/后端/index.html">
+  <meta name="keywords" content="前端,js">
+<meta property="og:type" content="article">
+<meta property="og:title" content="js有用代码小总结">
+<meta property="og:url" content="https://github.com/Aric-sky/2018/02/19/js有用代码小总结/index.html">
 <meta property="og:site_name" content="Aric&#39;s blog">
-<meta property="og:description" content="From small beginnings comes great things">
 <meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2018-02-19T07:02:23.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Aric&#39;s blog">
-<meta name="twitter:description" content="From small beginnings comes great things">
+<meta name="twitter:title" content="js有用代码小总结">
   
     <link rel="alternative" href="/atom.xml" title="Aric&#39;s blog" type="application/atom+xml">
   
@@ -170,70 +168,242 @@ var _hmt = _hmt || [];
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-  
+            <article id="post-js有用代码小总结" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
     
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2018" class="archive-year">2018</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2018/02/06/设计模式——单例模式/" class="archive-article-date">
-  	<time datetime="2018-02-06T09:43:24.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-02-06</time>
-</a>
-        </div>
-    	 
+      <header class="article-header">
+        
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2018/02/06/设计模式——单例模式/">设计模式——单例模式</a>
+    <h1 class="article-title" itemprop="name">
+      js有用代码小总结
     </h1>
   
 
 
 
   <a href="javascript:;" class="archive-article-date">
-      <i class="icon-smile icon"></i> 阅读数:<span id="/2018/02/06/设计模式——单例模式/" class="pageViews">0</span>次
+      <i class="icon-smile icon"></i> 阅读数:<span id="/2018/02/19/js有用代码小总结/" class="pageViews">0</span>次
   </a>
 
-        <div class="article-info info-on-right">
-          
+        
+        <a href="/2018/02/19/js有用代码小总结/" class="archive-article-date">
+  	<time datetime="2018-02-19T07:02:23.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-02-19</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <hr>
+<a id="more"></a>
+<h3 id="浮点数取整"><a href="#浮点数取整" class="headerlink" title="浮点数取整"></a>浮点数取整</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">const x = 123.4545;</span><br><span class="line">x &gt;&gt; 0; // 123</span><br><span class="line">~~x; // 123</span><br><span class="line">x | 0; // 123</span><br><span class="line">Math.floor(x); // 123</span><br></pre></td></tr></table></figure>
+<ul>
+<li>注意：前三种方法只适用于32个位整数，对于负数的处理上和Math.floor是不同的。<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Math.floor(-12.53); // -13</span><br><span class="line">-12.53 | 0; // -12</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<h3 id="生成6位数字验证码"><a href="#生成6位数字验证码" class="headerlink" title="生成6位数字验证码"></a>生成6位数字验证码</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">// 方法一</span><br><span class="line">(<span class="string">'000000'</span> + Math.floor(Math.random() *  999999)).slice(-6);</span><br><span class="line"></span><br><span class="line">// 方法二</span><br><span class="line">Math.random().toString().slice(-6);</span><br><span class="line"></span><br><span class="line">// 方法三</span><br><span class="line">Math.random().toFixed(6).slice(-6);</span><br><span class="line"></span><br><span class="line">// 方法四</span><br><span class="line"><span class="string">''</span> + Math.floor(Math.random() * 999999);</span><br></pre></td></tr></table></figure>
+<h3 id="16进制颜色代码生成"><a href="#16进制颜色代码生成" class="headerlink" title="16进制颜色代码生成"></a>16进制颜色代码生成</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">(<span class="function"><span class="title">function</span></span>() &#123;</span><br><span class="line">  <span class="built_in">return</span> <span class="string">'#'</span>+(<span class="string">'00000'</span>+</span><br><span class="line">    (Math.random()*0x1000000&lt;&lt;0).toString(16)).slice(-6);</span><br><span class="line">&#125;)();</span><br></pre></td></tr></table></figure>
+<h3 id="驼峰命名转下划线"><a href="#驼峰命名转下划线" class="headerlink" title="驼峰命名转下划线"></a>驼峰命名转下划线</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">'componentMapModelRegistry'</span>.match(/^[a-z][a-z0-9]+|[A-Z][a-z0-9]*/g).join(<span class="string">'_'</span>).toLowerCase(); </span><br><span class="line">// component_map_model_registry</span><br></pre></td></tr></table></figure>
+<h3 id="url查询参数转json格式"><a href="#url查询参数转json格式" class="headerlink" title="url查询参数转json格式"></a>url查询参数转json格式</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">// ES6</span><br><span class="line">const query = (search = <span class="string">''</span>) =&gt; ((querystring = <span class="string">''</span>) =&gt; (q =&gt; (querystring.split(<span class="string">'&amp;'</span>).forEach(item =&gt; (kv =&gt; kv[0] &amp;&amp; (q[kv[0]] = kv[1]))(item.split(<span class="string">'='</span>))), q))(&#123;&#125;))(search.split(<span class="string">'?'</span>)[1]);</span><br><span class="line"></span><br><span class="line">// 对应ES5实现</span><br><span class="line">var query = <span class="keyword">function</span>(search) &#123;</span><br><span class="line">  <span class="keyword">if</span> (search === void 0) &#123; search = <span class="string">''</span>; &#125;</span><br><span class="line">  <span class="built_in">return</span> (<span class="keyword">function</span>(querystring) &#123;</span><br><span class="line">    <span class="keyword">if</span> (querystring === void 0) &#123; querystring = <span class="string">''</span>; &#125;</span><br><span class="line">    <span class="built_in">return</span> (<span class="keyword">function</span>(q) &#123;</span><br><span class="line">      <span class="built_in">return</span> (querystring.split(<span class="string">'&amp;'</span>).forEach(<span class="keyword">function</span>(item) &#123;</span><br><span class="line">        <span class="built_in">return</span> (<span class="keyword">function</span>(kv) &#123;</span><br><span class="line">          <span class="built_in">return</span> kv[0] &amp;&amp; (q[kv[0]] = kv[1]);</span><br><span class="line">        &#125;)(item.split(<span class="string">'='</span>));</span><br><span class="line">      &#125;), q);</span><br><span class="line">    &#125;)(&#123;&#125;);</span><br><span class="line">  &#125;)(search.split(<span class="string">'?'</span>)[1]);</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line">query(<span class="string">'?key1=value1&amp;key2=value2'</span>); // es6.html:14 &#123;key1: <span class="string">"value1"</span>, key2: <span class="string">"value2"</span>&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="获取URL参数"><a href="#获取URL参数" class="headerlink" title="获取URL参数"></a>获取URL参数</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">function</span> getQueryString(key)&#123;</span><br><span class="line">  var reg = new RegExp(<span class="string">"(^|&amp;)"</span>+ key +<span class="string">"=([^&amp;]*)(&amp;|$)"</span>);</span><br><span class="line">  var r = window.location.search.substr(1).match(reg);</span><br><span class="line">  <span class="keyword">if</span>(r!=null)&#123;</span><br><span class="line">      <span class="built_in">return</span>  unescape(r[2]);</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="built_in">return</span> null;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="n维数组展开成一维数组"><a href="#n维数组展开成一维数组" class="headerlink" title="n维数组展开成一维数组"></a>n维数组展开成一维数组</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line">var foo = [1, [2, 3], [<span class="string">'4'</span>, 5, [<span class="string">'6'</span>,7,[8]]], [9], 10];</span><br><span class="line"></span><br><span class="line">// 方法一</span><br><span class="line">// 限制：数组项不能出现`,`，同时数组项全部变成了字符数字</span><br><span class="line">foo.toString().split(<span class="string">','</span>); // [<span class="string">"1"</span>, <span class="string">"2"</span>, <span class="string">"3"</span>, <span class="string">"4"</span>, <span class="string">"5"</span>, <span class="string">"6"</span>, <span class="string">"7"</span>, <span class="string">"8"</span>, <span class="string">"9"</span>, <span class="string">"10"</span>]</span><br><span class="line"></span><br><span class="line">// 方法二</span><br><span class="line">// 转换后数组项全部变成数字了</span><br><span class="line"><span class="built_in">eval</span>(<span class="string">'['</span> + foo + <span class="string">']'</span>); // [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]</span><br><span class="line"></span><br><span class="line">// 方法三，使用ES6展开操作符</span><br><span class="line">// 写法太过麻烦，太过死板</span><br><span class="line">[1, ...[2, 3], ...[<span class="string">'4'</span>, 5, ...[<span class="string">'6'</span>,7,...[8]]], ...[9], 10]; // [1, 2, 3, <span class="string">"4"</span>, 5, <span class="string">"6"</span>, 7, 8, 9, 10]</span><br><span class="line"></span><br><span class="line">// 方法四</span><br><span class="line">JSON.parse(`[<span class="variable">$&#123;JSON.stringify(foo).replace(/\[|]/g, '')&#125;</span>]`); // [1, 2, 3, <span class="string">"4"</span>, 5, <span class="string">"6"</span>, 7, 8, 9, 10]</span><br><span class="line"></span><br><span class="line">// 方法五</span><br><span class="line">const flatten = (ary) =&gt; ary.reduce((a, b) =&gt; a.concat(Array.isArray(b) ? flatten(b) : b), []);</span><br><span class="line">flatten(foo); // [1, 2, 3, <span class="string">"4"</span>, 5, <span class="string">"6"</span>, 7, 8, 9, 10]</span><br><span class="line"></span><br><span class="line">// 方法六</span><br><span class="line"><span class="keyword">function</span> flatten(a) &#123;</span><br><span class="line">  <span class="built_in">return</span> Array.isArray(a) ? [].concat(...a.map(flatten)) : a;</span><br><span class="line">&#125;</span><br><span class="line">flatten(foo); // [1, 2, 3, <span class="string">"4"</span>, 5, <span class="string">"6"</span>, 7, 8, 9, 10]</span><br></pre></td></tr></table></figure>
+<h3 id="日期格式化"><a href="#日期格式化" class="headerlink" title="日期格式化"></a>日期格式化</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br></pre></td><td class="code"><pre><span class="line">// 方法一</span><br><span class="line"><span class="keyword">function</span> format1(x, y) &#123;</span><br><span class="line">  var z = &#123;</span><br><span class="line">    y: x.getFullYear(),</span><br><span class="line">    M: x.getMonth() + 1,</span><br><span class="line">    d: x.getDate(),</span><br><span class="line">    h: x.getHours(),</span><br><span class="line">    m: x.getMinutes(),</span><br><span class="line">    s: x.getSeconds()</span><br><span class="line">  &#125;;</span><br><span class="line">  <span class="built_in">return</span> y.replace(/(y+|M+|d+|h+|m+|s+)/g, <span class="keyword">function</span>(v) &#123;</span><br><span class="line">    <span class="built_in">return</span> ((v.length &gt; 1 ? <span class="string">"0"</span> : <span class="string">""</span>) + <span class="built_in">eval</span>(<span class="string">'z.'</span> + v.slice(-1))).slice(-(v.length &gt; 2 ? v.length : 2))</span><br><span class="line">  &#125;);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">format1(new Date(), <span class="string">'yy-M-d h:m:s'</span>); // 17-10-14 22:14:41</span><br><span class="line"></span><br><span class="line">// 方法二</span><br><span class="line">Date.prototype.format = <span class="keyword">function</span> (fmt) &#123; </span><br><span class="line">  var o = &#123;</span><br><span class="line">    <span class="string">"M+"</span>: this.getMonth() + 1, //月份 </span><br><span class="line">    <span class="string">"d+"</span>: this.getDate(), //日 </span><br><span class="line">    <span class="string">"h+"</span>: this.getHours(), //小时 </span><br><span class="line">    <span class="string">"m+"</span>: this.getMinutes(), //分 </span><br><span class="line">    <span class="string">"s+"</span>: this.getSeconds(), //秒 </span><br><span class="line">    <span class="string">"q+"</span>: Math.floor((this.getMonth() + 3) / 3), //季度 </span><br><span class="line">    <span class="string">"S"</span>: this.getMilliseconds() //毫秒 </span><br><span class="line">  &#125;;</span><br><span class="line">  <span class="keyword">if</span> (/(y+)/.<span class="built_in">test</span>(fmt))&#123;</span><br><span class="line">    fmt = fmt.replace(RegExp.<span class="variable">$1</span>, (this.getFullYear() + <span class="string">""</span>).substr(4 - RegExp.<span class="variable">$1</span>.length));</span><br><span class="line">  &#125; </span><br><span class="line">  <span class="keyword">for</span> (var k <span class="keyword">in</span> o)&#123;</span><br><span class="line">    <span class="keyword">if</span> (new RegExp(<span class="string">"("</span> + k + <span class="string">")"</span>).<span class="built_in">test</span>(fmt))&#123;</span><br><span class="line">      fmt = fmt.replace(RegExp.<span class="variable">$1</span>, (RegExp.<span class="variable">$1</span>.length == 1) ? (o[k]) : ((<span class="string">"00"</span> + o[k]).substr((<span class="string">""</span> + o[k]).length)));</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;     </span><br><span class="line">  <span class="built_in">return</span> fmt;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">new Date().format(<span class="string">'yy-M-d h:m:s'</span>); // 17-10-14 22:18:17</span><br></pre></td></tr></table></figure>
+<h3 id="统计文字个数"><a href="#统计文字个数" class="headerlink" title="统计文字个数"></a>统计文字个数</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">function</span> wordCount(data) &#123;</span><br><span class="line">  var pattern = /[a-zA-Z0-9_\u0392-\u03c9]+|[\u4E00-\u9FFF\u3400-\u4dbf\uf900-\ufaff\u3040-\u309f\uac00-\ud7af]+/g;</span><br><span class="line">  var m = data.match(pattern);</span><br><span class="line">  var count = 0;</span><br><span class="line">  <span class="keyword">if</span>( m === null ) <span class="built_in">return</span> count;</span><br><span class="line">  <span class="keyword">for</span> (var i = 0; i &lt; m.length; i++) &#123;</span><br><span class="line">    <span class="keyword">if</span> (m[i].charCodeAt(0) &gt;= 0x4E00) &#123;</span><br><span class="line">      count += m[i].length;</span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">      count += 1;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="built_in">return</span> count;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">var text = <span class="string">'贷款买房，也意味着你能给自己的资产加杠杆，能够撬动更多的钱，来孳生更多的财务性收入。'</span>;</span><br><span class="line">wordCount(text); // 38</span><br></pre></td></tr></table></figure>
+<h3 id="特殊字符转义"><a href="#特殊字符转义" class="headerlink" title="特殊字符转义"></a>特殊字符转义</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">function</span> htmlspecialchars (str) &#123;</span><br><span class="line">  var str = str.toString().replace(/&amp;/g, <span class="string">"&amp;amp;"</span>).replace(/&lt;/g, <span class="string">"&amp;lt;"</span>).replace(/&gt;/g, <span class="string">"&amp;gt;"</span>).replace(/<span class="string">"/g, '&amp;quot;');</span></span><br><span class="line"><span class="string">  return str;</span></span><br><span class="line"><span class="string">&#125;</span></span><br><span class="line"><span class="string">htmlspecialchars('&amp;jfkds&lt;&gt;'); // "</span>&amp;amp;jfkds&amp;lt;&amp;gt;<span class="string">"</span></span><br></pre></td></tr></table></figure>
+<h3 id="动态插入js"><a href="#动态插入js" class="headerlink" title="动态插入js"></a>动态插入js</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">function</span> injectScript(src) &#123;</span><br><span class="line">    var s, t;</span><br><span class="line">    s = document.createElement(<span class="string">'script'</span>);</span><br><span class="line">    s.type = <span class="string">'text/javascript'</span>;</span><br><span class="line">    s.async = <span class="literal">true</span>;</span><br><span class="line">    s.src = src;</span><br><span class="line">    t = document.getElementsByTagName(<span class="string">'script'</span>)[0];</span><br><span class="line">    t.parentNode.insertBefore(s, t);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="格式化数量"><a href="#格式化数量" class="headerlink" title="格式化数量"></a>格式化数量</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line">// 方法一</span><br><span class="line"><span class="keyword">function</span> formatNum (num, n) &#123;</span><br><span class="line">  <span class="keyword">if</span> (typeof num == <span class="string">"number"</span>) &#123;</span><br><span class="line">    num = String(num.toFixed(n || 0));</span><br><span class="line">    var re = /(-?\d+)(\d&#123;3&#125;)/;</span><br><span class="line">    <span class="keyword">while</span> (re.test(num)) num = num.replace(re, <span class="string">"<span class="variable">$1</span>,<span class="variable">$2</span>"</span>);</span><br><span class="line">    <span class="built_in">return</span> num;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="built_in">return</span> num;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">formatNum(2313123, 3); // <span class="string">"2,313,123.000"</span></span><br><span class="line"></span><br><span class="line">// 方法二</span><br><span class="line"><span class="string">'2313123'</span>.replace(/\B(?=(\d&#123;3&#125;)+(?!\d))/g, <span class="string">','</span>); // <span class="string">"2,313,123"</span></span><br><span class="line"></span><br><span class="line">// 方法三</span><br><span class="line"><span class="keyword">function</span> formatNum(str) &#123;</span><br><span class="line">  <span class="built_in">return</span> str.split(<span class="string">''</span>).reverse().reduce((prev, next, index) =&gt; &#123;</span><br><span class="line">    <span class="built_in">return</span> ((index % 3) ? next : (next + <span class="string">','</span>)) + prev</span><br><span class="line">  &#125;);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">formatNum(<span class="string">'2313323'</span>); // <span class="string">"2,313,323"</span></span><br></pre></td></tr></table></figure>
+<h3 id="统计字符串中相同字符出现的次数"><a href="#统计字符串中相同字符出现的次数" class="headerlink" title="统计字符串中相同字符出现的次数"></a>统计字符串中相同字符出现的次数</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">var arr = <span class="string">'abcdaabc'</span>;</span><br><span class="line"></span><br><span class="line">var info = arr</span><br><span class="line">    .split(<span class="string">''</span>)</span><br><span class="line">    .reduce((p, k) =&gt; (p[k]++ || (p[k] = 1), p), &#123;&#125;);</span><br><span class="line"></span><br><span class="line">console.log(info); //&#123; a: 3, b: 2, c: 2, d: 1 &#125;</span><br></pre></td></tr></table></figure>
+<h3 id="使用void-0来解决undefined被污染问题"><a href="#使用void-0来解决undefined被污染问题" class="headerlink" title="使用void 0来解决undefined被污染问题"></a>使用void 0来解决undefined被污染问题</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">undefined = 1;</span><br><span class="line">!!undefined; // <span class="literal">true</span></span><br><span class="line">!!void(0); // <span class="literal">false</span></span><br></pre></td></tr></table></figure>
+<h3 id="单行写一个评级组件"><a href="#单行写一个评级组件" class="headerlink" title="单行写一个评级组件"></a>单行写一个评级组件</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">"★★★★★☆☆☆☆☆"</span>.slice(5 - rate, 10 - rate);</span><br></pre></td></tr></table></figure>
+<h3 id="JavaScript-错误处理的方式的正确姿势"><a href="#JavaScript-错误处理的方式的正确姿势" class="headerlink" title="JavaScript 错误处理的方式的正确姿势"></a>JavaScript 错误处理的方式的正确姿势</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">try &#123;</span><br><span class="line">    something</span><br><span class="line">&#125; catch (e) &#123;</span><br><span class="line">    window.location.href =</span><br><span class="line">        <span class="string">"http://stackoverflow.com/search?q=[js]+"</span> +</span><br><span class="line">        e.message;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="匿名函数自执行写法"><a href="#匿名函数自执行写法" class="headerlink" title="匿名函数自执行写法"></a>匿名函数自执行写法</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">( <span class="function"><span class="title">function</span></span>() &#123;&#125;() );</span><br><span class="line">( <span class="function"><span class="title">function</span></span>() &#123;&#125; )();</span><br><span class="line">[ <span class="function"><span class="title">function</span></span>() &#123;&#125;() ];</span><br><span class="line"></span><br><span class="line">~ <span class="function"><span class="title">function</span></span>() &#123;&#125;();</span><br><span class="line">! <span class="function"><span class="title">function</span></span>() &#123;&#125;();</span><br><span class="line">+ <span class="function"><span class="title">function</span></span>() &#123;&#125;();</span><br><span class="line">- <span class="function"><span class="title">function</span></span>() &#123;&#125;();</span><br><span class="line"></span><br><span class="line">delete <span class="function"><span class="title">function</span></span>() &#123;&#125;();</span><br><span class="line">typeof <span class="function"><span class="title">function</span></span>() &#123;&#125;();</span><br><span class="line">void <span class="function"><span class="title">function</span></span>() &#123;&#125;();</span><br><span class="line">new <span class="function"><span class="title">function</span></span>() &#123;&#125;();</span><br><span class="line">new <span class="function"><span class="title">function</span></span>() &#123;&#125;;</span><br><span class="line"></span><br><span class="line">var f = <span class="function"><span class="title">function</span></span>() &#123;&#125;();</span><br><span class="line"></span><br><span class="line">1, <span class="function"><span class="title">function</span></span>() &#123;&#125;();</span><br><span class="line">1 ^ <span class="function"><span class="title">function</span></span>() &#123;&#125;();</span><br><span class="line">1 &gt; <span class="function"><span class="title">function</span></span>() &#123;&#125;();</span><br></pre></td></tr></table></figure>
+<h3 id="两个整数交换数值"><a href="#两个整数交换数值" class="headerlink" title="两个整数交换数值"></a>两个整数交换数值</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">var a = 20, b = 30;</span><br><span class="line">a ^= b;</span><br><span class="line">b ^= a;</span><br><span class="line">a ^= b;</span><br><span class="line"></span><br><span class="line">a; // 30</span><br><span class="line">b; // 20</span><br></pre></td></tr></table></figure>
+<h3 id="数字字符转数字"><a href="#数字字符转数字" class="headerlink" title="数字字符转数字"></a>数字字符转数字</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">var a = <span class="string">'1'</span>;</span><br><span class="line">+a; // 1</span><br></pre></td></tr></table></figure>
+<h3 id="es6的set方法实现数组去重"><a href="#es6的set方法实现数组去重" class="headerlink" title="es6的set方法实现数组去重"></a>es6的set方法实现数组去重</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[...new Set([1, <span class="string">"1"</span>, 2, 1, 1, 3])]; // [1, <span class="string">"1"</span>, 2, 3]</span><br></pre></td></tr></table></figure>
+<h3 id="快速新建填充数组"><a href="#快速新建填充数组" class="headerlink" title="快速新建填充数组"></a>快速新建填充数组</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Array(6).fill(8); // [8, 8, 8, 8, 8, 8]</span><br></pre></td></tr></table></figure>
+<h3 id="将argruments对象转换成数组"><a href="#将argruments对象转换成数组" class="headerlink" title="将argruments对象转换成数组"></a>将argruments对象转换成数组</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">var argArray = Array.prototype.slice.call(arguments);</span><br><span class="line"></span><br><span class="line">// ES6：</span><br><span class="line">var argArray = Array.from(arguments)</span><br><span class="line"></span><br><span class="line">// or</span><br><span class="line">var argArray = [...arguments];</span><br></pre></td></tr></table></figure>
+<h3 id="indexOf写法简化"><a href="#indexOf写法简化" class="headerlink" title="indexOf写法简化"></a>indexOf写法简化</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">var str = <span class="string">'hello world'</span>;</span><br><span class="line"><span class="keyword">if</span> (str.indexOf(<span class="string">'lo'</span>) &gt; -1) &#123;</span><br><span class="line">  // ...</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> (~str.indexOf(<span class="string">'lo'</span>)) &#123;</span><br><span class="line">  // ...</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="parseInt-or-Number"><a href="#parseInt-or-Number" class="headerlink" title="parseInt() or Number()"></a>parseInt() or Number()</h3><p>两者的差别之处在于解析和转换两者之间的理解。<br>解析允许字符串中含有非数字字符，解析按从左到右的顺序，如果遇到非数字字符就停止。而转换不允许出现非数字字符，否者会失败并返回NaN。<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">var a = <span class="string">'520'</span>;</span><br><span class="line">var b = <span class="string">'520px'</span>;</span><br><span class="line"></span><br><span class="line">Number(a); // 520</span><br><span class="line">parseInt(a); // 520</span><br><span class="line"></span><br><span class="line">Number(b); // NaN</span><br><span class="line">parseInt(b); // 520</span><br></pre></td></tr></table></figure></p>
+<p>parseInt方法第二个参数用于指定转换的基数，ES5默认为10进制。<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">parseInt(<span class="string">'10'</span>, 2); // 2</span><br><span class="line">parseInt(<span class="string">'10'</span>, 8); // 8</span><br><span class="line">parseInt(<span class="string">'10'</span>, 10); // 10</span><br><span class="line">parseInt(<span class="string">'10'</span>, 16);  // 16</span><br></pre></td></tr></table></figure></p>
+<h3 id="拼接操作，-x-or-String-x-？"><a href="#拼接操作，-x-or-String-x-？" class="headerlink" title="+拼接操作，+x or String(x)？"></a>+拼接操作，+x or String(x)？</h3><p>+运算符可用于数字加法，同时也可以用于字符串拼接。如果+的其中一个操作符是字符串(或者通过 隐式强制转换可以得到字符串)，则执行字符串拼接；否者执行数字加法。</p>
+<p>需要注意的时对于数组而言，不能通过valueOf()方法得到简单基本类型值，于是转而调用toString()方法。<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[1,2] + [3, 4]; // <span class="string">"1,23,4"</span></span><br></pre></td></tr></table></figure></p>
+<p>对于对象同样会先调用valueOf()方法，然后通过toString()方法返回对象的字符串表示。<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">var a = &#123;&#125;;</span><br><span class="line">a + 123; // <span class="string">"[object Object]123"</span></span><br></pre></td></tr></table></figure></p>
+<p>对于a + “”隐式转换和String(a)显示转换有一个细微的差别：a + ‘’会对a调用valueOf()方法，而String()直接调用toString()方法。大多数情况下我们不会考虑这个问题，除非真遇到。<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">var a  = &#123;</span><br><span class="line">  valueOf: <span class="function"><span class="title">function</span></span>() &#123; <span class="built_in">return</span> 42; &#125;,</span><br><span class="line">  toString: <span class="function"><span class="title">function</span></span>() &#123; <span class="built_in">return</span> 4; &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">a + <span class="string">''</span>; // 42</span><br><span class="line">String(a); // 4</span><br></pre></td></tr></table></figure></p>
+<h3 id="判断对象的实例"><a href="#判断对象的实例" class="headerlink" title="判断对象的实例"></a>判断对象的实例</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line">// 方法一: ES3</span><br><span class="line"><span class="keyword">function</span> Person(name, age) &#123;</span><br><span class="line">  <span class="keyword">if</span> (!(this instanceof Person)) &#123;</span><br><span class="line">    <span class="built_in">return</span> new Person(name, age);</span><br><span class="line">  &#125;</span><br><span class="line">  this.name = name;</span><br><span class="line">  this.age = age;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">// 方法二: ES5</span><br><span class="line"><span class="keyword">function</span> Person(name, age) &#123;</span><br><span class="line">  var self = this instanceof Person ? this : Object.create(Person.prototype);</span><br><span class="line">  self.name = name;</span><br><span class="line">  self.age = age;</span><br><span class="line"></span><br><span class="line">  <span class="built_in">return</span> self;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">// 方法三：ES6</span><br><span class="line"><span class="keyword">function</span> Person(name, age) &#123;</span><br><span class="line">  <span class="keyword">if</span> (!new.target) &#123;</span><br><span class="line">    throw <span class="string">'Peron must called with new'</span>;</span><br><span class="line">  &#125;</span><br><span class="line">  this.name = name;</span><br><span class="line">  this.age = age;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="数字四舍五入"><a href="#数字四舍五入" class="headerlink" title="数字四舍五入"></a>数字四舍五入</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">// v: 值，p: 精度</span><br><span class="line"><span class="keyword">function</span> (v, p) &#123;</span><br><span class="line">  p = Math.pow(10, p &gt;&gt;&gt; 31 ? 0 : p | 0)</span><br><span class="line">  v *= p;</span><br><span class="line">  <span class="built_in">return</span> (v + 0.5 + (v &gt;&gt; 31) | 0) / p</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">round(123.45353, 2); // 123.45</span><br></pre></td></tr></table></figure>
+<h3 id="快速生成UUID"><a href="#快速生成UUID" class="headerlink" title="快速生成UUID"></a>快速生成UUID</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">function</span> <span class="function"><span class="title">uuid</span></span>() &#123;</span><br><span class="line">  var d = new Date().getTime();</span><br><span class="line">  var uuid = <span class="string">'xxxxxxxxxxxx-4xxx-yxxx-xxxxxxxxxxxx'</span>.replace(/[xy]/g, <span class="keyword">function</span>(c) &#123;</span><br><span class="line">    var r = (d + Math.random() * 16) % 16 | 0;</span><br><span class="line">    d = Math.floor(d / 16);</span><br><span class="line">    <span class="built_in">return</span> (c == <span class="string">'x'</span> ? r : (r &amp; 0x3 | 0x8)).toString(16);</span><br><span class="line">  &#125;);</span><br><span class="line">  <span class="built_in">return</span> uuid;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line">uuid(); // <span class="string">"33f7f26656cb-499b-b73e-89a921a59ba6"</span></span><br></pre></td></tr></table></figure>
+<h3 id="格式化表单数据"><a href="#格式化表单数据" class="headerlink" title="格式化表单数据"></a>格式化表单数据</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">function</span> formatParam(obj) &#123;</span><br><span class="line">  var query = <span class="string">''</span>, name, value, fullSubName, subName, subValue, innerObj, i;</span><br><span class="line"></span><br><span class="line">  <span class="keyword">for</span>(name <span class="keyword">in</span> obj) &#123;</span><br><span class="line">    value = obj[name];</span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span>(value instanceof Array) &#123;</span><br><span class="line">      <span class="keyword">for</span>(i=0; i&lt;value.length; ++i) &#123;</span><br><span class="line">        subValue = value[i];</span><br><span class="line">        fullSubName = name + <span class="string">'['</span> + i + <span class="string">']'</span>;</span><br><span class="line">        innerObj = &#123;&#125;;</span><br><span class="line">        innerObj[fullSubName] = subValue;</span><br><span class="line">        query += formatParam(innerObj) + <span class="string">'&amp;'</span>;</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">else</span> <span class="keyword">if</span>(value instanceof Object) &#123;</span><br><span class="line">      <span class="keyword">for</span>(subName <span class="keyword">in</span> value) &#123;</span><br><span class="line">        subValue = value[subName];</span><br><span class="line">        fullSubName = name + <span class="string">'['</span> + subName + <span class="string">']'</span>;</span><br><span class="line">        innerObj = &#123;&#125;;</span><br><span class="line">        innerObj[fullSubName] = subValue;</span><br><span class="line">        query += formatParam(innerObj) + <span class="string">'&amp;'</span>;</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">else</span> <span class="keyword">if</span>(value !== undefined &amp;&amp; value !== null)</span><br><span class="line">      query += encodeURIComponent(name) + <span class="string">'='</span> + encodeURIComponent(value) + <span class="string">'&amp;'</span>;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="built_in">return</span> query.length ? query.substr(0, query.length - 1) : query;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">var param = &#123;</span><br><span class="line">  name: <span class="string">'jenemy'</span>,</span><br><span class="line">  likes: [0, 1, 3],</span><br><span class="line">  memberCard: [</span><br><span class="line">    &#123; title: <span class="string">'1'</span>, id: 1 &#125;,</span><br><span class="line">    &#123; title: <span class="string">'2'</span>, id: 2 &#125;</span><br><span class="line">  ]</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">formatParam(param); // <span class="string">"name=12&amp;likes%5B0%5D=0&amp;likes%5B1%5D=1&amp;likes%5B2%5D=3&amp;memberCard%5B0%5D%5Btitle%5D=1&amp;memberCard%5B0%5D%5Bid%5D=1&amp;memberCard%5B1%5D%5Btitle%5D=2&amp;memberCard%5B1%5D%5Bid%5D=2"</span></span><br></pre></td></tr></table></figure>
+<h3 id="创建指定长度非空数组"><a href="#创建指定长度非空数组" class="headerlink" title="创建指定长度非空数组"></a>创建指定长度非空数组</h3><p>在JavaScript中可以通过new Array(3)的形式创建一个长度为3的空数组。在老的Chrome中其值为[undefined x 3]，在最新的Chrome中为[empty x 3]，即空单元数组。在老Chrome中，相当于显示使用[undefined, undefined, undefined]的方式创建长度为3的数组。</p>
+<p>但是，两者在调用map()方法的结果是明显不同的<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">var a = new Array(3);</span><br><span class="line">var b = [undefined, undefined, undefined];</span><br><span class="line"></span><br><span class="line">a.map((v, i) =&gt; i); // [empty × 3]</span><br><span class="line">b.map((v, i) =&gt; i); // [0, 1, 2]</span><br></pre></td></tr></table></figure></p>
+<ul>
+<li>多数情况我们期望创建的是包含undefined值的指定长度的空数组，可以通过下面这种方法来达到目的：<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">var a = Array.apply(null, &#123; length: 3 &#125;);</span><br><span class="line"></span><br><span class="line">a; // [undefined, undefined, undefined]</span><br><span class="line">a.map((v, i) =&gt; i); // [0, 1, 2]</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+
+      
+
+      
+        <div class="page-reward">
+          <a href="javascript:;" class="page-reward-btn tooltip-top">
+            <div class="tooltip tooltip-east">
+            <span class="tooltip-item">
+              赏
+            </span>
+            <span class="tooltip-content">
+              <span class="tooltip-text">
+                <span class="tooltip-inner">
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>帮助楼主迎娶白富美<i class="icon icon-quo-right"></i></p>
+                  <div class="reward-box">
+                    
+                    <div class="reward-box-item">
+                      <img class="reward-img" src="/assets/images/pay/alipay.jpg">
+                      <span class="reward-type">支付宝</span>
+                    </div>
+                    
+                    
+                    <div class="reward-box-item">
+                      <img class="reward-img" src="/assets/images/pay/weixin.jpg">
+                      <span class="reward-type">微信</span>
+                    </div>
+                    
+                  </div>
+                </span>
+              </span>
+            </span>
+          </div>
+          </a>
+        </div>
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">设计模式</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">前端</a>
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">后端</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">js</a>
         		</li>
       		
 		</ul>
 	</div>
 
-          
+      
 
+      
+
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="http://s.jiathis.com/qrcode.php?url=https://github.com/Aric-sky/2018/02/19/js有用代码小总结/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
+
+
+  
+<nav id="article-nav">
   
   
-    </div></section>
+    <a href="/2018/02/09/web前端性能优化总结/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">web前端性能优化总结</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    
+<section class="youyan" id="comments">
+  <div id="uyan_frame"></div>
+  <script type="text/javascript" src="http://v2.uyan.cc/code/uyan.js?uid=2157287"></script>
+</section>
   
 
-    
+  
+  
+  
+
+  
+
+  
+
+  
 
 
           </div>
@@ -258,9 +428,9 @@ var _hmt = _hmt || [];
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
+		isPost: true,
 		isArchive: false,
-		isTag: true,
+		isTag: false,
 		isCategory: false,
 		open_in_new: true,
 		toc_hide_index: true,
