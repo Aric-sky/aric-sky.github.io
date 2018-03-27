@@ -6,19 +6,17 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="https://github.com/Aric-sky">
-  <title>Tag: 周边技术 | Aric&#39;s blog</title>
+  <title>iterator 简介 | Aric&#39;s blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="From small beginnings comes great things">
-<meta name="keywords" content="Aric">
-<meta property="og:type" content="website">
-<meta property="og:title" content="Aric&#39;s blog">
-<meta property="og:url" content="https://github.com/Aric-sky/tags/周边技术/index.html">
+  <meta name="keywords" content="Aric">
+<meta property="og:type" content="article">
+<meta property="og:title" content="iterator 简介">
+<meta property="og:url" content="https://github.com/Aric-sky/2018/03/27/iterator-简介/index.html">
 <meta property="og:site_name" content="Aric&#39;s blog">
-<meta property="og:description" content="From small beginnings comes great things">
 <meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2018-03-27T01:50:40.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Aric&#39;s blog">
-<meta name="twitter:description" content="From small beginnings comes great things">
+<meta name="twitter:title" content="iterator 简介">
   
     <link rel="alternative" href="/atom.xml" title="Aric&#39;s blog" type="application/atom+xml">
   
@@ -170,82 +168,200 @@ var _hmt = _hmt || [];
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-  
+            <article id="post-iterator-简介" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
     
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2017" class="archive-year">2017</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-draft">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2017/12/28/GitHub-Pages-Hexo搭建博客/" class="archive-article-date">
-  	<time datetime="2017-12-28T14:40:50.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-12-28</time>
-</a>
-        </div>
-    	 
+      <header class="article-header">
+        
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/12/28/GitHub-Pages-Hexo搭建博客/">GitHub Pages + Hexo搭建博客</a>
+    <h1 class="article-title" itemprop="name">
+      iterator 简介
     </h1>
   
 
 
 
   <a href="javascript:;" class="archive-article-date">
-      <i class="icon-smile icon"></i> 阅读数:<span id="/2017/12/28/GitHub-Pages-Hexo搭建博客/" class="pageViews">0</span>次
+      <i class="icon-smile icon"></i> 阅读数:<span id="/2018/03/27/iterator-简介/" class="pageViews">0</span>次
   </a>
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">周边技术</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">静态独立博客</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">Hexo</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">GitHub Page</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">Git</a>
-        		</li>
-      		
-		</ul>
-	</div>
+        
+        <a href="/2018/03/27/iterator-简介/" class="archive-article-date">
+  	<time datetime="2018-03-27T01:50:40.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-03-27</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <hr>
+<a id="more"></a>
+<p>1、遍历器（Iterator）是一种接口，为各种不同的数据结构提供统一的访问机制。任何数据结构只要部署Iterator接口，就可以完成遍历操作（即依次处理该数据结构的所有成员）。</p>
+<p>2、Iterator的作用有三个：一是为各种数据结构，提供一个统一的、简便的访问接口；二是使得数据结构的成员能够按某种次序排列；三是ES6创造了一种新的遍历命令for…of循环，Iterator接口主要供for…of消费。</p>
+<p>3、在ES6中，有些数据结构原生具备Iterator接口（比如数组），即不用任何处理，就可以被for…of循环遍历，有些就不行（比如对象）。原因在于，这些数据结构原生部署了Symbol.iterator属性（详见下文），另外一些数据结构没有。凡是部署了Symbol.iterator属性的数据结构，就称为部署了遍历器接口。调用这个接口，就会返回一个遍历器对象。</p>
+<p>4、在ES6中，有三类数据结构原生具备Iterator接口：数组、某些类似数组的对象、Set和Map结构。</p>
+<p>5、一个为对象添加Iterator接口的例子。<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">let</span> obj = &#123;</span><br><span class="line">  data: [ <span class="string">'hello'</span>, <span class="string">'world'</span> ],</span><br><span class="line">  [Symbol.iterator]() &#123;</span><br><span class="line">    const self = this;</span><br><span class="line">    <span class="built_in">let</span> index = 0;</span><br><span class="line">    <span class="built_in">return</span> &#123;</span><br><span class="line">      <span class="function"><span class="title">next</span></span>() &#123;</span><br><span class="line">        <span class="keyword">if</span> (index &lt; self.data.length) &#123;</span><br><span class="line">          <span class="built_in">return</span> &#123;</span><br><span class="line">            value: self.data[index++],</span><br><span class="line">            <span class="keyword">done</span>: <span class="literal">false</span></span><br><span class="line">          &#125;;</span><br><span class="line">        &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">          <span class="built_in">return</span> &#123; value: undefined, <span class="keyword">done</span>: <span class="literal">true</span> &#125;;</span><br><span class="line">        &#125;</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure></p>
+<p>6、下面是类似数组的对象调用数组的Symbol.iterator方法的例子。<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">let</span> iterable = &#123;</span><br><span class="line">  0: <span class="string">'a'</span>,</span><br><span class="line">  1: <span class="string">'b'</span>,</span><br><span class="line">  2: <span class="string">'c'</span>,</span><br><span class="line">  length: 3,</span><br><span class="line">  [Symbol.iterator]: Array.prototype[Symbol.iterator]</span><br><span class="line">&#125;;</span><br><span class="line"><span class="keyword">for</span> (<span class="built_in">let</span> item of iterable) &#123;</span><br><span class="line">  console.log(item); // <span class="string">'a'</span>, <span class="string">'b'</span>, <span class="string">'c'</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>注意，普通对象部署数组的Symbol.iterator方法，并无效果。</p>
+<p>7、有一些场合会默认调用Iterator接口（即Symbol.iterator方法），除了下文会介绍的for…of循环，还有几个别的场合。</p>
+<ul>
+<li>解构赋值</li>
+<li>扩展运算符(…)</li>
+<li>yield<em>_yield</em>后面跟的是一个可遍历的结构，它会调用该结构的遍历器接口。</li>
+<li>由于数组的遍历会调用遍历器接口，所以任何接受数组作为参数的场合，其实都调用。</li>
+</ul>
+<p>8、字符串是一个类似数组的对象，也原生具有Iterator接口。</p>
+<p>9、遍历器对象除了具有next方法，还可以具有return方法和throw方法。如果你自己写遍历器对象生成函数，那么next方法是必须部署的，return方法和throw方法是否部署是可选的。</p>
 
-          
+      
 
+      
+        <div class="page-reward">
+          <a href="javascript:;" class="page-reward-btn tooltip-top">
+            <div class="tooltip tooltip-east">
+            <span class="tooltip-item">
+              赏
+            </span>
+            <span class="tooltip-content">
+              <span class="tooltip-text">
+                <span class="tooltip-inner">
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>帮助楼主迎娶白富美<i class="icon icon-quo-right"></i></p>
+                  <div class="reward-box">
+                    
+                    <div class="reward-box-item">
+                      <img class="reward-img" src="/assets/images/pay/alipay.jpg">
+                      <span class="reward-type">支付宝</span>
+                    </div>
+                    
+                    
+                    <div class="reward-box-item">
+                      <img class="reward-img" src="/assets/images/pay/weixin.jpg">
+                      <span class="reward-type">微信</span>
+                    </div>
+                    
+                  </div>
+                </span>
+              </span>
+            </span>
+          </div>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
+        </div>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="http://s.jiathis.com/qrcode.php?url=https://github.com/Aric-sky/2018/03/27/iterator-简介/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
+
+
+  
+<nav id="article-nav">
   
   
-    </div></section>
+    <a href="/2018/03/15/几种常用的认证机制/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">几种常用的认证机制</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    
+<section class="youyan" id="comments">
+  <div id="uyan_frame"></div>
+  <script type="text/javascript" src="http://v2.uyan.cc/code/uyan.js?uid=2157287"></script>
+</section>
   
 
-    
+  
+  
+  
+
+  
+
+  
+
+  
 
 
           </div>
@@ -270,9 +386,9 @@ var _hmt = _hmt || [];
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
+		isPost: true,
 		isArchive: false,
-		isTag: true,
+		isTag: false,
 		isCategory: false,
 		open_in_new: true,
 		toc_hide_index: true,
