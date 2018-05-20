@@ -1,0 +1,294 @@
+layout: post
+title: beneift tips
+comment: true
+tags: [js]
+date: 2018-05-20 18:06:16
+updated: 2018-05-20 18:06:16
+---
+
+------
+<!-- more -->
+
+# 快速排序
+
+## 基本原理
+
+1.基本就是找一个基准值，一般取第一个，然后分别从第一个递增和最后一个递减，i ,j
+
+2.找到arr[i]大于基准值，arr[j]小于基准值
+
+3.调换ij，swap(arr, i, j)
+
+4.循环，下标小于i的值都小于基准值，大于i的值都大于基准值
+
+5.递归调用
+
+## 不同版本的实现
+
+> 通用
+
+```js
+function compare(a, b){
+  return a-b;
+}
+function swap(array, a, b) {
+  [array[a], array[b]] = [array[b], array[a]];
+}
+```
+
+1.N.Lomuto 版本
+
+  ```js
+  function partition_lomuto(arr, start, end){
+    var pivot = arr[end];
+    var s = start;
+    for(var g = start; g < end; g++){
+      if(compare(arr[g], pivot) < 0){
+        if(s != g){
+          swap(arr, s, g);
+        }
+        s ++;
+      }
+    }
+    if(s == end){
+      return s-1;
+    }else{
+      swap(arr, s, end);
+      return s;
+    }
+  }
+
+  function qsort_lomuto(arr, start, end){
+    if(start >= end){
+      return;
+    }
+    var p = partition_lomuto(arr, start, end);
+    qsort_lomuto(arr, start, p);
+    qsort_lomuto(arr, p+1, end);
+  }
+  ```
+
+2.Hoare 版本
+
+  ```js
+  function partition_hoare(arr, start, end){
+    var pivot = arr[start];
+    var s = start;
+    var e = end;
+    while(1){
+      while(compare(arr[s], pivot) < 0){
+        s ++;
+      }
+      while(compare(arr[e], pivot) > 0){
+        e --;
+      }
+      if(s == e){
+        return s;
+      }else if(s > e){
+        return s-1;
+      }
+      swap(arr, s, e);
+      s++;
+      e--;
+    }
+  }
+
+  function qsort_hoare(arr, start, end){
+    if(start >= end){
+      return;
+    }
+    var p = partition_hoare(arr, start, end);
+    qsort_hoare(arr, start, p);
+    qsort_hoare(arr, p+1, end);
+  }
+  ```
+
+3.Winter.FP
+
+  ```js
+  var y = g =>
+    (f=>f(f))(
+        self =>
+            g( (...args)=>self(self).apply(this,args) ) 
+    )
+
+  var qSort = y(qSort =>
+      (array, compare) =>
+          array.length <= 1 ?
+              array :
+              qSort(array.slice(1).filter(e => compare(e, array[0]) > 0), compare)
+                  .concat([array[0]])
+                  .concat(qSort(array.slice(1).filter(e => compare(e, array[0]) <= 0),compare)))
+  ```
+
+4.教科书快排(摘自 学习javascript数据结构和算法)
+
+```js
+function partition(array, left, right) {
+  const pivot = array[Math.floor((right + left) / 2)];
+  let i = left,
+      j = right;
+
+  while (i <= j) {
+    while (compare(array[i], pivot) < 0) {
+      i++;
+    }
+    while (compare(array[j], pivot) > 0) {
+      j--;
+    }
+    if (i <= j) {
+      swap(array, i, j);
+      i++;
+      j--;
+    }
+  }
+  return i;
+}
+
+function quick(array, left, right) {
+  let index;
+  if (array.length > 1) {
+    index = partition(array, left, right);
+    if (left < index - 1) {
+      quick(array, left, index - 1);
+    }
+    if (index < right) {
+      quick(array, index, right);
+    }
+  }
+  return array;
+}
+
+function quickSort(array) {
+  return quick(array, 0, array.length - 1);
+};
+```
+
+# 找出数组中重复的数字
+
+1.哈希, typeof 用来区别数字和字符串
+```js
+const arr = [1, 4, 5, 6, 2, 4, 5, 1, 7, 8, '19', 19, '19', 18, '18'];
+const obj = {};
+const repeat_arr = [];
+arr.forEach(v => {
+  if (obj[v + typeof v]) {
+    repeat_arr.push(v);
+  } else {
+    obj[v + typeof v] = 1;
+  }
+});
+
+// console.log(repeat_arr);
+// [4, 5, 1, "19"]
+```
+
+2.补充，去重可以用set
+```js
+[...new Set(arr)]
+```
+
+# 数组的扁平化
+
+1.二维数组
+
+```js
+const arr = [[1, 2], 3];
+[].concat.apply([], arr);
+// [1, 2, 3]
+
+// Es6 版本...
+[].concat(...arr);
+```
+
+2.多维数组
+
+```js
+const arr = [[1, 2], 3, [4, 3, [8, 9, [10, [11, [12, [13, [14, [15, [16, [17, [18]]]]]]]]]]]];
+const flatten = (arr) => arr.reduce((a, b) => {
+  if (Array.isArray(b)) {
+    return a.concat(flatten(b));
+  }
+  return a.concat(b);
+}, []);
+const new_arr = flatten(arr);
+// console.log(new_arr);
+// [1, 2, 3, 4, 3, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18]
+```
+
+> 改进，添加扁平化深度控制，默认为1，参考MDN Flatten 参数
+
+```js
+const flatten = (arr, depth = 1)  => arr.reduce((a, b) => {
+  let i = 1;
+  if (Array.isArray(b) && i < depth) {
+    i++;
+    return a.concat(flatten(b));
+  }
+  return a.concat(b);
+}, []);
+// flatten([1, [2, 3, [4, 5], 6], 7])
+// [1, 2, 3, [4, 5], 6, 7]
+// flatten([1, [2, 3, [4, 5], 6], 7], 5)
+// [1, 2, 3, 4, 5, 6, 7]
+
+// 你也可以这样
+Array.prototype.flatten = function(depth = 1) {
+  return this.reduce((a, b) => {
+    let i = 1;
+    if (Array.isArray(b) && i < depth) {
+      i++;
+      return a.concat(flatten(b));
+    }
+    return a.concat(b);
+  }, []);
+}
+
+// [1, [2, 3, [4]], 5].flatten();
+// [1, 2, 3, [4], 5]
+```
+
+# 深克隆其实挺麻烦的，要分很多种情况，写了个简单的，好的办法还是借助第三方成熟的库(lodash)
+
+```js
+const cloneDeep = (obj) => {
+  if (typeof obj !== 'object' || obj === null) {
+    return obj;
+  }
+
+  switch(Object.prototype.toString.call(obj)) {
+    case '[object Array]':
+      return Object.entries(obj).reduce(
+        (acc, [key, value]) => Object.assign(acc, {[key]: cloneDeep(value)}),
+        [],
+      );
+    case '[object RegExp]':
+      return new RegExp(obj);
+    case '[object Date]':
+      return new Date(obj);
+    case '[object Boolean]':
+      return new Boolean(obj);
+    case '[object String]':
+      return new String(obj);
+    case '[object Number]':
+      return new Number(obj);
+    default:
+      return Object.entries(obj).reduce(
+        (acc, [key, value]) => Object.assign(acc, {[key]: cloneDeep(value)}),
+        {},
+      );
+  }
+}
+
+// test:
+const a = [{a: 3}, /ff/, new Date(), [], new Boolean(true)];
+const b = cloneDeep(a);
+console.log(b, a[0] === b[0], a[1] === b[1], a[2] === b[2], a[3] === b[3], a[4] === b[4]);
+// [{…}, /ff/, Tue May 15 2018 14:57:47 GMT+0800 (CST), Array(0), Boolean] false false false false false
+```
+
+
+
+
+
+
