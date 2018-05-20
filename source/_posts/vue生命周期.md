@@ -18,6 +18,8 @@ updated: 2018-05-06 22:10:34
 4.宏mixin的生命周期
 
 ## 1. 生命周期钩子函数
+![links](http://wangyuanqi.info/hexo/vue-live-size99741-rn616.png)
+
 | 生命周期钩子 | 组件状态 | 最佳实践 | 
 | - | - | 
 | beforeCreate | 实例初始化之后，this指向创建的实例，不能访问到data、computed、watch、methods上的方法和数据 |常用于初始化非响应式变量 | 
@@ -29,5 +31,69 @@ updated: 2018-05-06 22:10:34
 | beforeDestroy | 实例销毁之前调用。这一步，实例仍然完全可用，this仍能获取到实例 | 常用于销毁定时器、解绑全局事件、销毁插件对象等操作 |
 | destroyed | 实例销毁后调用，调用后，Vue 实例指示的所有东西都会解绑定，所有的事件监听器会被移除，所有的子实例也会被销毁 | - |
 
+---
+- 注意：
+- created阶段的ajax请求与mounted请求的区别：前者页面视图未出现，如果请求信息过多，页面会长时间处于白屏状态
+mounted 不会承诺所有的子组件也都一起被挂载。如果你希望等到整个视图都渲染
+---
+加载完毕可以使用 vm.$nextTick
+vue2.0之后主动调用$destroy()不会移除dom节点，作者不推荐直接destroy这种做法，如果实在需要这样用可以在这个生命周期钩子中手动移除dom节点
 
+## 2. 单个组件的生命周期
+1.初始化组件时，仅执行了beforeCreate/Created/beforeMount/mounted四个钩子函数
+2.当改变data中定义的变量（响应式变量）时，会执行beforeUpdate/updated钩子函数
+3.当切换组件（当前组件未缓存）时，会执行beforeDestory/destroyed钩子函数
+4.初始化和销毁时的生命钩子函数均只会执行一次，beforeUpdate/updated可多次执行
+
+## 3. 父子组件的生命周期
+1.仅当子组件完成挂载后，父组件才会挂载
+2.当子组件完成挂载后，父组件会主动执行一次beforeUpdate/updated钩子函数（仅首次）
+3.父子组件在data变化中是分别监控的，但是在更新props中的数据是关联的（可实践）
+4.销毁父组件时，先将子组件销毁后才会销毁父组件
+
+## 4. 兄弟组件的生命周期
+1.组件的初始化（mounted之前）分开进行，挂载是从上到下依次进行
+2.当没有数据关联时，兄弟组件之间的更新和销毁是互不关联的
+
+## 5. 宏mixin的生命周期
+添加一个mixin.js文件，内容如下：
+```bash
+const COMPONENT_NAME = 'lifecycleMixin'
+export default {
+    name: COMPONENT_NAME,
+    beforeCreate() {
+        console.log(`--${COMPONENT_NAME}--beforeCreate`)
+    },
+    created() {
+        console.log(`--${COMPONENT_NAME}--created`)
+    },
+    beforeMount() {
+        console.log(`--${COMPONENT_NAME}--beforeMount`)
+    },
+    mounted() {
+        console.log(`--${COMPONENT_NAME}--mounted`)
+    },
+    beforeUpdate() {
+        console.log(`--${COMPONENT_NAME}--beforeUpdate`)
+    },
+    updated() {
+        console.log(`--${COMPONENT_NAME}--updated`)
+    },
+    beforeDestroy() {
+        console.log(`--${COMPONENT_NAME}--beforeDestroy`)
+    },
+    destroyed() {
+        console.log(`--${COMPONENT_NAME}--destroyed`)
+    }
+}
+```
+主页面
+```bash
+import lifecycleMixin from './mixin'
+export default {
+    mixins: [lifecycleMixin],
+    // ...
+}
+```
+mixin中的生命周期与引入该组件的生命周期是仅仅关联的，且mixin的生命周期优先执行
 
