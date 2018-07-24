@@ -6,17 +6,19 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="https://github.com/Aric-sky">
-  <title>call/bind/apply 的区别 | Aric&#39;s blog</title>
+  <title>Tag: java | Aric&#39;s blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="keywords" content="前端,js">
-<meta property="og:type" content="article">
-<meta property="og:title" content="call&#x2F;bind&#x2F;apply 的区别">
-<meta property="og:url" content="https://github.com/Aric-sky/2018/02/08/call-bind-apply-的区别/index.html">
+  <meta name="description" content="From small beginnings comes great things">
+<meta name="keywords" content="Aric">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Aric&#39;s blog">
+<meta property="og:url" content="https://github.com/Aric-sky/tags/java/index.html">
 <meta property="og:site_name" content="Aric&#39;s blog">
+<meta property="og:description" content="From small beginnings comes great things">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-02-08T07:05:16.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="call&#x2F;bind&#x2F;apply 的区别">
+<meta name="twitter:title" content="Aric&#39;s blog">
+<meta name="twitter:description" content="From small beginnings comes great things">
   
     <link rel="alternative" href="/atom.xml" title="Aric&#39;s blog" type="application/atom+xml">
   
@@ -168,220 +170,66 @@ var _hmt = _hmt || [];
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-call-bind-apply-的区别" class="article article-type-post " itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
+            
   
-    <h1 class="article-title" itemprop="name">
-      call/bind/apply 的区别
+  
+    
+    
+      
+      
+      <section class="archives-wrap">
+        <div class="archive-year-wrap">
+          <a href="/archives/2018" class="archive-year">2018</a>
+        </div>
+        <div class="archives">
+    
+    <article class="archive-article archive-type-post">
+  <div class="archive-article-inner">
+    <header class="archive-article-header">
+      	<div class="article-meta">
+	      	<a href="/2018/07/18/java笔记-1-basic/" class="archive-article-date">
+  	<time datetime="2018-07-18T01:30:05.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-07-18</time>
+</a>
+        </div>
+    	 
+  
+    <h1 itemprop="name">
+      <a class="archive-article-title" href="/2018/07/18/java笔记-1-basic/">java笔记(1)-basic</a>
     </h1>
   
 
 
 
   <a href="javascript:;" class="archive-article-date">
-      <i class="icon-smile icon"></i> 阅读数:<span id="/2018/02/08/call-bind-apply-的区别/" class="pageViews">0</span>次
+      <i class="icon-smile icon"></i> 阅读数:<span id="/2018/07/18/java笔记-1-basic/" class="pageViews">0</span>次
   </a>
 
-        
-        <a href="/2018/02/08/call-bind-apply-的区别/" class="archive-article-date">
-  	<time datetime="2018-02-08T07:05:16.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-02-08</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <hr>
-<a id="more"></a>
-<ul>
-<li>利用call和apply来实现,this就是call和apply对应的第一个参数,如果不传值或者第一个值为null,undefined时this指向window<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">function</span> <span class="function"><span class="title">foo</span></span>() &#123;</span><br><span class="line">   console.log(this);</span><br><span class="line">&#125;</span><br><span class="line">foo.apply(<span class="string">'我是apply改变的this值'</span>);//我是apply改变的this值</span><br><span class="line">foo.call(<span class="string">'我是call改变的this值'</span>);//我是call改变的this值</span><br></pre></td></tr></table></figure>
-</li>
-</ul>
-<h3 id="call和apply定义"><a href="#call和apply定义" class="headerlink" title="call和apply定义"></a>call和apply定义</h3><p>调用方法,用一个对象替换掉另一个对象(this)<br>对象.call(新this对象,实参1,实参2,实参3…..)<br>对象.apply(新this对象,[实参1,实参2,实参3…..])</p>
-<h3 id="call和apply用法"><a href="#call和apply用法" class="headerlink" title="call和apply用法"></a>call和apply用法</h3><p>1.间接调用函数,改变作用域的this值<br>2.劫持其他对象的方法<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">var foo = &#123;</span><br><span class="line">  name:<span class="string">"张三"</span>,</span><br><span class="line">  logName:<span class="function"><span class="title">function</span></span>()&#123;</span><br><span class="line">    console.log(this.name);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line">var bar=&#123;</span><br><span class="line">  name:<span class="string">"李四"</span></span><br><span class="line">&#125;;</span><br><span class="line">foo.logName.call(bar);//李四</span><br><span class="line">实质是call改变了foo的this指向为bar,并调用该函数</span><br></pre></td></tr></table></figure></p>
-<p>3.两个函数实现继承<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">function</span> Animal(name)&#123;   </span><br><span class="line">  this.name = name;   </span><br><span class="line">  this.showName = <span class="function"><span class="title">function</span></span>()&#123;   </span><br><span class="line">    console.log(this.name);   </span><br><span class="line">  &#125;   </span><br><span class="line">&#125;   </span><br><span class="line"><span class="keyword">function</span> Cat(name)&#123;  </span><br><span class="line">  Animal.call(this, name);  </span><br><span class="line">&#125;    </span><br><span class="line">var cat = new Cat(<span class="string">"Black Cat"</span>);   </span><br><span class="line">cat.showName(); //Black Cat</span><br></pre></td></tr></table></figure></p>
-<p>4.为类数组(arguments和nodeList)添加数组方法push,pop<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">(<span class="function"><span class="title">function</span></span>()&#123;</span><br><span class="line">  Array.prototype.push.call(arguments,<span class="string">'王五'</span>);</span><br><span class="line">  console.log(arguments);//[<span class="string">'张三'</span>,<span class="string">'李四'</span>,<span class="string">'王五'</span>]</span><br><span class="line">&#125;)(<span class="string">'张三'</span>,<span class="string">'李四'</span>)</span><br></pre></td></tr></table></figure></p>
-<p>5.合并数组<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">let</span> arr1=[1,2,3]; </span><br><span class="line"><span class="built_in">let</span> arr2=[4,5,6]; </span><br><span class="line">Array.prototype.push.apply(arr1,arr2); //将arr2合并到了arr1中</span><br></pre></td></tr></table></figure></p>
-<p>6.求数组最大值<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Math.max.apply(null,arr)</span><br></pre></td></tr></table></figure></p>
-<p>7.判断字符类型<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Object.prototype.toString.call(&#123;&#125;)</span><br></pre></td></tr></table></figure></p>
-<h3 id="bind"><a href="#bind" class="headerlink" title="bind"></a>bind</h3><p>bind是function的一个函数扩展方法，bind以后代码重新绑定了func内部的this指向,不会调用方法,不兼容IE8<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">var name = <span class="string">'李四'</span></span><br><span class="line"> var foo = &#123;</span><br><span class="line">   name: <span class="string">"张三"</span>,</span><br><span class="line">   logName: <span class="keyword">function</span>(age) &#123;</span><br><span class="line">   console.log(this.name, age);</span><br><span class="line">   &#125;</span><br><span class="line"> &#125;</span><br><span class="line"> var fooNew = foo.logName;</span><br><span class="line"> var fooNewBind = foo.logName.bind(foo);</span><br><span class="line"> fooNew(10)//李四,10</span><br><span class="line"> fooNewBind(11)//张三,11  因为<span class="built_in">bind</span>改变了fooNewBind里面的this指向</span><br></pre></td></tr></table></figure></p>
-<hr>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">var name = <span class="string">'小刚'</span></span><br><span class="line">var person = &#123;</span><br><span class="line">    name: <span class="string">'小明'</span>,</span><br><span class="line">    fn: <span class="function"><span class="title">function</span></span>() &#123;</span><br><span class="line">        console.log(this.name + <span class="string">'撸代码'</span>)</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">person.fn() // =&gt; 小明撸代码</span><br><span class="line">// 如何把它变成  “小刚撸代码”  呢？</span><br><span class="line"></span><br><span class="line">// 我们可以用 call/<span class="built_in">bind</span>/apply 分别来实现</span><br><span class="line">person.fn.call(window) // =&gt; 小刚撸代码</span><br><span class="line">person.fn.apply(window) // =&gt; 小刚撸代码</span><br><span class="line">person.fn.bind(window)() // =&gt; 小刚撸代码</span><br></pre></td></tr></table></figure>
-<p>显而易见，call 和 apply 更加类似，bind与两者形式不同<br>那 call 和 apply 的区别在哪呢?</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">obj.call(thisObj, arg1, arg2, ...)</span><br><span class="line">obj.apply(thisObj, [arg1, arg2, ...])</span><br><span class="line">// 通过上面的参数我们可以看出， 它们之间的区别是apply接受的是数组参数，call接受的是连续参数。</span><br><span class="line">// 于是我们修改上面的函数来验证它们的区别</span><br><span class="line"></span><br><span class="line">var person = &#123;</span><br><span class="line">    name: <span class="string">'小明'</span>,</span><br><span class="line">    fn: <span class="keyword">function</span>(a,b) &#123;</span><br><span class="line">        <span class="keyword">if</span> (&#123;&#125;.toString.call(a).slice(8, -1) === <span class="string">'Array'</span>) &#123;</span><br><span class="line">            console.log(this.name+<span class="string">','</span>+a.toString()+<span class="string">'撸代码'</span>)</span><br><span class="line">        &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">            console.log(this.name+<span class="string">','</span>+a+<span class="string">','</span>+b+<span class="string">'撸代码'</span>)</span><br><span class="line">        &#125; </span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">person.fn.call(this, <span class="string">'小红'</span>, <span class="string">'小黑'</span> ) // =&gt; 小刚,小红,小黑撸代码</span><br><span class="line">person.fn.apply(this, [<span class="string">'小李'</span>, <span class="string">'小谢'</span>]) // =&gt; 小刚,小李,小谢撸代码</span><br></pre></td></tr></table></figure>
-<p>那么bind 与call,apply有什么区别呢 ?<br>与call和apply不同的是，bind绑定后不会立即执行。它只会将该函数的 this 指向确定好,然后返回该函数</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><span class="line">var name = <span class="string">"小红"</span></span><br><span class="line">var obj = &#123;</span><br><span class="line">    name: <span class="string">'小明'</span>,</span><br><span class="line">    fn: <span class="function"><span class="title">function</span></span>()&#123;</span><br><span class="line">        console.log(<span class="string">'我是'</span>+this.name)</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">setTimeout(obj.fn, 1000) // =&gt; 我是小红</span><br><span class="line">// 我们可以用<span class="built_in">bind</span>方法打印出 <span class="string">"我是小明"</span></span><br><span class="line">setTimeout(obj.fn.bind(obj), 1000) // =&gt; 我是小明</span><br><span class="line">// 这个地方就不能用 call 或 apply 了, 不然我们把函数刚一方去就执行了</span><br><span class="line"></span><br><span class="line">// 注意: <span class="built_in">bind</span>()函数是在 ECMA-262 第五版才被加入</span><br><span class="line">// 所以 你想兼容低版本的话 ,得需要自己实现 <span class="built_in">bind</span> 函数</span><br><span class="line">Function.prototype.bind = <span class="keyword">function</span> (oThis) &#123;</span><br><span class="line">    <span class="keyword">if</span> (typeof this !== <span class="string">"function"</span>) &#123;</span><br><span class="line">      throw new TypeError(<span class="string">"Function.prototype.bind - what is trying to be bound is not callable"</span>);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    var aArgs = Array.prototype.slice.call(arguments, 1), </span><br><span class="line">        fToBind = this, </span><br><span class="line">        fNOP = <span class="function"><span class="title">function</span></span> () &#123;&#125;,</span><br><span class="line">        fBound = <span class="function"><span class="title">function</span></span> () &#123;</span><br><span class="line">          <span class="built_in">return</span> fToBind.apply(</span><br><span class="line">              this instanceof fNOP &amp;&amp; oThis ? this : oThis || window,</span><br><span class="line">              aArgs.concat(Array.prototype.slice.call(arguments))</span><br><span class="line">          );</span><br><span class="line">        &#125;;</span><br><span class="line"></span><br><span class="line">    fNOP.prototype = this.prototype;</span><br><span class="line">    fBound.prototype = new fNOP();</span><br><span class="line"></span><br><span class="line">    <span class="built_in">return</span> fBound;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
-
-      
-
-      
-        <div class="page-reward">
-          <a href="javascript:;" class="page-reward-btn tooltip-top">
-            <div class="tooltip tooltip-east">
-            <span class="tooltip-item">
-              赏
-            </span>
-            <span class="tooltip-content">
-              <span class="tooltip-text">
-                <span class="tooltip-inner">
-                  <p class="reward-p"><i class="icon icon-quo-left"></i>帮助楼主迎娶白富美<i class="icon icon-quo-right"></i></p>
-                  <div class="reward-box">
-                    
-                    <div class="reward-box-item">
-                      <img class="reward-img" src="/assets/images/pay/alipay.jpg">
-                      <span class="reward-type">支付宝</span>
-                    </div>
-                    
-                    
-                    <div class="reward-box-item">
-                      <img class="reward-img" src="/assets/images/pay/weixin.jpg">
-                      <span class="reward-type">微信</span>
-                    </div>
-                    
-                  </div>
-                </span>
-              </span>
-            </span>
-          </div>
-          </a>
-        </div>
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
+        <div class="article-info info-on-right">
+          
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">前端</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">js</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">java</a>
         		</li>
       		
 		</ul>
 	</div>
 
-      
+          
 
-      
-
-      
-        
-<div class="share-btn share-icons tooltip-left">
-  <div class="tooltip tooltip-east">
-    <span class="tooltip-item">
-      <a href="javascript:;" class="share-sns share-outer">
-        <i class="icon icon-share"></i>
-      </a>
-    </span>
-    <span class="tooltip-content">
-      <div class="share-wrap">
-        <div class="share-icons">
-          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
-            <i class="icon icon-weibo"></i>
-          </a>
-          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
-            <i class="icon icon-weixin"></i>
-          </a>
-          <a class="qq share-sns" href="javascript:;" data-type="qq">
-            <i class="icon icon-qq"></i>
-          </a>
-          <a class="douban share-sns" href="javascript:;" data-type="douban">
-            <i class="icon icon-douban"></i>
-          </a>
-          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
-            <i class="icon icon-qzone"></i>
-          </a>
-          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
-            <i class="icon icon-facebook"></i>
-          </a>
-          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
-            <i class="icon icon-twitter"></i>
-          </a>
-          <a class="google share-sns" href="javascript:;" data-type="google">
-            <i class="icon icon-google"></i>
-          </a>
         </div>
-      </div>
-    </span>
-  </div>
-</div>
-
-<div class="page-modal wx-share js-wx-box">
-    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
-    <p>扫一扫，分享到微信</p>
-    <div class="wx-qrcode">
-      <img src="http://s.jiathis.com/qrcode.php?url=https://github.com/Aric-sky/2018/02/08/call-bind-apply-的区别/" alt="微信分享二维码">
-    </div>
-</div>
-
-<div class="mask js-mask"></div>
-      
-      <div class="clearfix"></div>
-    </div>
+        <div class="clearfix"></div>
+    </header>
   </div>
 </article>
-
-
-
-  
-<nav id="article-nav">
-  
-    <a href="/2018/02/08/React-Native-中组件的生命周期/" id="article-nav-newer" class="article-nav-link-wrap">
-      <i class="icon-circle-left"></i>
-      <div class="article-nav-title">
-        
-          React Native 中组件的生命周期
-        
-      </div>
-    </a>
   
   
-    <a href="/2018/02/08/和-的区别/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">|| 和 &amp;&amp; 的区别</div>
-      <i class="icon-circle-right"></i>
-    </a>
-  
-</nav>
-
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
+    </div></section>
   
 
-  
-  
-  
-
-  
-
-  
-
-  
+    
 
 
           </div>
@@ -406,9 +254,9 @@ var _hmt = _hmt || [];
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: true,
+		isPost: false,
 		isArchive: false,
-		isTag: false,
+		isTag: true,
 		isCategory: false,
 		open_in_new: true,
 		toc_hide_index: true,
