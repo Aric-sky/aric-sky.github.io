@@ -12,7 +12,7 @@ updated: 2018-02-08 15:57:33
 ## 概述
 所谓生命周期，就是一个对象从开始生成到最后消亡所经历的状态，理解生命周期，是合理开发的关键。RN 组件的生命周期整理如下图：
 
-![live circle](http://wangyuanqi.info/robot/1518076740861.jpg)
+![live circle](http://p8dyokgbm.bkt.clouddn.com/react%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F.jpg)
 
 ### 如图，可以把组件生命周期大致分为三个阶段：
 - 第一阶段：是组件第一次绘制阶段，如图中的上面虚线框内，在这里完成了组件的加载和初始化；
@@ -93,4 +93,4 @@ void componentWillUnmount()
 ## 总结
 到这里，RN 的组件的完整的生命都介绍完了，在回头来看一下前面的图，就比较清晰了，把生命周期的回调函数总结成如下表格：
 
-![ReactNative cricle](http://wangyuanqi.info/robot/1518077858072.png)
+![ReactNative cricle](http://p8dyokgbm.bkt.clouddn.com/react1.png)
