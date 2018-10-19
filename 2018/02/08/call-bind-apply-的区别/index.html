@@ -196,7 +196,7 @@ var _hmt = _hmt || [];
       
         <hr>
 <a id="more"></a>
-<ul>
+<h2 id="call-bind-apply的区别"><a href="#call-bind-apply的区别" class="headerlink" title="call-bind-apply的区别"></a>call-bind-apply的区别</h2><ul>
 <li>利用call和apply来实现,this就是call和apply对应的第一个参数,如果不传值或者第一个值为null,undefined时this指向window<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">function</span> <span class="function"><span class="title">foo</span></span>() &#123;</span><br><span class="line">   console.log(this);</span><br><span class="line">&#125;</span><br><span class="line">foo.apply(<span class="string">'我是apply改变的this值'</span>);//我是apply改变的this值</span><br><span class="line">foo.call(<span class="string">'我是call改变的this值'</span>);//我是call改变的this值</span><br></pre></td></tr></table></figure>
 </li>
 </ul>
