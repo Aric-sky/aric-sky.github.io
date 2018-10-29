@@ -6,19 +6,19 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="https://github.com/Aric-sky">
-  <title>原型链 | Aric&#39;s blog</title>
+  <title>JavaScript运行机制 | Aric&#39;s blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="keywords" content="前端,概念">
+  <meta name="keywords" content="js">
 <meta property="og:type" content="article">
-<meta property="og:title" content="原型链">
-<meta property="og:url" content="https://github.com/Aric-sky/2018/04/16/原型链/index.html">
+<meta property="og:title" content="JavaScript运行机制">
+<meta property="og:url" content="https://github.com/Aric-sky/2018/10/29/JavaScript运行机制/index.html">
 <meta property="og:site_name" content="Aric&#39;s blog">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:image" content="http://p8dyokgbm.bkt.clouddn.com/linksize.png">
-<meta property="og:updated_time" content="2018-04-16T12:56:47.000Z">
+<meta property="og:image" content="http://p8dyokgbm.bkt.clouddn.com/js%E6%89%A7%E8%A1%8C%E9%98%9F%E5%88%97.png">
+<meta property="og:updated_time" content="2018-10-29T09:46:41.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="原型链">
-<meta name="twitter:image" content="http://p8dyokgbm.bkt.clouddn.com/linksize.png">
+<meta name="twitter:title" content="JavaScript运行机制">
+<meta name="twitter:image" content="http://p8dyokgbm.bkt.clouddn.com/js%E6%89%A7%E8%A1%8C%E9%98%9F%E5%88%97.png">
   
     <link rel="alternative" href="/atom.xml" title="Aric&#39;s blog" type="application/atom+xml">
   
@@ -170,26 +170,26 @@ var _hmt = _hmt || [];
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-原型链" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-JavaScript运行机制" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="article-title" itemprop="name">
-      原型链
+      JavaScript运行机制
     </h1>
   
 
 
 
   <a href="javascript:;" class="archive-article-date">
-      <i class="icon-smile icon"></i> 阅读数:<span id="/2018/04/16/原型链/" class="pageViews">0</span>次
+      <i class="icon-smile icon"></i> 阅读数:<span id="/2018/10/29/JavaScript运行机制/" class="pageViews">0</span>次
   </a>
 
         
-        <a href="/2018/04/16/原型链/" class="archive-article-date">
-  	<time datetime="2018-04-16T12:56:47.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-04-16</time>
+        <a href="/2018/10/29/JavaScript运行机制/" class="archive-article-date">
+  	<time datetime="2018-10-29T09:46:41.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-10-29</time>
 </a>
         
       </header>
@@ -198,9 +198,52 @@ var _hmt = _hmt || [];
       
         <hr>
 <a id="more"></a>
-<h3 id="定义"><a href="#定义" class="headerlink" title="定义"></a>定义</h3><p>对象继承属性的一个链条</p>
-<h3 id="构造函数-实例与原型对象的关系"><a href="#构造函数-实例与原型对象的关系" class="headerlink" title="构造函数,实例与原型对象的关系"></a>构造函数,实例与原型对象的关系</h3><p><img src="http://p8dyokgbm.bkt.clouddn.com/linksize.png" alt="links"></p>
-<p>参考：<a href="https://segmentfault.com/a/1190000014405410?utm_source=index-hottest" target="_blank" rel="noopener">https://segmentfault.com/a/1190000014405410?utm_source=index-hottest</a></p>
+<h3 id="一、引子"><a href="#一、引子" class="headerlink" title="一、引子"></a>一、引子</h3><ul>
+<li>本文介绍JavaScript运行机制，这一部分比较抽象，我们先从一道面试题入手：</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">console.log(1);</span><br><span class="line">setTimeout(<span class="function"><span class="title">function</span></span>()&#123;</span><br><span class="line">  console.log(3);</span><br><span class="line">&#125;,0);</span><br><span class="line">console.log(2);</span><br><span class="line">请问数字打印顺序是什么？</span><br></pre></td></tr></table></figure>
+<ul>
+<li>这一题看似很简单，但如果你不了解JavaScript运行机制，很容易就答错了。题目的答案是依次输出1 2 3，如果你有疑惑，下文有详细解释。</li>
+</ul>
+<h3 id="二、理解JS的单线程的概念"><a href="#二、理解JS的单线程的概念" class="headerlink" title="二、理解JS的单线程的概念"></a>二、理解JS的单线程的概念</h3><blockquote>
+<p>JavaScript语言的一大特点就是单线程，也就是说，同一个时间只能做一件事。那么，为什么JavaScript不能有多个线程呢？这样能提高效率啊。<br>JavaScript的单线程，与它的用途有关。作为浏览器脚本语言，JavaScript的主要用途是与用户互动，以及操作DOM。这决定了它只能是单线程，否则会带来很复杂的同步问题。比如，假定JavaScript同时有两个线程，一个线程在某个DOM节点上添加内容，另一个线程删除了这个节点，这时浏览器应该以哪个线程为准？<br>所以，为了避免复杂性，从一诞生，JavaScript就是单线程，这已经成了这门语言的核心特征，将来也不会改变。</p>
+</blockquote>
+<h3 id="三、理解任务队列-消息队列"><a href="#三、理解任务队列-消息队列" class="headerlink" title="三、理解任务队列(消息队列)"></a>三、理解任务队列(消息队列)</h3><blockquote>
+<p>单线程就意味着，所有任务需要排队，前一个任务结束，才会执行后一个任务。如果前一个任务耗时很长，后一个任务就不得不一直等着。JavaScript语言的设计者意识到这个问题，将所有任务分成两种，一种是同步任务（synchronous），另一种是异步任务（asynchronous）。同步任务指的是，在主线程上排队执行的任务，只有前一个任务执行完毕，才能执行后一个任务；异步任务指的是，不进入主线程、而进入”任务队列”（task queue）的任务，只有”任务队列”通知主线程，某个异步任务可以执行了，该任务才会进入主线程执行。接下来我们通过两个例子说明同步任务和异步任务的区别：</p>
+</blockquote>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">console.log(<span class="string">"A"</span>);</span><br><span class="line"><span class="keyword">while</span>(<span class="literal">true</span>)&#123; &#125;</span><br><span class="line">console.log(<span class="string">"B"</span>);</span><br><span class="line">请问最后的输出结果是什么？</span><br></pre></td></tr></table></figure>
+<ul>
+<li>如果你的回答是A,恭喜你答对了，因为这是同步任务，程序由上到下执行，遇到while()死循环，下面语句就没办法执行。</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">console.log(<span class="string">"A"</span>);</span><br><span class="line">setTimeout(<span class="function"><span class="title">function</span></span>()&#123;</span><br><span class="line">  console.log(<span class="string">"B"</span>);</span><br><span class="line">&#125;,0);</span><br><span class="line"><span class="keyword">while</span>(<span class="literal">true</span>)&#123;&#125;</span><br><span class="line">请问最后的输出结果是什么？</span><br></pre></td></tr></table></figure>
+<ul>
+<li>如果你的答案是A，恭喜你现在对js运行机制已经有个粗浅的认识了！题目中的setTimeout()就是个异步任务。在所有同步任务执行完之前，任何的异步任务是不会执行的，关于这点下文还会详细说明。</li>
+</ul>
+<h3 id="四、理解Event-Loop"><a href="#四、理解Event-Loop" class="headerlink" title="四、理解Event Loop"></a>四、理解Event Loop</h3><p>异步执行的运行机制如下：<br>1.所有同步任务都在主线程上执行，形成一个执行栈（execution context stack）。<br>2.主线程之外，还存在一个”任务队列”（task queue）。只要异步任务有了运行结果，就在”任务队列”之中放置一个事件。<br>3.一旦”执行栈”中的所有同步任务执行完毕，系统就会读取”任务队列”，看看里面有哪些事件。那些对应的异步任务，于是结束等待状态，进入执行栈，开始执行。<br>4.主线程不断重复上面的第三步。</p>
+<blockquote>
+<p>主线程从”任务队列”中读取事件，这个过程是循环不断的，所以整个的这种运行机制又称为Event Loop（事件循环）。只要主线程空了，就会去读取”任务队列”，这就是JavaScript的运行机制。这个过程会循环反复。以下这张图可以很好说明这点。</p>
+</blockquote>
+<p><img src="http://p8dyokgbm.bkt.clouddn.com/js%E6%89%A7%E8%A1%8C%E9%98%9F%E5%88%97.png" alt="img"></p>
+<h3 id="五、哪些语句会放入异步任务队列及放入时机"><a href="#五、哪些语句会放入异步任务队列及放入时机" class="headerlink" title="五、哪些语句会放入异步任务队列及放入时机"></a>五、哪些语句会放入异步任务队列及放入时机</h3><p>一般来说，有以下四种会放入异步任务队列：<br>1.setTimeout和setlnterval<br>2.DOM事件<br>3.ES6中的Promise<br>4.Ajax异步请求</p>
+<p>javascript 代码运行分两个阶段：<br>1、预解析—把所有的函数定义提前，所有的变量声明提前，变量的赋值不提前<br>2、执行—从上到下执行（按照js运行机制）<br>至于放入异步任务队列的时机，我们通过 setTimeout的例子和Ajax例子来详细说明：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">例题1</span><br><span class="line"><span class="keyword">for</span> (var i = 0; i &lt; 5; i++) &#123;</span><br><span class="line">  setTimeout(<span class="function"><span class="title">function</span></span>() &#123;</span><br><span class="line">    console.log(i);  </span><br><span class="line">  &#125;, 1000);</span><br><span class="line">&#125;</span><br><span class="line">请问最后的输出结果是什么？</span><br></pre></td></tr></table></figure>
+<p>for循环一次碰到一个 setTimeout()，并不是马上把setTimeout()拿到异步队列中，而要等到一秒后，才将其放到任务队列里面，一旦”执行栈”中的所有同步任务执行完毕（即for循环结束，此时i已经为5），系统就会读取已经存放”任务队列”的setTimeout()（有五个），于是答案是输出5个5。</p>
+<p>上面也提到，在到达指定时间时，定时器就会将相应回调函数插入“任务队列”尾部。这就是“定时器（timer）”功能。</p>
+<p>关于定时器的重要补充：</p>
+<p>定时器包括setTimeout与 setInterval 两个方法。它们的第二个参数是指定其回调函数推迟/每隔多少毫秒数后执行。</p>
+<p>对于第二个参数有以下需要注意的地方：</p>
+<p>当第二个参数缺省时，默认为 0；</p>
+<p>当指定的值小于 4 毫秒，则增加到 4ms(4ms 是 HTML5 标准指定的，对于 2010 年及之前的浏览器则是 10ms);也就是说至少需要4毫秒，该setTimeout()拿到任务队列中。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">例题2</span><br><span class="line">$.ajax(&#123;</span><br><span class="line">url：“xxxxx<span class="string">",</span></span><br><span class="line"><span class="string">success:function (result)&#123;</span></span><br><span class="line"><span class="string">console.log("</span>a<span class="string">")</span></span><br><span class="line"><span class="string">   &#125;</span></span><br><span class="line"><span class="string">&#125;)</span></span><br><span class="line"><span class="string">setTimeout(function ()&#123;</span></span><br><span class="line"><span class="string">console.log("</span>b<span class="string">")</span></span><br><span class="line"><span class="string">&#125;,100)</span></span><br><span class="line"><span class="string">setTimeout(function ()&#123;</span></span><br><span class="line"><span class="string">console.log("</span>c<span class="string">")</span></span><br><span class="line"><span class="string">&#125;)</span></span><br><span class="line"><span class="string">console.log("</span>d<span class="string">");</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">// 主线程</span><br><span class="line">console.log(<span class="string">'d'</span>)</span><br><span class="line"></span><br><span class="line">// 异步队列</span><br><span class="line">// 立刻放入</span><br><span class="line"><span class="function"><span class="title">function</span></span> () &#123;</span><br><span class="line">  console.log(<span class="string">'c'</span>)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">// 100ms 之后被放入</span><br><span class="line"><span class="function"><span class="title">function</span></span> () &#123;</span><br><span class="line">  console.log(<span class="string">'b'</span>)</span><br><span class="line">&#125;</span><br><span class="line">// ajax 加载完成时放入</span><br><span class="line"><span class="function"><span class="title">function</span></span> () &#123;</span><br><span class="line">  console.log(<span class="string">'a'</span>)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>ajax加载完成时才会放入异步队列，至于这段时间不确定，所有有两种情况：</li>
+<li>①大于100ms,最后的结果是 d c b a ;</li>
+<li>②小于100ms,最后的结果便是d c a b。</li>
+</ul>
+<h3 id="六、题外话"><a href="#六、题外话" class="headerlink" title="六、题外话"></a>六、题外话</h3><p>如果要输出0~4，上面例题应该如何修改？<br>1.将var变为let<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span> (<span class="built_in">let</span> i = 0; i &lt; 5; i++) &#123;</span><br><span class="line">setTimeout(<span class="function"><span class="title">function</span></span>() &#123;  </span><br><span class="line">  console.log(i);</span><br><span class="line">  &#125;, 1000);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>2.加个立即执行函数<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span> (var i = 0; i &lt; 5; i++) &#123;</span><br><span class="line">(<span class="keyword">function</span>(i)&#123;</span><br><span class="line">  setTimeout(<span class="function"><span class="title">function</span></span>() &#123;  </span><br><span class="line">    console.log(i);</span><br><span class="line">  &#125;, 1000);</span><br><span class="line">&#125;)(i)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>3.也可以通过这样加闭包<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span>(var i = 1;i &lt; 5;i++)&#123;  </span><br><span class="line">  var a = <span class="function"><span class="title">function</span></span>()&#123;  </span><br><span class="line">    var j = i;    </span><br><span class="line">    setTimeout(<span class="function"><span class="title">function</span></span>()&#123;  </span><br><span class="line">      console.log(j);  </span><br><span class="line">    &#125;,1000)  </span><br><span class="line">  &#125;    </span><br><span class="line">  a();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
 
       
 
@@ -245,11 +288,7 @@ var _hmt = _hmt || [];
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">前端</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">概念</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">js</a>
         		</li>
       		
 		</ul>
@@ -305,7 +344,7 @@ var _hmt = _hmt || [];
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="http://aric.leanapp.cn/qrimg/create_qrcode?url=https://github.com/Aric-sky/2018/04/16/原型链/" alt="微信分享二维码">
+      <img src="http://aric.leanapp.cn/qrimg/create_qrcode?url=https://github.com/Aric-sky/2018/10/29/JavaScript运行机制/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -322,18 +361,9 @@ var _hmt = _hmt || [];
   
 <nav id="article-nav">
   
-    <a href="/2018/05/06/vue生命周期/" id="article-nav-newer" class="article-nav-link-wrap">
-      <i class="icon-circle-left"></i>
-      <div class="article-nav-title">
-        
-          vue生命周期
-        
-      </div>
-    </a>
   
-  
-    <a href="/2018/03/27/iterator-简介/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">iterator 简介</div>
+    <a href="/2018/10/19/微信小程序开发BUG经验总结/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">微信小程序开发BUG经验总结</div>
       <i class="icon-circle-right"></i>
     </a>
   
