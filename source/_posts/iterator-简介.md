@@ -1,7 +1,7 @@
 layout: post
 title: iterator 简介
 comment: true
-tags: []
+tags: [js]
 date: 2018-03-27 09:50:40
 updated: 2018-03-27 09:50:40
 ---
