@@ -61,7 +61,7 @@ google_analytics: false
 favicon: /assets/images/favicon/favicon.ico
 
 #你的头像url
-avatar: /assets/images/avatar/avatar.png
+avatar: /assets/images/avatar/avatar1.png
 
 #是否开启分享
 share_jia: true
@@ -79,8 +79,8 @@ mobile:
 #wangyiyun: '2dba06fbf8d24c13915ea6c6aa7183b1'
 
 #3、畅言
-#  changyan_appid: 'cysX3aGWt'
-#  changyan_conf: 'prod_1dcda447175aada96edcdb7e412338fa'
+#  changyan_appid: 'cytUva5N5'
+#  changyan_conf: 'prod_407744d24cde05583eb5b17e5ec9f944'
 
 #4、Disqus 在hexo根目录的config里也有disqus_shortname字段，优先使用yilia的
 # disqus: false
