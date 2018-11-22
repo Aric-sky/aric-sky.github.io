@@ -134,7 +134,7 @@ constructor可以被改写，所以使用要小心。
 
 ### 5、duck type
 比如不知道一个对象是不是数组，可以判断它的length是不是数字，它是不是有join,push这样一些数组的方法。通过一些特征判断对象是否属于某些类型，这个有时候也常用。
-![codes](http://p8dyokgbm.bkt.clouddn.com/315302-20170206095340447-2024526735.png)
+![codes](http://cdn.wangyuanqi.xyz/315302-20170206095340447-2024526735.png)
 
 fuc | 类型检测小结
 -|-

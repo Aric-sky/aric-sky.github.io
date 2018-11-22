@@ -18,7 +18,7 @@ updated: 2018-05-06 22:10:34
 4.宏mixin的生命周期
 
 ## 1. 生命周期钩子函数
-![links](http://p8dyokgbm.bkt.clouddn.com/vue-live-size99741-rn616.png)
+![links](http://cdn.wangyuanqi.xyz/vue-live-size99741-rn616.png)
 
 | 生命周期钩子 | 组件状态 | 最佳实践 | 
 | - | - | 
