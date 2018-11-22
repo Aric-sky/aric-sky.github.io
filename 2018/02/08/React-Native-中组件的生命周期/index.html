@@ -14,12 +14,12 @@
 <meta property="og:url" content="https://github.com/Aric-sky/2018/02/08/React-Native-中组件的生命周期/index.html">
 <meta property="og:site_name" content="Aric&#39;s blog">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:image" content="http://p8dyokgbm.bkt.clouddn.com/react%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F.jpg">
-<meta property="og:image" content="http://p8dyokgbm.bkt.clouddn.com/react1.png">
+<meta property="og:image" content="http://cdn.wangyuanqi.xyz/react%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F.jpg">
+<meta property="og:image" content="http://cdn.wangyuanqi.xyz/react1.png">
 <meta property="og:updated_time" content="2018-02-08T07:57:33.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="React Native 中组件的生命周期">
-<meta name="twitter:image" content="http://p8dyokgbm.bkt.clouddn.com/react%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F.jpg">
+<meta name="twitter:image" content="http://cdn.wangyuanqi.xyz/react%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F.jpg">
   
     <link rel="alternative" href="/atom.xml" title="Aric&#39;s blog" type="application/atom+xml">
   
@@ -200,7 +200,7 @@ var _hmt = _hmt || [];
         <hr>
 <a id="more"></a>
 <h2 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h2><p>所谓生命周期，就是一个对象从开始生成到最后消亡所经历的状态，理解生命周期，是合理开发的关键。RN 组件的生命周期整理如下图：</p>
-<p><img src="http://p8dyokgbm.bkt.clouddn.com/react%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F.jpg" alt="live circle"></p>
+<p><img src="http://cdn.wangyuanqi.xyz/react%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F.jpg" alt="live circle"></p>
 <h3 id="如图，可以把组件生命周期大致分为三个阶段："><a href="#如图，可以把组件生命周期大致分为三个阶段：" class="headerlink" title="如图，可以把组件生命周期大致分为三个阶段："></a>如图，可以把组件生命周期大致分为三个阶段：</h3><ul>
 <li>第一阶段：是组件第一次绘制阶段，如图中的上面虚线框内，在这里完成了组件的加载和初始化；</li>
 <li>第二阶段：是组件在运行和交互阶段，如图中左下角虚线框，这个阶段组件可以处理用户交互，或者接收事件更新界面；</li>
@@ -223,7 +223,7 @@ var _hmt = _hmt || [];
 <h3 id="componentWillUnmount"><a href="#componentWillUnmount" class="headerlink" title="componentWillUnmount"></a>componentWillUnmount</h3><p>当组件要被从界面上移除的时候，就会调用 componentWillUnmount()，其函数原型如下：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">void componentWillUnmount()</span><br></pre></td></tr></table></figure></p>
 <p>在这个函数中，可以做一些组件相关的清理工作，例如取消计时器、网络请求等。</p>
 <h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>到这里，RN 的组件的完整的生命都介绍完了，在回头来看一下前面的图，就比较清晰了，把生命周期的回调函数总结成如下表格：</p>
-<p><img src="http://p8dyokgbm.bkt.clouddn.com/react1.png" alt="ReactNative cricle"></p>
+<p><img src="http://cdn.wangyuanqi.xyz/react1.png" alt="ReactNative cricle"></p>
 
       
 
@@ -558,10 +558,6 @@ getOwnMetadataKeys:function(t){return o(i(t),arguments.length<2?void 0:u(argumen
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">js</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">后端</a>
               </li>
              
@@ -570,11 +566,11 @@ getOwnMetadataKeys:function(t){return o(i(t),arguments.length<2?void 0:u(argumen
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">前端</a>
+                <a href="javascript:void(0)" class="js-tag color3">js</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">vue.js</a>
+                <a href="javascript:void(0)" class="js-tag color3">前端</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -586,6 +582,10 @@ getOwnMetadataKeys:function(t){return o(i(t),arguments.length<2?void 0:u(argumen
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">vue.js</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">JS</a>
               </li>
              
@@ -594,19 +594,19 @@ getOwnMetadataKeys:function(t){return o(i(t),arguments.length<2?void 0:u(argumen
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">概念</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">设计模式</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">vue</a>
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">概念</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">微信小程序</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">设计模式</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -643,6 +643,10 @@ getOwnMetadataKeys:function(t){return o(i(t),arguments.length<2?void 0:u(argumen
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">动画</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">git</a>
               </li>
             
             <div class="clearfix"></div>

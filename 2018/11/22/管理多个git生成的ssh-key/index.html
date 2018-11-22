@@ -6,19 +6,23 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="https://github.com/Aric-sky">
-  <title>Tag: ReactNative | Aric&#39;s blog</title>
+  <title>管理多个git生成的ssh key | Aric&#39;s blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="From small beginnings comes great things">
-<meta name="keywords" content="Aric">
-<meta property="og:type" content="website">
-<meta property="og:title" content="Aric&#39;s blog">
-<meta property="og:url" content="https://github.com/Aric-sky/tags/ReactNative/index.html">
+  <meta name="keywords" content="git">
+<meta property="og:type" content="article">
+<meta property="og:title" content="管理多个git生成的ssh key">
+<meta property="og:url" content="https://github.com/Aric-sky/2018/11/22/管理多个git生成的ssh-key/index.html">
 <meta property="og:site_name" content="Aric&#39;s blog">
-<meta property="og:description" content="From small beginnings comes great things">
 <meta property="og:locale" content="zh-Hans">
+<meta property="og:image" content="http://cdn.wangyuanqi.xyz/sshkey1.png">
+<meta property="og:image" content="http://cdn.wangyuanqi.xyz/shhkey2.png">
+<meta property="og:image" content="http://cdn.wangyuanqi.xyz/sshkey3.png">
+<meta property="og:image" content="http://cdn.wangyuanqi.xyz/sshkey4.png">
+<meta property="og:image" content="http://cdn.wangyuanqi.xyz/sshkey5.png">
+<meta property="og:updated_time" content="2018-11-22T06:17:18.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Aric&#39;s blog">
-<meta name="twitter:description" content="From small beginnings comes great things">
+<meta name="twitter:title" content="管理多个git生成的ssh key">
+<meta name="twitter:image" content="http://cdn.wangyuanqi.xyz/sshkey1.png">
   
     <link rel="alternative" href="/atom.xml" title="Aric&#39;s blog" type="application/atom+xml">
   
@@ -170,78 +174,212 @@ var _hmt = _hmt || [];
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-  
+            <article id="post-管理多个git生成的ssh-key" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
     
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2018" class="archive-year">2018</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2018/02/08/React-Native-中组件的生命周期/" class="archive-article-date">
-  	<time datetime="2018-02-08T07:57:33.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-02-08</time>
-</a>
-        </div>
-    	 
+      <header class="article-header">
+        
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2018/02/08/React-Native-中组件的生命周期/">React Native 中组件的生命周期</a>
+    <h1 class="article-title" itemprop="name">
+      管理多个git生成的ssh key
     </h1>
   
 
 
 
   <a href="javascript:;" class="archive-article-date">
-      <i class="icon-smile icon"></i> 阅读数:<span id="/2018/02/08/React-Native-中组件的生命周期/" class="pageViews">0</span>次
+      <i class="icon-smile icon"></i> 阅读数:<span id="/2018/11/22/管理多个git生成的ssh-key/" class="pageViews">0</span>次
   </a>
 
-        <div class="article-info info-on-right">
-          
+        
+        <a href="/2018/11/22/管理多个git生成的ssh-key/" class="archive-article-date">
+  	<time datetime="2018-11-22T06:17:18.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-11-22</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <hr>
+<a id="more"></a>
+<blockquote>
+<p>经常我们可能需要上传github，和gitlab，或者你有多个github账号，我们需要对应不同的账号上传，我们需要配置多个ssh key<br>这里我们就以配置github，gitlab，两个ssh key 为案例</p>
+</blockquote>
+<h2 id="1-生成两个不同的ssh"><a href="#1-生成两个不同的ssh" class="headerlink" title="1.生成两个不同的ssh"></a>1.生成两个不同的ssh</h2><p>生成第一个ssh key</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ssh-keygen -t rsa -C <span class="string">"yourmail@gmail.com"</span></span><br></pre></td></tr></table></figure>
+<ul>
+<li>这里不要一路回传，让你选择在哪里选择存放key的时候写个名字，比如 id_rsa_github，之后的两个可以回车。</li>
+</ul>
+<p><img src="http://cdn.wangyuanqi.xyz/sshkey1.png" alt="shhkey1"></p>
+<ul>
+<li>上图的红色框框是自己输入的</li>
+</ul>
+<h2 id="生成第二个ssh-key"><a href="#生成第二个ssh-key" class="headerlink" title="生成第二个ssh key"></a>生成第二个ssh key</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ssh-keygen -t rsa -C <span class="string">"yourmail@gmail.com"</span></span><br></pre></td></tr></table></figure>
+<p>一样不要一路回车</p>
+<p><img src="http://cdn.wangyuanqi.xyz/shhkey2.png" alt="shhkey2"></p>
+<p>最终结果是这样子的：<br><img src="http://cdn.wangyuanqi.xyz/sshkey3.png" alt="shhkey3"><br>图中的config文件是我自己建的，也就是接下来要说的</p>
+<h2 id="2-配置config"><a href="#2-配置config" class="headerlink" title="2.配置config"></a>2.配置config</h2><p>新建文件config文件，打开输入一下<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># gitlab</span></span><br><span class="line">Host gitlab.com</span><br><span class="line">    HostName gitlab.com  </span><br><span class="line">    PreferredAuthentications publickey</span><br><span class="line">    IdentityFile ~/.ssh/id_rsa_gitlab</span><br><span class="line">    User xiaqijian // 输入自己账号名</span><br><span class="line">    </span><br><span class="line"><span class="comment"># github</span></span><br><span class="line">Host github.com</span><br><span class="line">    HostName github.com</span><br><span class="line">    PreferredAuthentications publickey</span><br><span class="line">    IdentityFile ~/.ssh/id_rsa_github</span><br><span class="line">    User xiaqijian  // 这里输入自己的账号名</span><br></pre></td></tr></table></figure></p>
+<p>注意：如果拷贝我的，要把后面的注释去掉然后保存起来</p>
+<h2 id="分别在github，gitlab填上ssh-key"><a href="#分别在github，gitlab填上ssh-key" class="headerlink" title="分别在github，gitlab填上ssh key"></a>分别在github，gitlab填上ssh key</h2><p><img src="http://cdn.wangyuanqi.xyz/sshkey4.png" alt="shhkey4"></p>
+<p>填上刚刚生成的，然后你就可以上传文件试试或者用下面方法测试</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ssh -T git@github.com</span><br></pre></td></tr></table></figure>
+<p><img src="http://cdn.wangyuanqi.xyz/sshkey5.png" alt="shhkey5"></p>
+
+      
+
+      
+        <div class="page-reward">
+          <a href="javascript:;" class="page-reward-btn tooltip-top">
+            <div class="tooltip tooltip-east">
+            <span class="tooltip-item">
+              赏
+            </span>
+            <span class="tooltip-content">
+              <span class="tooltip-text">
+                <span class="tooltip-inner">
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>帮助楼主迎娶白富美<i class="icon icon-quo-right"></i></p>
+                  <div class="reward-box">
+                    
+                    <div class="reward-box-item">
+                      <img class="reward-img" src="/assets/images/pay/alipay.jpg">
+                      <span class="reward-type">支付宝</span>
+                    </div>
+                    
+                    
+                    <div class="reward-box-item">
+                      <img class="reward-img" src="/assets/images/pay/weixin.jpg">
+                      <span class="reward-type">微信</span>
+                    </div>
+                    
+                  </div>
+                </span>
+              </span>
+            </span>
+          </div>
+          </a>
+        </div>
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">js</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">前端</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">ReactNative</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">生命周期</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">git</a>
         		</li>
       		
 		</ul>
 	</div>
 
-          
+      
 
+      
+
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="http://aric.leanapp.cn/qrimg/create_qrcode?url=https://github.com/Aric-sky/2018/11/22/管理多个git生成的ssh-key/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
+
+
+  
+<nav id="article-nav">
   
   
-    </div></section>
+    <a href="/2018/10/29/JavaScript运行机制/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">JavaScript运行机制</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
   
 
-    
+  
+
+  
+
+  
+
+  
+
+  
 
 
           </div>
@@ -266,9 +404,9 @@ var _hmt = _hmt || [];
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
+		isPost: true,
 		isArchive: false,
-		isTag: true,
+		isTag: false,
 		isCategory: false,
 		open_in_new: true,
 		toc_hide_index: true,
