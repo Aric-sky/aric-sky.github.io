@@ -6,19 +6,17 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="https://github.com/Aric-sky">
-  <title>Aric&#39;s blog</title>
+  <title>前端制作动画的几种方式（css3，js） | Aric&#39;s blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="From small beginnings comes great things">
-<meta name="keywords" content="Aric">
-<meta property="og:type" content="website">
-<meta property="og:title" content="Aric&#39;s blog">
-<meta property="og:url" content="https://github.com/Aric-sky/index.html">
+  <meta name="keywords" content="前端,js,css">
+<meta property="og:type" content="article">
+<meta property="og:title" content="前端制作动画的几种方式（css3，js）">
+<meta property="og:url" content="https://github.com/Aric-sky/2018/11/27/前端制作动画的几种方式（css3，js）/index.html">
 <meta property="og:site_name" content="Aric&#39;s blog">
-<meta property="og:description" content="From small beginnings comes great things">
 <meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2018-11-27T08:43:25.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Aric&#39;s blog">
-<meta name="twitter:description" content="From small beginnings comes great things">
+<meta name="twitter:title" content="前端制作动画的几种方式（css3，js）">
   
     <link rel="alternative" href="/atom.xml" title="Aric&#39;s blog" type="application/atom+xml">
   
@@ -170,16 +168,14 @@ var _hmt = _hmt || [];
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-    <article id="post-前端制作动画的几种方式（css3，js）" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+            <article id="post-前端制作动画的几种方式（css3，js）" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/11/27/前端制作动画的几种方式（css3，js）/">前端制作动画的几种方式（css3，js）</a>
+    <h1 class="article-title" itemprop="name">
+      前端制作动画的几种方式（css3，js）
     </h1>
   
 
@@ -198,12 +194,62 @@ var _hmt = _hmt || [];
     
     <div class="article-entry" itemprop="articleBody">
       
-        <!-- <hr>
-        
-          <a class="article-more-a" href="/2018/11/27/前端制作动画的几种方式（css3，js）/#more">more >></a>
-         -->
+        <hr>
+<a id="more"></a>
+<h2 id="1-css的transition"><a href="#1-css的transition" class="headerlink" title="1.css的transition"></a>1.css的transition</h2><p>transition: property duration timing-function delay;</p>
+<blockquote>
+<p>property:填写需要变化的css属性如：width,line-height,font-size,color等;<br>duration:完成过渡效果需要的时间（2s 或者2000ms）<br>timing-function:完成效果的速度曲线（linear,ease,ease-in,ease-out等等）<br>timing-delay:动画效果的延迟触发时间（2s 或者2000ms）。</p>
+</blockquote>
+<p>默认值分别为：all 0 ease 0 </p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">&lt;style <span class="built_in">type</span>=<span class="string">"text/css"</span>&gt;</span><br><span class="line">  div &#123;</span><br><span class="line">    width:100px;</span><br><span class="line">    height:100px;</span><br><span class="line">    background:red;</span><br><span class="line">    transition:width 2s;</span><br><span class="line">  &#125; </span><br><span class="line">  div:hover &#123;</span><br><span class="line">    width:300px;</span><br><span class="line">  &#125;</span><br><span class="line">&lt;/style&gt;</span><br><span class="line">&lt;div&gt;&lt;/div&gt;</span><br></pre></td></tr></table></figure>
+<h2 id="2-css3的animation属性"><a href="#2-css3的animation属性" class="headerlink" title="2.css3的animation属性"></a>2.css3的animation属性</h2><p>animation: name duration timing-function delay iteration-count direction;</p>
+<blockquote>
+<p>name:keyframe的名称，也就是定义了关键帧的动画的名称,这个名称用来区别不同的动画。<br>duration:完成动画所需要的时间（2s 或者 2000ms）<br>timing-function:完成动画的速度曲线<br>delay：动画开始之前的延迟<br>iteration-count：动画播放次数<br>direction：是否轮流反向播放动画（normal:正常顺序播放，alternate下一次反向播放）如果把动画设置为只播放一次，则该属性没有效果。</p>
+</blockquote>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line">&lt;style&gt;</span><br><span class="line">  div &#123;</span><br><span class="line">    width:100px;</span><br><span class="line">    height:100px;</span><br><span class="line">    background:red;</span><br><span class="line">    position:relative;</span><br><span class="line">    animation:mymove 5s infinite;</span><br><span class="line">    -webkit-animation:mymove 5s infinite; /*Safari and Chrome*/</span><br><span class="line">  &#125;</span><br><span class="line">  </span><br><span class="line">  @keyframes mymove &#123;</span><br><span class="line">    1% &#123;left:0px;&#125;</span><br><span class="line">    20%&#123;left:200px;&#125;</span><br><span class="line">    50% &#123;left:300px;&#125;</span><br><span class="line">    100%&#123;left:200px;&#125;</span><br><span class="line">  &#125;</span><br><span class="line">  </span><br><span class="line">  @-webkit-keyframes mymove &#123; /*Safari and Chrome*/</span><br><span class="line">    1% &#123;left:0px;&#125;</span><br><span class="line">    20%&#123;left:200px;&#125;</span><br><span class="line">    50% &#123;left:300px;&#125;</span><br><span class="line">    100%&#123;left:200px;&#125;</span><br><span class="line">  &#125;</span><br><span class="line">&lt;/style&gt;</span><br><span class="line"></span><br><span class="line">&lt;div&gt;&lt;/div&gt;</span><br></pre></td></tr></table></figure>
+<h2 id="3-Jquery的animate函数"><a href="#3-Jquery的animate函数" class="headerlink" title="3.Jquery的animate函数"></a>3.Jquery的animate函数</h2><p>$(selector).animate(styles,options)</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$(myElement).animate(&#123;height:<span class="string">'300px'</span>,opacity:<span class="string">'0.4'</span>&#125;,<span class="string">"slow"</span>);</span><br></pre></td></tr></table></figure>
+<h2 id="4-原生js动画"><a href="#4-原生js动画" class="headerlink" title="4.原生js动画"></a>4.原生js动画</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line">&lt;div id=<span class="string">"odiv"</span> class=<span class="string">"odiv"</span>&gt;</span><br><span class="line">     &lt;div id=<span class="string">"sdiv"</span> class=<span class="string">"sdiv"</span>&gt;</span><br><span class="line">     &lt;/div&gt;</span><br><span class="line">&lt;/div&gt;</span><br><span class="line"> </span><br><span class="line">&lt;script language=<span class="string">"javascript"</span>&gt;</span><br><span class="line">window.onload = <span class="function"><span class="title">function</span></span>()&#123;</span><br><span class="line">     var odiv = document.getElementById(<span class="string">'odiv'</span>);</span><br><span class="line">     odiv.onmouseover = <span class="function"><span class="title">function</span></span>()&#123;</span><br><span class="line">      startMover(0);</span><br><span class="line"> &#125;</span><br><span class="line"> odiv.onmouseout = <span class="function"><span class="title">function</span></span>()&#123;</span><br><span class="line">      startMover(-200);</span><br><span class="line"> &#125;</span><br><span class="line">&#125;</span><br><span class="line">var timer = null;</span><br><span class="line"><span class="keyword">function</span> startMover(a)&#123;//速度和目标值</span><br><span class="line">     clearInterval(timer);//执行当前动画同时清除之前的动画</span><br><span class="line">     var odiv = document.getElementById(<span class="string">'odiv'</span>);</span><br><span class="line"> timer = setInterval(<span class="function"><span class="title">function</span></span>()&#123;</span><br><span class="line">     var speed = (a-odiv.offsetLeft)/10;//缓冲动画的速度参数变化值</span><br><span class="line"> //如果速度是大于0，说明是向右走，那么就向上取整</span><br><span class="line">     speed = speed&gt;0?Math.ceil(speed):Math.floor(speed);</span><br><span class="line"> //Math.floor();向下取整</span><br><span class="line">     <span class="keyword">if</span>(odiv.offsetLeft == a)&#123;</span><br><span class="line">      clearInterval(timer);</span><br><span class="line">     &#125;</span><br><span class="line"> <span class="keyword">else</span>&#123;</span><br><span class="line">      odiv.style.left = odiv.offsetLeft+speed+<span class="string">'px'</span>;</span><br><span class="line">  &#125;</span><br><span class="line"> &#125;,30);</span><br><span class="line">&#125;</span><br><span class="line">&lt;/script&gt;</span><br></pre></td></tr></table></figure>
+<h2 id="5-插件"><a href="#5-插件" class="headerlink" title="5.插件"></a>5.插件</h2><p>网上可以搜到很多封装好的动画插件，这些插件可以直接引入到页面中，通过初试话和配置的方式进行设定，直接在页面中展示动画。</p>
+<p>如：waves，textillate.js等等。</p>
+<h2 id="6-使用canvas制作动画"><a href="#6-使用canvas制作动画" class="headerlink" title="6.使用canvas制作动画"></a>6.使用canvas制作动画</h2><p>我们还可以使用canvas在浏览器上画图，并且利用其api，制作动画。canvas使用的地方非常多，尤其是在制作h5小游戏上。</p>
+<p>同样都是使用编码的方式由前端开发工程师完成动画效果，canvas要比原生js效率高的多，流畅的多。通过画笔的方式，能够轻松的实现更多的动画效果。</p>
+<p>至于canvas如何使用，请看我博客中正在连载的教程–html5 canvas常用api总结。</p>
+<h2 id="7-引用gif图片"><a href="#7-引用gif图片" class="headerlink" title="7.引用gif图片"></a>7.引用gif图片</h2><p>如果在需求特别紧急，而且动画又特别复杂的情况下，自己没有把握按时实现效果，或者代价太大，真的，别犹豫，上gif图片吧，不要在技术上纠结了，虽然在工程师的角度上这样做很low，但是，用户的体验是没有影响的~所以，别纠结，就是要快！完成最重要了！</p>
+
       
 
+      
+        <div class="page-reward">
+          <a href="javascript:;" class="page-reward-btn tooltip-top">
+            <div class="tooltip tooltip-east">
+            <span class="tooltip-item">
+              赏
+            </span>
+            <span class="tooltip-content">
+              <span class="tooltip-text">
+                <span class="tooltip-inner">
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>帮助楼主迎娶白富美<i class="icon icon-quo-right"></i></p>
+                  <div class="reward-box">
+                    
+                    <div class="reward-box-item">
+                      <img class="reward-img" src="/assets/images/pay/alipay.jpg">
+                      <span class="reward-type">支付宝</span>
+                    </div>
+                    
+                    
+                    <div class="reward-box-item">
+                      <img class="reward-img" src="/assets/images/pay/weixin.jpg">
+                      <span class="reward-type">微信</span>
+                    </div>
+                    
+                  </div>
+                </span>
+              </span>
+            </span>
+          </div>
+          </a>
+        </div>
       
     </div>
     <div class="article-info article-info-index">
@@ -231,10 +277,58 @@ var _hmt = _hmt || [];
       
 
       
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2018/11/27/前端制作动画的几种方式（css3，js）/">展开全文 >></a>
-        </p>
+
       
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
+        </div>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="http://aric.leanapp.cn/qrimg/create_qrcode?url=https://github.com/Aric-sky/2018/11/27/前端制作动画的几种方式（css3，js）/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
 
       
       <div class="clearfix"></div>
@@ -242,6 +336,18 @@ var _hmt = _hmt || [];
   </div>
 </article>
 
+
+
+  
+<nav id="article-nav">
+  
+  
+    <a href="/2018/11/22/web容错处理/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">web容错处理</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
 
 
 <aside class="wrap-side-operation">
@@ -264,446 +370,15 @@ var _hmt = _hmt || [];
 
 
   
-    <article id="post-web容错处理" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/11/22/web容错处理/">web容错处理</a>
-    </h1>
-  
-
-
-
-  <a href="javascript:;" class="archive-article-date">
-      <i class="icon-smile icon"></i> 阅读数:<span id="/2018/11/22/web容错处理/" class="pageViews">0</span>次
-  </a>
-
-        
-        <a href="/2018/11/22/web容错处理/" class="archive-article-date">
-  	<time datetime="2018-11-22T08:23:53.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-11-22</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <!-- <hr>
-        
-          <a class="article-more-a" href="/2018/11/22/web容错处理/#more">more >></a>
-         -->
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">前端</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2018/11/22/web容错处理/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
 
   
-    <article id="post-管理多个git生成的ssh-key" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/11/22/管理多个git生成的ssh-key/">管理多个git生成的ssh key</a>
-    </h1>
-  
-
-
-
-  <a href="javascript:;" class="archive-article-date">
-      <i class="icon-smile icon"></i> 阅读数:<span id="/2018/11/22/管理多个git生成的ssh-key/" class="pageViews">0</span>次
-  </a>
-
-        
-        <a href="/2018/11/22/管理多个git生成的ssh-key/" class="archive-article-date">
-  	<time datetime="2018-11-22T06:17:18.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-11-22</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <!-- <hr>
-        
-          <a class="article-more-a" href="/2018/11/22/管理多个git生成的ssh-key/#more">more >></a>
-         -->
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">前端</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">git</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2018/11/22/管理多个git生成的ssh-key/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
 
   
-    <article id="post-JavaScript运行机制" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/10/29/JavaScript运行机制/">JavaScript运行机制</a>
-    </h1>
-  
-
-
-
-  <a href="javascript:;" class="archive-article-date">
-      <i class="icon-smile icon"></i> 阅读数:<span id="/2018/10/29/JavaScript运行机制/" class="pageViews">0</span>次
-  </a>
-
-        
-        <a href="/2018/10/29/JavaScript运行机制/" class="archive-article-date">
-  	<time datetime="2018-10-29T09:46:41.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-10-29</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <!-- <hr>
-        
-          <a class="article-more-a" href="/2018/10/29/JavaScript运行机制/#more">more >></a>
-         -->
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">前端</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">js</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2018/10/29/JavaScript运行机制/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
 
   
-    <article id="post-微信小程序开发BUG经验总结" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/10/19/微信小程序开发BUG经验总结/">微信小程序开发BUG经验总结</a>
-    </h1>
-  
-
-
-
-  <a href="javascript:;" class="archive-article-date">
-      <i class="icon-smile icon"></i> 阅读数:<span id="/2018/10/19/微信小程序开发BUG经验总结/" class="pageViews">0</span>次
-  </a>
-
-        
-        <a href="/2018/10/19/微信小程序开发BUG经验总结/" class="archive-article-date">
-  	<time datetime="2018-10-19T08:14:44.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-10-19</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <!-- <hr>
-        
-          <a class="article-more-a" href="/2018/10/19/微信小程序开发BUG经验总结/#more">more >></a>
-         -->
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">前端</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">微信小程序</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2018/10/19/微信小程序开发BUG经验总结/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
 
   
-    <article id="post-CentOS-7-yum-安装-Nginx" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/09/14/CentOS-7-yum-安装-Nginx/">CentOS 7 yum 安装 Nginx</a>
-    </h1>
-  
 
-
-
-  <a href="javascript:;" class="archive-article-date">
-      <i class="icon-smile icon"></i> 阅读数:<span id="/2018/09/14/CentOS-7-yum-安装-Nginx/" class="pageViews">0</span>次
-  </a>
-
-        
-        <a href="/2018/09/14/CentOS-7-yum-安装-Nginx/" class="archive-article-date">
-  	<time datetime="2018-09-14T07:00:11.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-09-14</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <!-- <hr>
-        
-          <a class="article-more-a" href="/2018/09/14/CentOS-7-yum-安装-Nginx/#more">more >></a>
-         -->
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">后端</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">nginx</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2018/09/14/CentOS-7-yum-安装-Nginx/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-  
-    <nav id="page-nav">
-      <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><span class="space">&hellip;</span><a class="page-number" href="/page/5/">5</a><a class="extend next" rel="next" href="/page/2/">Next &raquo;</a>
-    </nav>
   
 
 
@@ -728,8 +403,8 @@ var _hmt = _hmt || [];
     <script>
 	var yiliaConfig = {
 		mathjax: false,
-		isHome: true,
-		isPost: false,
+		isHome: false,
+		isPost: true,
 		isArchive: false,
 		isTag: false,
 		isCategory: false,
