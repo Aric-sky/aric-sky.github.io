@@ -6,17 +6,19 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="https://github.com/Aric-sky">
-  <title>jsonp的实现原理 | Aaron&#39;s blog</title>
+  <title>Archives: 2019/1 | Aaron&#39;s blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="keywords" content="js,前端">
-<meta property="og:type" content="article">
-<meta property="og:title" content="jsonp的实现原理">
-<meta property="og:url" content="https://github.com/Aric-sky/2018/03/09/jsonp的实现原理/index.html">
+  <meta name="description" content="From small beginnings comes great things">
+<meta name="keywords" content="Aaron">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Aaron&#39;s blog">
+<meta property="og:url" content="https://github.com/Aric-sky/archives/2019/01/index.html">
 <meta property="og:site_name" content="Aaron&#39;s blog">
+<meta property="og:description" content="From small beginnings comes great things">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-03-09T04:43:58.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="jsonp的实现原理">
+<meta name="twitter:title" content="Aaron&#39;s blog">
+<meta name="twitter:description" content="From small beginnings comes great things">
   
     <link rel="alternative" href="/atom.xml" title="Aaron&#39;s blog" type="application/atom+xml">
   
@@ -168,96 +170,42 @@ var _hmt = _hmt || [];
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-jsonp的实现原理" class="article article-type-post " itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
+            
   
-    <h1 class="article-title" itemprop="name">
-      jsonp的实现原理
+  
+    
+    
+      
+      
+      <section class="archives-wrap">
+        <div class="archive-year-wrap">
+          <a href="/archives/2019" class="archive-year">2019</a>
+        </div>
+        <div class="archives">
+    
+    <article class="archive-article archive-type-post">
+  <div class="archive-article-inner">
+    <header class="archive-article-header">
+      	<div class="article-meta">
+	      	<a href="/2019/01/30/观察者模式和订阅-发布者模式/" class="archive-article-date">
+  	<time datetime="2019-01-30T08:42:29.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-01-30</time>
+</a>
+        </div>
+    	 
+  
+    <h1 itemprop="name">
+      <a class="archive-article-title" href="/2019/01/30/观察者模式和订阅-发布者模式/">观察者模式和订阅/发布者模式</a>
     </h1>
   
 
 
 
   <a href="javascript:;" class="archive-article-date">
-      <i class="icon-smile icon"></i> 阅读数:<span id="/2018/03/09/jsonp的实现原理/" class="pageViews">0</span>次
+      <i class="icon-smile icon"></i> 阅读数:<span id="/2019/01/30/观察者模式和订阅-发布者模式/" class="pageViews">0</span>次
   </a>
 
-        
-        <a href="/2018/03/09/jsonp的实现原理/" class="archive-article-date">
-  	<time datetime="2018-03-09T04:43:58.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-03-09</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <hr>
-<a id="more"></a>
-<h2 id="1-概述"><a href="#1-概述" class="headerlink" title="1. 概述"></a>1. 概述</h2><p>jsonp是一种跨域通信的手段，它的原理其实很简单：<br>1.首先是利用script标签的src属性来实现跨域。<br>2.通过将前端方法作为参数传递到服务器端，然后由服务器端注入参数之后再返回，实现服务器端向客户端通信。<br>3.由于使用script标签的src属性，因此只支持get方法。</p>
-<h2 id="2-实现流程"><a href="#2-实现流程" class="headerlink" title="2. 实现流程"></a>2. 实现流程</h2><p>1.设定一个script标签<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;script src=<span class="string">"http://jsonp.js?callback=xxx"</span>&gt;&lt;/script&gt;</span><br></pre></td></tr></table></figure></p>
-<p>2.callback定义了一个函数名，而远程服务端通过调用指定的函数并传入参数来实现传递参数，将fn(response)传递回客户端<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">  <span class="variable">$callback</span> = !empty(<span class="variable">$_GET</span>[<span class="string">'callback'</span>]) ? <span class="variable">$_GET</span>[<span class="string">'callback'</span>] : <span class="string">'callback'</span>;</span><br><span class="line"><span class="built_in">echo</span> <span class="variable">$callback</span>.<span class="string">'(.json_encode($data).)'</span>;</span><br></pre></td></tr></table></figure></p>
-<p>3.客户端接收到返回的js脚本，开始解析和执行fn(response)</p>
-<h2 id="3-jsonp简单实现"><a href="#3-jsonp简单实现" class="headerlink" title="3. jsonp简单实现"></a>3. jsonp简单实现</h2><ul>
-<li><p>一个简单的jsonp实现，其实就是拼接url，然后将动态添加一个script元素到头部。</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">function</span> jsonp(req)&#123;</span><br><span class="line">    var script = document.createElement(<span class="string">'script'</span>);</span><br><span class="line">    var url = req.url + <span class="string">'?callback='</span> + req.callback.name;</span><br><span class="line">    script.src = url;</span><br><span class="line">    document.getElementsByTagName(<span class="string">'head'</span>)[0].appendChild(script); </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>前端js示例</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">function</span> hello(res)&#123;</span><br><span class="line">    alert(<span class="string">'hello '</span> + res.data);</span><br><span class="line">&#125;</span><br><span class="line">jsonp(&#123;</span><br><span class="line">    url : <span class="string">''</span>,</span><br><span class="line">    callback : hello </span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>服务器端代码</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">var http = require(<span class="string">'http'</span>);</span><br><span class="line">var urllib = require(<span class="string">'url'</span>);</span><br><span class="line"></span><br><span class="line">var port = 8080;</span><br><span class="line">var data = &#123;<span class="string">'data'</span>:<span class="string">'world'</span>&#125;;</span><br><span class="line"></span><br><span class="line">http.createServer(<span class="keyword">function</span>(req,res)&#123;</span><br><span class="line">    var params = urllib.parse(req.url,<span class="literal">true</span>);</span><br><span class="line">    <span class="keyword">if</span>(params.query.callback)&#123;</span><br><span class="line">        console.log(params.query.callback);</span><br><span class="line">        //jsonp</span><br><span class="line">        var str = params.query.callback + <span class="string">'('</span> + JSON.stringify(data) + <span class="string">')'</span>;</span><br><span class="line">        res.end(str);</span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">        res.end();</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">&#125;).listen(port,<span class="function"><span class="title">function</span></span>()&#123;</span><br><span class="line">    console.log(<span class="string">'jsonp server is on'</span>);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>然而，这个实现虽然简单，但有一些不足的地方：</p>
-</li>
-</ul>
-<p>1.我们传递的回调必须是一个全局方法，我们都知道要尽量减少全局的方法。<br>2.需要加入一些参数校验，确保接口可以正常执行。</p>
-<h2 id="4-可靠的jsonp实现"><a href="#4-可靠的jsonp实现" class="headerlink" title="4. 可靠的jsonp实现"></a>4. 可靠的jsonp实现</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br></pre></td><td class="code"><pre><span class="line">(<span class="keyword">function</span> (global) &#123;</span><br><span class="line">    var id = 0,</span><br><span class="line">        container = document.getElementsByTagName(<span class="string">"head"</span>)[0];</span><br><span class="line"></span><br><span class="line">    <span class="keyword">function</span> jsonp(options) &#123;</span><br><span class="line">        <span class="keyword">if</span>(!options || !options.url) <span class="built_in">return</span>;</span><br><span class="line"></span><br><span class="line">        var scriptNode = document.createElement(<span class="string">"script"</span>),</span><br><span class="line">            data = options.data || &#123;&#125;,</span><br><span class="line">            url = options.url,</span><br><span class="line">            callback = options.callback,</span><br><span class="line">            fnName = <span class="string">"jsonp"</span> + id++;</span><br><span class="line"></span><br><span class="line">        // 添加回调函数</span><br><span class="line">        data[<span class="string">"callback"</span>] = fnName;</span><br><span class="line"></span><br><span class="line">        // 拼接url</span><br><span class="line">        var params = [];</span><br><span class="line">        <span class="keyword">for</span> (var key <span class="keyword">in</span> data) &#123;</span><br><span class="line">            params.push(encodeURIComponent(key) + <span class="string">"="</span> + encodeURIComponent(data[key]));</span><br><span class="line">        &#125;</span><br><span class="line">        url = url.indexOf(<span class="string">"?"</span>) &gt; 0 ? (url + <span class="string">"&amp;"</span>) : (url + <span class="string">"?"</span>);</span><br><span class="line">        url += params.join(<span class="string">"&amp;"</span>);</span><br><span class="line">        scriptNode.src = url;</span><br><span class="line"></span><br><span class="line">        // 传递的是一个匿名的回调函数，要执行的话，暴露为一个全局方法</span><br><span class="line">        global[fnName] = <span class="keyword">function</span> (ret) &#123;</span><br><span class="line">            callback &amp;&amp; callback(ret);</span><br><span class="line">            container.removeChild(scriptNode);</span><br><span class="line">            delete global[fnName];</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        // 出错处理</span><br><span class="line">        scriptNode.onerror = <span class="function"><span class="title">function</span></span> () &#123;</span><br><span class="line">            callback &amp;&amp; callback(&#123;error:<span class="string">"error"</span>&#125;);</span><br><span class="line">            container.removeChild(scriptNode);</span><br><span class="line">            global[fnName] &amp;&amp; delete global[fnName];</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        scriptNode.type = <span class="string">"text/javascript"</span>;</span><br><span class="line">        container.appendChild(scriptNode)</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    global.jsonp = jsonp;</span><br><span class="line"></span><br><span class="line">&#125;)(this);</span><br></pre></td></tr></table></figure>
-<ul>
-<li>使用示例<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">jsonp(&#123;</span><br><span class="line">    url : <span class="string">"www.example.com"</span>,</span><br><span class="line">    data : &#123;id : 1&#125;,</span><br><span class="line">    callback : <span class="keyword">function</span> (ret) &#123;</span><br><span class="line">        console.log(ret);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
-</li>
-</ul>
-
-      
-
-      
-        <div class="page-reward">
-          <a href="javascript:;" class="page-reward-btn tooltip-top">
-            <div class="tooltip tooltip-east">
-            <span class="tooltip-item">
-              赏
-            </span>
-            <span class="tooltip-content">
-              <span class="tooltip-text">
-                <span class="tooltip-inner">
-                  <p class="reward-p"><i class="icon icon-quo-left"></i>帮助楼主迎娶白富美<i class="icon icon-quo-right"></i></p>
-                  <div class="reward-box">
-                    
-                    <div class="reward-box-item">
-                      <img class="reward-img" src="/assets/images/pay/alipay.jpg">
-                      <span class="reward-type">支付宝</span>
-                    </div>
-                    
-                    
-                    <div class="reward-box-item">
-                      <img class="reward-img" src="/assets/images/pay/weixin.jpg">
-                      <span class="reward-type">微信</span>
-                    </div>
-                    
-                  </div>
-                </span>
-              </span>
-            </span>
-          </div>
-          </a>
-        </div>
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
+        <div class="article-info info-on-right">
+          
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
@@ -265,129 +213,23 @@ var _hmt = _hmt || [];
         		<li class="article-tag-list-item">
         			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">js</a>
         		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">前端</a>
-        		</li>
       		
 		</ul>
 	</div>
 
-      
+          
 
-      
-
-      
-        
-<div class="share-btn share-icons tooltip-left">
-  <div class="tooltip tooltip-east">
-    <span class="tooltip-item">
-      <a href="javascript:;" class="share-sns share-outer">
-        <i class="icon icon-share"></i>
-      </a>
-    </span>
-    <span class="tooltip-content">
-      <div class="share-wrap">
-        <div class="share-icons">
-          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
-            <i class="icon icon-weibo"></i>
-          </a>
-          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
-            <i class="icon icon-weixin"></i>
-          </a>
-          <a class="qq share-sns" href="javascript:;" data-type="qq">
-            <i class="icon icon-qq"></i>
-          </a>
-          <a class="douban share-sns" href="javascript:;" data-type="douban">
-            <i class="icon icon-douban"></i>
-          </a>
-          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
-            <i class="icon icon-qzone"></i>
-          </a>
-          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
-            <i class="icon icon-facebook"></i>
-          </a>
-          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
-            <i class="icon icon-twitter"></i>
-          </a>
-          <a class="google share-sns" href="javascript:;" data-type="google">
-            <i class="icon icon-google"></i>
-          </a>
         </div>
-      </div>
-    </span>
-  </div>
-</div>
-
-<div class="page-modal wx-share js-wx-box">
-    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
-    <p>扫一扫，分享到微信</p>
-    <div class="wx-qrcode">
-      <img src="http://aric.leanapp.cn/qrimg/create_qrcode?url=https://github.com/Aric-sky/2018/03/09/jsonp的实现原理/" alt="微信分享二维码">
-    </div>
-</div>
-
-<div class="mask js-mask"></div>
-
-      
-      <div class="clearfix"></div>
-    </div>
+        <div class="clearfix"></div>
+    </header>
   </div>
 </article>
-
-
-
-  
-<nav id="article-nav">
-  
-    <a href="/2018/03/09/深入理解-requestAnimationFrame/" id="article-nav-newer" class="article-nav-link-wrap">
-      <i class="icon-circle-left"></i>
-      <div class="article-nav-title">
-        
-          深入理解 requestAnimationFrame
-        
-      </div>
-    </a>
   
   
-    <a href="/2018/02/19/js有用代码小总结/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">js有用代码小总结</div>
-      <i class="icon-circle-right"></i>
-    </a>
-  
-</nav>
-
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
+    </div></section>
   
 
-  
-
-  
-
-  
-
-  
-
-  
+    
 
 
           </div>
@@ -412,8 +254,8 @@ var _hmt = _hmt || [];
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: true,
-		isArchive: false,
+		isPost: false,
+		isArchive: true,
 		isTag: false,
 		isCategory: false,
 		open_in_new: true,
