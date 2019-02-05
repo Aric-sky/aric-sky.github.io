@@ -3,13 +3,13 @@
 ## Source: https://github.com/hexojs/hexo/
 
 # Site
-title: Aric's blog
+title: Aaron's blog
 subtitle: 明天不见得会多好<br/>但是起码不会太差
 description: From small beginnings comes great things
-author: Aric
+author: Aaron
 email: wangyuanqi518@163.com
 language: zh-Hans
-keywords: Aric
+keywords: Aaron
 
 # URL
 ## If your site is put in a subdirectory, set url as 'http://yoursite.com/child' and root as '/child/'
