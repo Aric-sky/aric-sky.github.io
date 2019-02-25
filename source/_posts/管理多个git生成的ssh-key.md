@@ -56,10 +56,23 @@ Host github.com
 ```
 注意：如果拷贝我的，要把后面的注释去掉然后保存起来
 
-## 分别在github，gitlab填上ssh key
+## 3.分别在github，gitlab填上ssh key
+- 方法一：
+> 手动复制从ssh-rsa 开始，以your_email@example.com结束，然后粘贴到你登录的github账号上面Settings -->SSH keys -->Add SSH key 保存即可 Title 可以随便写，Key粘贴刚复制内容，这样SSH key 就添加到你的Github上了。
+
+```
+直接 终端输入：vim ~/.ssh/id_rsa.pub
+```
+
+- 方法二：(在终端输入命令)
+```
+pbcopy < ~.ssh/id_rsa.pub
+```
+> 然后粘贴到你登录的github账号上面Settings -->SSH keys -->Add SSH key 保存即可 Title 可以随便写，Key粘贴刚复制内容，这样SSH key 就添加到你的Github上了。
 
 ![shhkey4](http://cdn.wangyuanqi.xyz/sshkey4.png)
 
+## 4.测试
 填上刚刚生成的，然后你就可以上传文件试试或者用下面方法测试
 
 ```bash
