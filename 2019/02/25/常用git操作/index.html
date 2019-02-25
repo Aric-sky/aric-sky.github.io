@@ -6,19 +6,17 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="https://github.com/Aric-sky">
-  <title>Tag: 前端 | Aaron&#39;s blog</title>
+  <title>常用git操作 | Aaron&#39;s blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="From small beginnings comes great things">
-<meta name="keywords" content="Aaron">
-<meta property="og:type" content="website">
-<meta property="og:title" content="Aaron&#39;s blog">
-<meta property="og:url" content="https://github.com/Aric-sky/tags/前端/page/4/index.html">
+  <meta name="keywords" content="git">
+<meta property="og:type" content="article">
+<meta property="og:title" content="常用git操作">
+<meta property="og:url" content="https://github.com/Aric-sky/2019/02/25/常用git操作/index.html">
 <meta property="og:site_name" content="Aaron&#39;s blog">
-<meta property="og:description" content="From small beginnings comes great things">
 <meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2019-02-25T12:53:47.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Aaron&#39;s blog">
-<meta name="twitter:description" content="From small beginnings comes great things">
+<meta name="twitter:title" content="常用git操作">
   
     <link rel="alternative" href="/atom.xml" title="Aaron&#39;s blog" type="application/atom+xml">
   
@@ -170,121 +168,198 @@ var _hmt = _hmt || [];
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-  
+            <article id="post-常用git操作" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
     
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2018" class="archive-year">2018</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2018/02/06/es6中export和export-default的作用、区别/" class="archive-article-date">
-  	<time datetime="2018-02-06T12:26:18.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-02-06</time>
-</a>
-        </div>
-    	 
+      <header class="article-header">
+        
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2018/02/06/es6中export和export-default的作用、区别/">es6中export和export default的作用、区别</a>
+    <h1 class="article-title" itemprop="name">
+      常用git操作
     </h1>
   
 
 
 
   <a href="javascript:;" class="archive-article-date">
-      <i class="icon-smile icon"></i> 阅读数:<span id="/2018/02/06/es6中export和export-default的作用、区别/" class="pageViews">0</span>次
+      <i class="icon-smile icon"></i> 阅读数:<span id="/2019/02/25/常用git操作/" class="pageViews">0</span>次
   </a>
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">前端</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">JS</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2018/02/06/设计模式——单例模式/" class="archive-article-date">
-  	<time datetime="2018-02-06T09:43:24.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-02-06</time>
+        
+        <a href="/2019/02/25/常用git操作/" class="archive-article-date">
+  	<time datetime="2019-02-25T12:53:47.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-02-25</time>
 </a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <hr>
+<a id="more"></a>
+<h2 id="分支操作"><a href="#分支操作" class="headerlink" title="分支操作"></a>分支操作</h2><p>  git branch 创建分支<br>  git branch -b 创建并切换到新建的分支上<br>  git checkout 切换分支<br>  git branch 查看分支列表<br>  git branch -v 查看所有分支的最后一次操作<br>  git branch -vv 查看当前分支<br>  git brabch -b 分支名 origin/分支名 创建远程分支到本地<br>  git branch –merged 查看别的分支和当前分支合并过的分支<br>  git branch –no-merged 查看未与当前分支合并的分支<br>  git branch -d 分支名 删除本地分支<br>  git branch -D 分支名 强行删除分支<br>  git branch origin :分支名 删除远处仓库分支<br>  git merge 分支名 合并分支到当前分支上</p>
+<h2 id="暂存操作"><a href="#暂存操作" class="headerlink" title="暂存操作"></a>暂存操作</h2><p>  git stash 暂存当前修改<br>  git stash apply 恢复最近的一次暂存<br>  git stash pop 恢复暂存并删除暂存记录<br>  git stash list 查看暂存列表<br>  git stash drop 暂存名(例：stash@{0}) 移除某次暂存<br>  git stash clear 清除暂存</p>
+<h2 id="回退操作"><a href="#回退操作" class="headerlink" title="回退操作"></a>回退操作</h2><p>  git reset –hard HEAD^ 回退到上一个版本<br>  git reset –hard ahdhs1(commit_id) 回退到某个版本<br>  git checkout – file撤销修改的文件(如果文件加入到了暂存区，则回退到暂存区的，如果文件加入到了版本库，则还原至加入版本库之后的状态)<br>  git reset HEAD file 撤回暂存区的文件修改到工作区</p>
+<h2 id="标签操作"><a href="#标签操作" class="headerlink" title="标签操作"></a>标签操作</h2><p>  git tag 标签名 添加标签(默认对当前版本)<br>  git tag 标签名 commit_id 对某一提交记录打标签<br>  git tag -a 标签名 -m ‘描述’ 创建新标签并增加备注<br>  git tag 列出所有标签列表<br>  git show 标签名 查看标签信息<br>  git tag -d 标签名 删除本地标签<br>  git push origin 标签名 推送标签到远程仓库<br>  git push origin –tags 推送所有标签到远程仓库<br>  git push origin :refs/tags/标签名 从远程仓库中删除标签</p>
+<h2 id="常规操作"><a href="#常规操作" class="headerlink" title="常规操作"></a>常规操作</h2><p>  git push origin test 推送本地分支到远程仓库<br>  git rm -r –cached 文件/文件夹名字 取消文件被版本控制<br>  git reflog 获取执行过的命令<br>  git log –graph 查看分支合并图<br>  git merge –no-ff -m ‘合并描述’ 分支名 不使用Fast forward方式合并，采用这种方式合并可以看到合并记录<br>  git check-ignore -v 文件名 查看忽略规则<br>  git add -f 文件名 强制将文件提交</p>
+<h2 id="git创建项目仓库"><a href="#git创建项目仓库" class="headerlink" title="git创建项目仓库"></a>git创建项目仓库</h2><p>  1、git init 初始化<br>  2、git remote add origin url 关联远程仓库<br>  3、git pull<br>  4、git fetch 获取远程仓库中所有的分支到本地</p>
+<h2 id="忽略已加入到版本库中的文件"><a href="#忽略已加入到版本库中的文件" class="headerlink" title="忽略已加入到版本库中的文件"></a>忽略已加入到版本库中的文件</h2><p>  1、git update-index –assume-unchanged file 忽略单个文件<br>  2、git rm -r –cached 文件/文件夹名字 (. 忽略全部文件)</p>
+<h2 id="取消忽略文件"><a href="#取消忽略文件" class="headerlink" title="取消忽略文件"></a>取消忽略文件</h2><p>  git update-index –no-assume-unchanged file</p>
+<h2 id="拉取、上传免密码"><a href="#拉取、上传免密码" class="headerlink" title="拉取、上传免密码"></a>拉取、上传免密码</h2><p>  git config –global credential.helper store</p>
+
+      
+
+      
+        <div class="page-reward">
+          <a href="javascript:;" class="page-reward-btn tooltip-top">
+            <div class="tooltip tooltip-east">
+            <span class="tooltip-item">
+              赏
+            </span>
+            <span class="tooltip-content">
+              <span class="tooltip-text">
+                <span class="tooltip-inner">
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>帮助楼主迎娶白富美<i class="icon icon-quo-right"></i></p>
+                  <div class="reward-box">
+                    
+                    <div class="reward-box-item">
+                      <img class="reward-img" src="/assets/images/pay/alipay.jpg">
+                      <span class="reward-type">支付宝</span>
+                    </div>
+                    
+                    
+                    <div class="reward-box-item">
+                      <img class="reward-img" src="/assets/images/pay/weixin.jpg">
+                      <span class="reward-type">微信</span>
+                    </div>
+                    
+                  </div>
+                </span>
+              </span>
+            </span>
+          </div>
+          </a>
         </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2018/02/06/设计模式——单例模式/">js设计模式</a>
-    </h1>
-  
-
-
-
-  <a href="javascript:;" class="archive-article-date">
-      <i class="icon-smile icon"></i> 阅读数:<span id="/2018/02/06/设计模式——单例模式/" class="pageViews">0</span>次
-  </a>
-
-        <div class="article-info info-on-right">
-          
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">前端</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">设计模式</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">git</a>
         		</li>
       		
 		</ul>
 	</div>
 
-          
+      
 
+      
+
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="http://aric.leanapp.cn/qrimg/create_qrcode?url=https://github.com/Aric-sky/2019/02/25/常用git操作/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
+
+
+  
+<nav id="article-nav">
   
   
-    </div></section>
+    <a href="/2019/01/30/观察者模式和订阅-发布者模式/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">观察者模式和订阅/发布者模式</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
   
 
-    
-    <nav id="page-nav">
-      <a class="extend prev" rel="prev" href="/tags/前端/page/3/">&laquo; Prev</a><a class="page-number" href="/tags/前端/">1</a><a class="page-number" href="/tags/前端/page/2/">2</a><a class="page-number" href="/tags/前端/page/3/">3</a><span class="page-number current">4</span>
-    </nav>
+  
+
+  
+
+  
+
+  
+
   
 
 
@@ -310,9 +385,9 @@ var _hmt = _hmt || [];
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
+		isPost: true,
 		isArchive: false,
-		isTag: true,
+		isTag: false,
 		isCategory: false,
 		open_in_new: true,
 		toc_hide_index: true,
