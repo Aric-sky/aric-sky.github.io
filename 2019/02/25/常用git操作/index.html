@@ -78,15 +78,7 @@ var _hmt = _hmt || [];
 		<nav class="header-smart-menu">
     		
     			
-    			<a q-on="click: openSlider(e, 'innerArchive')" href="javascript:void(0)">所有文章</a>
-    			
-            
-    			
-    			<a q-on="click: openSlider(e, 'friends')" href="javascript:void(0)">友链</a>
-    			
-            
-    			
-    			<a q-on="click: openSlider(e, 'aboutme')" href="javascript:void(0)">关于我</a>
+    			<a q-on="click: openSlider(e, 'innerArchive')" href="javascript:void(0)">搜索文章 🔎</a>
     			
             
 		</nav>
@@ -196,16 +188,15 @@ var _hmt = _hmt || [];
       
         <hr>
 <a id="more"></a>
-<h2 id="分支操作"><a href="#分支操作" class="headerlink" title="分支操作"></a>分支操作</h2><p>  git branch 创建分支<br>  git branch -b 创建并切换到新建的分支上<br>  git checkout 切换分支<br>  git branch 查看分支列表<br>  git branch -v 查看所有分支的最后一次操作<br>  git branch -vv 查看当前分支<br>  git brabch -b 分支名 origin/分支名 创建远程分支到本地<br>  git branch –merged 查看别的分支和当前分支合并过的分支<br>  git branch –no-merged 查看未与当前分支合并的分支<br>  git branch -d 分支名 删除本地分支<br>  git branch -D 分支名 强行删除分支<br>  git branch origin :分支名 删除远处仓库分支<br>  git merge 分支名 合并分支到当前分支上</p>
-<h2 id="暂存操作"><a href="#暂存操作" class="headerlink" title="暂存操作"></a>暂存操作</h2><p>  git stash 暂存当前修改<br>  git stash apply 恢复最近的一次暂存<br>  git stash pop 恢复暂存并删除暂存记录<br>  git stash list 查看暂存列表<br>  git stash drop 暂存名(例：stash@{0}) 移除某次暂存<br>  git stash clear 清除暂存</p>
-<h2 id="回退操作"><a href="#回退操作" class="headerlink" title="回退操作"></a>回退操作</h2><p>  git reset –hard HEAD^ 回退到上一个版本<br>  git reset –hard ahdhs1(commit_id) 回退到某个版本<br>  git checkout – file撤销修改的文件(如果文件加入到了暂存区，则回退到暂存区的，如果文件加入到了版本库，则还原至加入版本库之后的状态)<br>  git reset HEAD file 撤回暂存区的文件修改到工作区</p>
-<h2 id="标签操作"><a href="#标签操作" class="headerlink" title="标签操作"></a>标签操作</h2><p>  git tag 标签名 添加标签(默认对当前版本)<br>  git tag 标签名 commit_id 对某一提交记录打标签<br>  git tag -a 标签名 -m ‘描述’ 创建新标签并增加备注<br>  git tag 列出所有标签列表<br>  git show 标签名 查看标签信息<br>  git tag -d 标签名 删除本地标签<br>  git push origin 标签名 推送标签到远程仓库<br>  git push origin –tags 推送所有标签到远程仓库<br>  git push origin :refs/tags/标签名 从远程仓库中删除标签</p>
-<h2 id="常规操作"><a href="#常规操作" class="headerlink" title="常规操作"></a>常规操作</h2><p>  git push origin test 推送本地分支到远程仓库<br>  git rm -r –cached 文件/文件夹名字 取消文件被版本控制<br>  git reflog 获取执行过的命令<br>  git log –graph 查看分支合并图<br>  git merge –no-ff -m ‘合并描述’ 分支名 不使用Fast forward方式合并，采用这种方式合并可以看到合并记录<br>  git check-ignore -v 文件名 查看忽略规则<br>  git add -f 文件名 强制将文件提交</p>
-<h2 id="git创建项目仓库"><a href="#git创建项目仓库" class="headerlink" title="git创建项目仓库"></a>git创建项目仓库</h2><p>  1、git init 初始化<br>  2、git remote add origin url 关联远程仓库<br>  3、git pull<br>  4、git fetch 获取远程仓库中所有的分支到本地</p>
-<h2 id="忽略已加入到版本库中的文件"><a href="#忽略已加入到版本库中的文件" class="headerlink" title="忽略已加入到版本库中的文件"></a>忽略已加入到版本库中的文件</h2><p>  1、git update-index –assume-unchanged file 忽略单个文件<br>  2、git rm -r –cached 文件/文件夹名字 (. 忽略全部文件)</p>
-<h2 id="取消忽略文件"><a href="#取消忽略文件" class="headerlink" title="取消忽略文件"></a>取消忽略文件</h2><p>  git update-index –no-assume-unchanged file</p>
-<h2 id="拉取、上传免密码"><a href="#拉取、上传免密码" class="headerlink" title="拉取、上传免密码"></a>拉取、上传免密码</h2><p>  git config –global credential.helper store</p>
-
+<h2 id="分支操作"><a href="#分支操作" class="headerlink" title="分支操作"></a>分支操作</h2><figure class="highlight armasm"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="symbol">git</span> <span class="keyword">branch </span>创建分支</span><br><span class="line"><span class="symbol">git</span> <span class="keyword">branch </span>-<span class="keyword">b </span>创建并切换到新建的分支上</span><br><span class="line"><span class="symbol">git</span> checkout 切换分支</span><br><span class="line"><span class="symbol">git</span> <span class="keyword">branch </span>查看分支列表</span><br><span class="line"><span class="symbol">git</span> <span class="keyword">branch </span>-v 查看所有分支的最后一次操作</span><br><span class="line"><span class="symbol">git</span> <span class="keyword">branch </span>-vv 查看当前分支</span><br><span class="line"><span class="symbol">git</span> <span class="keyword">brabch </span>-<span class="keyword">b </span>分支名 origin/分支名 创建远程分支到本地</span><br><span class="line"><span class="symbol">git</span> <span class="keyword">branch </span>--merged 查看别的分支和当前分支合并过的分支</span><br><span class="line"><span class="symbol">git</span> <span class="keyword">branch </span>--no-merged 查看未与当前分支合并的分支</span><br><span class="line"><span class="symbol">git</span> <span class="keyword">branch </span>-d 分支名 删除本地分支</span><br><span class="line"><span class="symbol">git</span> <span class="keyword">branch </span>-D 分支名 强行删除分支</span><br><span class="line"><span class="symbol">git</span> <span class="keyword">push </span>origin --delete 分支名  // 删除远处仓库分支</span><br><span class="line"><span class="symbol">git</span> merge 分支名 合并分支到当前分支上</span><br></pre></td></tr></table></figure>
+<h2 id="暂存操作"><a href="#暂存操作" class="headerlink" title="暂存操作"></a>暂存操作</h2><figure class="highlight sqf"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">git stash 暂存当前修改</span><br><span class="line">git stash <span class="built_in">apply</span> 恢复最近的一次暂存</span><br><span class="line">git stash pop 恢复暂存并删除暂存记录</span><br><span class="line">git stash <span class="built_in">list</span> 查看暂存列表</span><br><span class="line">git stash <span class="built_in">drop</span> 暂存名(例：stash@&#123;<span class="number">0</span>&#125;) 移除某次暂存</span><br><span class="line">git stash clear 清除暂存</span><br></pre></td></tr></table></figure>
+<h2 id="回退操作"><a href="#回退操作" class="headerlink" title="回退操作"></a>回退操作</h2><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">git <span class="keyword">reset</span> <span class="comment">--hard HEAD^ 回退到上一个版本</span></span><br><span class="line">git <span class="keyword">reset</span> <span class="comment">--hard ahdhs1(commit_id) 回退到某个版本</span></span><br><span class="line">git checkout <span class="comment">-- file撤销修改的文件(如果文件加入到了暂存区，则回退到暂存区的，如果文件加入到了版本库，则还原至加入版本库之后的状态)</span></span><br><span class="line">git <span class="keyword">reset</span> <span class="keyword">HEAD</span> <span class="keyword">file</span> 撤回暂存区的文件修改到工作区</span><br></pre></td></tr></table></figure>
+<h2 id="标签操作"><a href="#标签操作" class="headerlink" title="标签操作"></a>标签操作</h2><figure class="highlight crmsh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">git <span class="keyword">tag</span> <span class="title">标签名 添加标签(默认对当前版本)</span></span><br><span class="line"><span class="title">git</span> <span class="keyword">tag</span> <span class="title">标签名 commit_id</span> 对某一提交记录打标签</span><br><span class="line">git <span class="keyword">tag</span> <span class="title">-a</span> 标签名 -m '描述' 创建新标签并增加备注</span><br><span class="line">git <span class="keyword">tag</span> <span class="title">列出所有标签列表</span></span><br><span class="line"><span class="title">git</span> show 标签名 查看标签信息</span><br><span class="line">git <span class="keyword">tag</span> <span class="title">-d</span> 标签名 删除本地标签</span><br><span class="line">git push origin 标签名 推送标签到远程仓库</span><br><span class="line">git push origin --tags 推送所有标签到远程仓库</span><br><span class="line">git push origin :refs/tags/标签名 从远程仓库中删除标签</span><br></pre></td></tr></table></figure>
+<h2 id="常规操作"><a href="#常规操作" class="headerlink" title="常规操作"></a>常规操作</h2><figure class="highlight smali"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">git push origin test 推送本地分支到远程仓库</span><br><span class="line">git rm -r --cached 文件/文件夹名字 取消文件被版本控制</span><br><span class="line">git reflog 获取执行过的命令</span><br><span class="line">git log --graph 查看分支合并图</span><br><span class="line">git merge --no-ff -m '合并描述' 分支名 不使用Fast forward方式合并，采用这种方式合并可以看到合并记录</span><br><span class="line">git<span class="built_in"> check-ignore </span>-v 文件名 查看忽略规则</span><br><span class="line">git<span class="built_in"> add </span>-f 文件名 强制将文件提交</span><br></pre></td></tr></table></figure>
+<h2 id="git创建项目仓库"><a href="#git创建项目仓库" class="headerlink" title="git创建项目仓库"></a>git创建项目仓库</h2><figure class="highlight basic"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">1</span>、git init 初始化</span><br><span class="line"><span class="number">2</span>、git <span class="comment">remote add origin url 关联远程仓库</span></span><br><span class="line"><span class="number">3</span>、git pull</span><br><span class="line"><span class="number">4</span>、git fetch 获取远程仓库中所有的分支到本地</span><br></pre></td></tr></table></figure>
+<h2 id="忽略已加入到版本库中的文件"><a href="#忽略已加入到版本库中的文件" class="headerlink" title="忽略已加入到版本库中的文件"></a>忽略已加入到版本库中的文件</h2><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">1、git <span class="keyword">update</span>-<span class="keyword">index</span> <span class="comment">--assume-unchanged file 忽略单个文件</span></span><br><span class="line"><span class="number">2</span>、git rm -r <span class="comment">--cached 文件/文件夹名字 (. 忽略全部文件)</span></span><br></pre></td></tr></table></figure>
+<h2 id="取消忽略文件"><a href="#取消忽略文件" class="headerlink" title="取消忽略文件"></a>取消忽略文件</h2><figure class="highlight vim"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git <span class="keyword">update</span>-<span class="built_in">index</span> --<span class="keyword">no</span>-assume-unchanged <span class="keyword">file</span></span><br></pre></td></tr></table></figure>
+<h2 id="拉取、上传免密码"><a href="#拉取、上传免密码" class="headerlink" title="拉取、上传免密码"></a>拉取、上传免密码</h2><figure class="highlight routeros"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git<span class="built_in"> config </span>--global credential.helper store</span><br></pre></td></tr></table></figure>
       
 
       
@@ -484,29 +475,13 @@ getOwnMetadataKeys:function(t){return o(i(t),arguments.length<2?void 0:u(argumen
       
       
     
-      
-      
-      
-    
-      
-      
-      
-    
     
 
     <ul style="width: 70%">
     
     
       
-      <li style="width: 33.333333333333336%" q-on="click: openSlider(e, 'innerArchive')"><a href="javascript:void(0)" q-class="active:innerArchive">所有文章</a></li>
-      
-        
-      
-      <li style="width: 33.333333333333336%" q-on="click: openSlider(e, 'friends')"><a href="javascript:void(0)" q-class="active:friends">友链</a></li>
-      
-        
-      
-      <li style="width: 33.333333333333336%" q-on="click: openSlider(e, 'aboutme')"><a href="javascript:void(0)" q-class="active:aboutme">关于我</a></li>
+      <li style="width: 100%" q-on="click: openSlider(e, 'innerArchive')"><a href="javascript:void(0)" q-class="active:innerArchive">搜索文章 🔎</a></li>
       
         
     </ul>
@@ -527,11 +502,19 @@ getOwnMetadataKeys:function(t){return o(i(t),arguments.length<2?void 0:u(argumen
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">前端</a>
+                <a href="javascript:void(0)" class="js-tag color3">后端</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">nginx</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">js</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">前端</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -548,14 +531,6 @@ getOwnMetadataKeys:function(t){return o(i(t),arguments.length<2?void 0:u(argumen
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">JS</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">后端</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">nginx</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -670,25 +645,7 @@ getOwnMetadataKeys:function(t){return o(i(t),arguments.length<2?void 0:u(argumen
     
 
     
-    	<section class="tools-section tools-section-friends" q-show="friends">
-  		
-        <ul class="search-ul">
-          
-            <li class="search-li">
-              <a href="/wangyuanqi.leanapp.cn" target="_blank" class="search-title"><i class="icon-quo-left icon"></i>Aric-Factory</a>
-            </li>
-          
-        </ul>
-  		
-    	</section>
-    
 
-    
-    	<section class="tools-section tools-section-me" q-show="aboutme">
-  	  	
-  	  		<div class="aboutme-wrap" id="js-aboutme">I Like Codding Bug !</div>
-  	  	
-    	</section>
     
   </div>
   

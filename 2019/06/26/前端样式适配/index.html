@@ -6,17 +6,17 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="https://github.com/Aric-sky">
-  <title>柯里化 与 反柯里化 | Aaron&#39;s blog</title>
+  <title>前端样式适配 | Aaron&#39;s blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="keywords" content="js,前端">
+  <meta name="keywords" content="js,css">
 <meta property="og:type" content="article">
-<meta property="og:title" content="柯里化 与 反柯里化">
-<meta property="og:url" content="https://github.com/Aric-sky/2018/02/08/柯里化-与-反柯里化/index.html">
+<meta property="og:title" content="前端样式适配">
+<meta property="og:url" content="https://github.com/Aric-sky/2019/06/26/前端样式适配/index.html">
 <meta property="og:site_name" content="Aaron&#39;s blog">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-02-08T02:11:04.000Z">
+<meta property="og:updated_time" content="2019-06-26T13:36:58.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="柯里化 与 反柯里化">
+<meta name="twitter:title" content="前端样式适配">
   
     <link rel="alternative" href="/atom.xml" title="Aaron&#39;s blog" type="application/atom+xml">
   
@@ -160,26 +160,26 @@ var _hmt = _hmt || [];
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-柯里化-与-反柯里化" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-前端样式适配" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="article-title" itemprop="name">
-      柯里化 与 反柯里化
+      前端样式适配
     </h1>
   
 
 
 
   <a href="javascript:;" class="archive-article-date">
-      <i class="icon-smile icon"></i> 阅读数:<span id="/2018/02/08/柯里化-与-反柯里化/" class="pageViews">0</span>次
+      <i class="icon-smile icon"></i> 阅读数:<span id="/2019/06/26/前端样式适配/" class="pageViews">0</span>次
   </a>
 
         
-        <a href="/2018/02/08/柯里化-与-反柯里化/" class="archive-article-date">
-  	<time datetime="2018-02-08T02:11:04.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-02-08</time>
+        <a href="/2019/06/26/前端样式适配/" class="archive-article-date">
+  	<time datetime="2019-06-26T13:36:58.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-06-26</time>
 </a>
         
       </header>
@@ -188,37 +188,15 @@ var _hmt = _hmt || [];
       
         <hr>
 <a id="more"></a>
-<h3 id="柯里化"><a href="#柯里化" class="headerlink" title="柯里化"></a>柯里化</h3><p>函数柯里化就是对高阶函数的降阶处理。<br>柯里化简单的说,就是把 n 个参数的函数,变成只接受一个参数的 n 个函数</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">function</span>(arg1,arg2)变成<span class="keyword">function</span>(arg1)(arg2)</span><br><span class="line"><span class="keyword">function</span>(arg1,arg2,arg3)变成<span class="keyword">function</span>(arg1)(arg2)(arg3)</span><br><span class="line"><span class="keyword">function</span>(arg1,arg2,arg3,arg4)变成<span class="keyword">function</span>(arg1)(arg2)(arg3)(arg4)</span><br></pre></td></tr></table></figure>
+<h2 id="IphoneX底部适配"><a href="#IphoneX底部适配" class="headerlink" title="IphoneX底部适配"></a>IphoneX底部适配</h2><p>1.判断是否是IPhoneX手机</p>
+<figure class="highlight nix"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> <span class="attr">isIphone</span> = /iphone/gi.test(window.navigator.userAgent)</span><br><span class="line"><span class="keyword">let</span> <span class="attr">windowW</span> = window.screen.width</span><br><span class="line"><span class="keyword">let</span> <span class="attr">windowH</span> = window.screen.height</span><br><span class="line"><span class="keyword">let</span> <span class="attr">pixelRatio</span> = window.devicePixelRatio</span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> <span class="attr">isIPhoneX</span> = isIphone &amp;&amp; pixelRatio &amp;&amp; <span class="attr">pixelRatio</span> === <span class="number">3</span> &amp;&amp; <span class="attr">windowW</span> === <span class="number">375</span> &amp;&amp; <span class="attr">windowH</span> === <span class="number">812</span></span><br><span class="line"><span class="keyword">let</span> <span class="attr">isIPhoneXSMax</span> = isIphone &amp;&amp; pixelRatio &amp;&amp; <span class="attr">pixelRatio</span> === <span class="number">3</span> &amp;&amp; <span class="attr">windowW</span> === <span class="number">414</span> &amp;&amp; <span class="attr">windowH</span> === <span class="number">896</span></span><br><span class="line"><span class="keyword">let</span> <span class="attr">isIPhoneXR</span> = isIphone &amp;&amp; pixelRatio &amp;&amp; <span class="attr">pixelRatio</span> === <span class="number">2</span> &amp;&amp; <span class="attr">windowW</span> === <span class="number">414</span> &amp;&amp; <span class="attr">windowH</span> === <span class="number">896</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> (isIPhoneX || isIPhoneXSMax || isIPhoneXR) &#123;</span><br><span class="line">  // 底部增加fix-iphonex-bottm 样式</span><br><span class="line">  $(<span class="string">".contact-box"</span>).addClass('fix-iphonex-bottom')</span><br><span class="line">  // 底部增加iphone-footer-bg样式 初始none,条件满足block</span><br><span class="line">  $(<span class="string">".iphone-footer-bg"</span>).addClass('iphonexshow')</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>2.增加fix-iphonex-bottom样式</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.fix-iphonex-bottom</span> &#123;</span><br><span class="line">  <span class="attribute">bottom</span>: <span class="number">34px</span> <span class="meta">!important</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>3.增加iphone-footer-bg样式</p>
 <ul>
-<li>柯里化有什么作用</li>
+<li>更改IPhoneX底部34像素的背景颜色</li>
 </ul>
-<ol>
-<li>参数复用；</li>
-<li>提前返回；</li>
-<li>延迟计算/运行</li>
-</ol>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">//求和</span><br><span class="line"><span class="keyword">function</span> add (a, b, c) &#123;</span><br><span class="line">    <span class="built_in">return</span> a + b + c</span><br><span class="line">&#125;</span><br><span class="line">add(1,2,3)</span><br></pre></td></tr></table></figure>
-<p>如果我只改变 c 的值,在求和<br>add(1,2,4) 是不是得多出重新计算 a + b 的部分<br>我们是不是可以提前返回a+b的值， 然后只传入 c 的值进行计算就行了<br>修改一下方法</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">function</span> add (a, b) &#123;</span><br><span class="line">    <span class="built_in">return</span> <span class="keyword">function</span> (c) &#123;</span><br><span class="line">        <span class="built_in">return</span> a + b + c</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">var sum = add(1, 2)</span><br><span class="line">sum(3)</span><br><span class="line">sum(4)</span><br></pre></td></tr></table></figure>
-<p>在此基础上我们在做下修改<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">function</span> add (a) &#123;</span><br><span class="line">    <span class="built_in">return</span> <span class="keyword">function</span> (b) &#123;</span><br><span class="line">        <span class="built_in">return</span> <span class="keyword">function</span> (c) &#123;</span><br><span class="line">            <span class="built_in">return</span> a + b + c</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<p>这样我们是不是可以随时复用某个参数，并且控制在某个阶段提前返回<br>还有一个经典的例子<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">var addEvent = <span class="keyword">function</span>(el, <span class="built_in">type</span>, fn, capture) &#123;</span><br><span class="line">    <span class="keyword">if</span> (window.addEventListener) &#123;</span><br><span class="line">        el.addEventListener(<span class="built_in">type</span>, <span class="keyword">function</span>(e) &#123;</span><br><span class="line">            fn.call(el, e);</span><br><span class="line">        &#125;, capture);</span><br><span class="line">    &#125; <span class="keyword">else</span> <span class="keyword">if</span> (window.attachEvent) &#123;</span><br><span class="line">        el.attachEvent(<span class="string">"on"</span> + <span class="built_in">type</span>, <span class="keyword">function</span>(e) &#123;</span><br><span class="line">            fn.call(el, e);</span><br><span class="line">        &#125;);</span><br><span class="line">    &#125; </span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure></p>
-<p>我们每次调用事件时，都需要判断兼容问题， 但我们运用柯里化的方式就只要判断一次就行了<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">var addEvent = (<span class="function"><span class="title">function</span></span>()&#123;</span><br><span class="line">    <span class="keyword">if</span> (window.addEventListener) &#123;</span><br><span class="line">        <span class="built_in">return</span> <span class="keyword">function</span>(el, sType, fn, capture) &#123;</span><br><span class="line">            el.addEventListener(sType, <span class="keyword">function</span>(e) &#123;</span><br><span class="line">                fn.call(el, e);</span><br><span class="line">            &#125;, (capture));</span><br><span class="line">        &#125;;</span><br><span class="line">    &#125; <span class="keyword">else</span> <span class="keyword">if</span> (window.attachEvent) &#123;</span><br><span class="line">        <span class="built_in">return</span> <span class="keyword">function</span>(el, sType, fn, capture) &#123;</span><br><span class="line">            el.attachEvent(<span class="string">"on"</span> + sType, <span class="keyword">function</span>(e) &#123;</span><br><span class="line">                fn.call(el, e);</span><br><span class="line">            &#125;);</span><br><span class="line">        &#125;;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;)();</span><br></pre></td></tr></table></figure></p>
-<p>还有一个作用就是延迟计算<br>小明每天都会花一部分钱吃饭<br>小明想知道它5天之后总共会花费多少钱</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">var total = 0</span><br><span class="line">var fn = <span class="keyword">function</span>(num) &#123;</span><br><span class="line">    total += num</span><br><span class="line">&#125;</span><br><span class="line">fn(50)</span><br><span class="line">fn(70)</span><br><span class="line">fn(60)</span><br><span class="line">fn(100)</span><br><span class="line">fn(80)</span><br></pre></td></tr></table></figure>
-<p>这样我们便能算出它总共花了都少钱<br>但是小明又突然想知道 如果他每天花费的的钱翻一倍 会产生多少钱<br>于是我们是不是得改下 上面的 函数</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">var fn = <span class="keyword">function</span>(num) &#123;</span><br><span class="line">    total += num*2</span><br><span class="line">&#125;</span><br><span class="line">fn(50)</span><br><span class="line">fn(70)</span><br><span class="line">fn(60)</span><br><span class="line">fn(100)</span><br><span class="line">fn(80)</span><br></pre></td></tr></table></figure>
-<p>那我们是不是有什么办法，先把这些数 存起来，到最后在进行计算<br>我们接着来封装</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line">var curry = <span class="keyword">function</span>(fn) &#123;</span><br><span class="line">    var args = []</span><br><span class="line">    <span class="built_in">return</span> <span class="function"><span class="title">function</span></span>() &#123;</span><br><span class="line">        <span class="keyword">if</span> (arguments.length === 0) &#123;</span><br><span class="line">            <span class="built_in">return</span> fn.apply(null, args)</span><br><span class="line">        &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">            args = args.concat([].slice.call(arguments))</span><br><span class="line">            <span class="built_in">return</span> curry.call(null, fn, args)</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">var curryFn = <span class="function"><span class="title">function</span></span>() &#123;</span><br><span class="line">    var args = [].slice.call(arguments),</span><br><span class="line">        total = 0</span><br><span class="line">    <span class="keyword">for</span> (var i = 0; i &lt; args.length; i++) &#123;</span><br><span class="line">        total += args[i]</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="built_in">return</span> total</span><br><span class="line">&#125;</span><br><span class="line">var fn = curry(curryFn)</span><br><span class="line">fn(50)</span><br><span class="line">fn(70)</span><br><span class="line">fn(60)</span><br><span class="line">fn(100)</span><br><span class="line">fn(80)</span><br><span class="line"></span><br><span class="line">fn() //不传参数的时候进行计算</span><br></pre></td></tr></table></figure>
-<p>这样我们只有最后的时候才进行计算。<br>而且只需要修改 curryFn 里面的计算方法就行<br>我们整理下上面的方法封装完整的柯里化函数</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">var curry = <span class="keyword">function</span> (fn, length) &#123;</span><br><span class="line">    length = length || fn.length;</span><br><span class="line">    var sub_curry = <span class="keyword">function</span> (f) &#123;</span><br><span class="line">        var args = [].slice.call(arguments, 1);</span><br><span class="line">        <span class="built_in">return</span> <span class="function"><span class="title">function</span></span> () &#123;</span><br><span class="line">            <span class="built_in">return</span> f.apply(null, args.concat([].slice.call(arguments)))</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="built_in">return</span> <span class="function"><span class="title">function</span></span> () &#123;</span><br><span class="line">        var args = [].slice.call(arguments);</span><br><span class="line">        <span class="keyword">if</span> (length &gt; args.length) &#123;</span><br><span class="line">            var newArgs = [fn].concat(args);</span><br><span class="line">            <span class="built_in">return</span> curry(sub_curry.apply(null,newArgs), length - args.length)</span><br><span class="line">        &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">            fn.apply(null,arguments)</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">// 1.</span><br><span class="line">var fn  = curry( <span class="keyword">function</span>(a,b,c)&#123;</span><br><span class="line">    console.log(a, b, c)</span><br><span class="line">&#125;)</span><br><span class="line">fn(<span class="string">'a'</span>)(<span class="string">'b'</span>)(<span class="string">'c'</span>)</span><br><span class="line"></span><br><span class="line">// 2.</span><br><span class="line">fn1 = curry(<span class="function"><span class="title">function</span></span>()&#123;</span><br><span class="line">    console.log(arguments)</span><br><span class="line">&#125;, 3)</span><br><span class="line">fn1(<span class="string">'a'</span>)(<span class="string">'b'</span>)(<span class="string">'c'</span>)</span><br></pre></td></tr></table></figure>
-<h3 id="反柯里化"><a href="#反柯里化" class="headerlink" title="反柯里化"></a>反柯里化</h3><p>反柯里化的作用在与扩大函数的适用性，使本来作为特定对象所拥有的功能的函数可以被任意对象所用.<br>被任意对象使用？ 是不是想到了用call, apply 设置this指向</p>
-<ul>
-<li>通过 call/apply 被任意对象所用<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">var obj = &#123;</span><br><span class="line">    a: 1,</span><br><span class="line">    fn: <span class="keyword">function</span> (b) &#123;</span><br><span class="line">        <span class="built_in">return</span> this.a + b</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">obj.fn(2) // 3</span><br><span class="line">var obj1 = &#123;a:4&#125;</span><br><span class="line">obj.fn.call(obj1, 2) // 6</span><br></pre></td></tr></table></figure>
-</li>
-</ul>
-<p>反柯里化版本<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">var uncurrying= <span class="keyword">function</span> (fn) &#123;</span><br><span class="line">    <span class="built_in">return</span> <span class="function"><span class="title">function</span></span> () &#123;</span><br><span class="line">        var context=[].shift.call(arguments);</span><br><span class="line">        <span class="built_in">return</span> fn.apply(context,arguments);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">// const uncurrying = fn =&gt; (...args) =&gt; Function.prototype.call.apply(fn,args) // 简洁版</span><br><span class="line">var f = <span class="keyword">function</span> (b) &#123;</span><br><span class="line">    <span class="built_in">return</span> this.a + b</span><br><span class="line">&#125;</span><br><span class="line">var uncurry = uncurrying(f)</span><br><span class="line">var obj = &#123;a:1&#125;,</span><br><span class="line">    obj1 = &#123;a:4&#125;</span><br><span class="line">uncurry(obj, 2) // 3</span><br><span class="line">uncurry(obj1, 2) // 3</span><br></pre></td></tr></table></figure></p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.iphone-footer-bg</span> &#123;</span><br><span class="line">  <span class="attribute">height</span>: <span class="number">34px</span>;</span><br><span class="line">  <span class="attribute">background</span>: <span class="number">#6D6D6D</span>;</span><br><span class="line">  <span class="attribute">width</span>: <span class="number">100%</span>;</span><br><span class="line">  <span class="attribute">position</span>: absolute;</span><br><span class="line">  <span class="attribute">bottom</span>: -<span class="number">33px</span>;</span><br><span class="line">  <span class="attribute">display</span>: none;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-class">.iphonexshow</span> &#123;</span><br><span class="line">  <span class="attribute">display</span>: block <span class="meta">!important</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
       
 
@@ -267,7 +245,7 @@ var _hmt = _hmt || [];
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">前端</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">css</a>
         		</li>
       		
 		</ul>
@@ -323,7 +301,7 @@ var _hmt = _hmt || [];
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="http://aric.leanapp.cn/qrimg/create_qrcode?url=https://github.com/Aric-sky/2018/02/08/柯里化-与-反柯里化/" alt="微信分享二维码">
+      <img src="http://aric.leanapp.cn/qrimg/create_qrcode?url=https://github.com/Aric-sky/2019/06/26/前端样式适配/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -340,18 +318,9 @@ var _hmt = _hmt || [];
   
 <nav id="article-nav">
   
-    <a href="/2018/02/08/|| 和-的区别/" id="article-nav-newer" class="article-nav-link-wrap">
-      <i class="icon-circle-left"></i>
-      <div class="article-nav-title">
-        
-          || 和 &amp;&amp; 的区别
-        
-      </div>
-    </a>
   
-  
-    <a href="/2018/02/08/前端异步解决方案/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">前端异步解决方案</div>
+    <a href="/2019/05/30/URL/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">URL</div>
       <i class="icon-circle-right"></i>
     </a>
   
