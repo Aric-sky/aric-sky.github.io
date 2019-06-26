@@ -105,9 +105,9 @@ slider:
 #smart_menu:
 #  friends: false
 smart_menu:
-  innerArchive: '所有文章'
-  friends: '友链'
-  aboutme: '关于我'
+  innerArchive: '搜索文章 🔎'
+  # friends: '友链'
+  # aboutme: '关于我'
 
 friends:
   Aric-Factory: wangyuanqi.leanapp.cn
