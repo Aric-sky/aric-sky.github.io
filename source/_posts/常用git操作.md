@@ -27,11 +27,16 @@ updated: 2019-02-25 20:53:47
 ```
 ## 暂存操作
 ```
-  git stash 暂存当前修改
-  git stash apply 恢复最近的一次暂存
-  git stash pop 恢复暂存并删除暂存记录
+  1. 使用git stash命令先把当前进度保存起来，
+  2. 然后切换到另一个分支去修改bug，修改完提交后，
+  3. 再切回dev分支，
+  4. 使用git stash pop来恢复之前的进度继续开发新功能。
+  ---
+  git stash [save 'message...']  暂存当前修改，可以添加一些注释
+  git stash apply [–index] [stash_id] 恢复暂存不删除暂存记录
+  git stash pop [–index] [stash_id] 恢复暂存并删除暂存记录
   git stash list 查看暂存列表
-  git stash drop 暂存名(例：stash@{0}) 移除某次暂存
+  git stash drop [stash_id] 删除一个存储的进度。如果不指定stash_id，则默认删除最新的存储进度。
   git stash clear 清除暂存
 ```
 ## 回退操作
