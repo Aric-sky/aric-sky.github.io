@@ -6,19 +6,17 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="https://github.com/Aric-sky">
-  <title>Tag: 前端 | Aaron&#39;s blog</title>
+  <title>nginx错误问题分析 | Aaron&#39;s blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="From small beginnings comes great things">
-<meta name="keywords" content="Aaron">
-<meta property="og:type" content="website">
-<meta property="og:title" content="Aaron&#39;s blog">
-<meta property="og:url" content="https://github.com/Aric-sky/tags/前端/page/4/index.html">
+  <meta name="keywords" content="后端,nginx">
+<meta property="og:type" content="article">
+<meta property="og:title" content="nginx错误问题分析">
+<meta property="og:url" content="https://github.com/Aric-sky/2019/09/15/nginx错误问题分析/index.html">
 <meta property="og:site_name" content="Aaron&#39;s blog">
-<meta property="og:description" content="From small beginnings comes great things">
 <meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2019-09-15T03:23:04.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Aaron&#39;s blog">
-<meta name="twitter:description" content="From small beginnings comes great things">
+<meta name="twitter:title" content="nginx错误问题分析">
   
     <link rel="alternative" href="/atom.xml" title="Aaron&#39;s blog" type="application/atom+xml">
   
@@ -162,121 +160,199 @@ var _hmt = _hmt || [];
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-  
+            <article id="post-nginx错误问题分析" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
     
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2018" class="archive-year">2018</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2018/02/06/es6中export和export-default的作用、区别/" class="archive-article-date">
-  	<time datetime="2018-02-06T12:26:18.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-02-06</time>
-</a>
-        </div>
-    	 
+      <header class="article-header">
+        
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2018/02/06/es6中export和export-default的作用、区别/">es6中export和export default的作用、区别</a>
+    <h1 class="article-title" itemprop="name">
+      nginx错误问题分析
     </h1>
   
 
 
 
   <a href="javascript:;" class="archive-article-date">
-      <i class="icon-smile icon"></i> 阅读数:<span id="/2018/02/06/es6中export和export-default的作用、区别/" class="pageViews">0</span>次
+      <i class="icon-smile icon"></i> 阅读数:<span id="/2019/09/15/nginx错误问题分析/" class="pageViews">0</span>次
   </a>
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">前端</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">JS</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2018/02/06/设计模式——单例模式/" class="archive-article-date">
-  	<time datetime="2018-02-06T09:43:24.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-02-06</time>
+        
+        <a href="/2019/09/15/nginx错误问题分析/" class="archive-article-date">
+  	<time datetime="2019-09-15T03:23:04.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-09-15</time>
 </a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <hr>
+<a id="more"></a>
+<h2 id="nginx启动服务提示98-Address-already-in-use错误"><a href="#nginx启动服务提示98-Address-already-in-use错误" class="headerlink" title="nginx启动服务提示98: Address already in use错误"></a>nginx启动服务提示98: Address already in use错误</h2><ol>
+<li>首先用lsof －i :80查看80端口被什么程序占用；</li>
+<li>kill 掉所有的nginx进程</li>
+<li>重启nginx</li>
+</ol>
+<h2 id="nginx-error-open-“-usr-local-nginx-logs-nginx-pid”-failed-2-No-such-file-or-directory"><a href="#nginx-error-open-“-usr-local-nginx-logs-nginx-pid”-failed-2-No-such-file-or-directory" class="headerlink" title="nginx: [error] open() “/usr/local/nginx/logs/nginx.pid” failed (2: No such file or directory)"></a>nginx: [error] open() “/usr/local/nginx/logs/nginx.pid” failed (2: No such file or directory)</h2><figure class="highlight tap"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">　　[root@localhost nginx]<span class="comment"># nginx -c /etc/nginx/nginx.conf</span></span><br><span class="line">　　使用nginx -c的参数指定nginx.conf文件的位置</span><br><span class="line">　　[root@localhost nginx]<span class="comment"># cd logs/</span></span><br><span class="line">　　[root@localhost logs]<span class="comment"># ll</span></span><br><span class="line">　　总用量 12</span><br><span class="line">　　-rw-r--r--<span class="number"> 1 </span>root root<span class="number"> 1246 </span>12月<span class="number"> 9 </span>18:10 access.log</span><br><span class="line">　　-rw-r--r--<span class="number"> 1 </span>root root<span class="number"> 516 </span>12月<span class="number"> 10 </span>15:39 error.log</span><br><span class="line">　　-rw-r--r--<span class="number"> 1 </span>root root<span class="number"> 5 </span>12月<span class="number"> 10 </span>15:38 nginx.pid</span><br><span class="line">　　看nginx.pid文件已经有了。</span><br></pre></td></tr></table></figure>
+
+      
+
+      
+        <div class="page-reward">
+          <a href="javascript:;" class="page-reward-btn tooltip-top">
+            <div class="tooltip tooltip-east">
+            <span class="tooltip-item">
+              赏
+            </span>
+            <span class="tooltip-content">
+              <span class="tooltip-text">
+                <span class="tooltip-inner">
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>帮助楼主迎娶白富美<i class="icon icon-quo-right"></i></p>
+                  <div class="reward-box">
+                    
+                    <div class="reward-box-item">
+                      <img class="reward-img" src="/assets/images/pay/alipay.jpg">
+                      <span class="reward-type">支付宝</span>
+                    </div>
+                    
+                    
+                    <div class="reward-box-item">
+                      <img class="reward-img" src="/assets/images/pay/weixin.jpg">
+                      <span class="reward-type">微信</span>
+                    </div>
+                    
+                  </div>
+                </span>
+              </span>
+            </span>
+          </div>
+          </a>
         </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2018/02/06/设计模式——单例模式/">js设计模式</a>
-    </h1>
-  
-
-
-
-  <a href="javascript:;" class="archive-article-date">
-      <i class="icon-smile icon"></i> 阅读数:<span id="/2018/02/06/设计模式——单例模式/" class="pageViews">0</span>次
-  </a>
-
-        <div class="article-info info-on-right">
-          
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">前端</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">后端</a>
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">设计模式</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">nginx</a>
         		</li>
       		
 		</ul>
 	</div>
 
-          
+      
 
+      
+
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="http://aric.leanapp.cn/qrimg/create_qrcode?url=https://github.com/Aric-sky/2019/09/15/nginx错误问题分析/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
+
+
+  
+<nav id="article-nav">
   
   
-    </div></section>
+    <a href="/2019/08/29/Markdown语法快速学习/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">Markdown语法快速学习</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
   
 
-    
-    <nav id="page-nav">
-      <a class="extend prev" rel="prev" href="/tags/前端/page/3/">&laquo; Prev</a><a class="page-number" href="/tags/前端/">1</a><a class="page-number" href="/tags/前端/page/2/">2</a><a class="page-number" href="/tags/前端/page/3/">3</a><span class="page-number current">4</span>
-    </nav>
+  
+
+  
+
+  
+
+  
+
   
 
 
@@ -302,9 +378,9 @@ var _hmt = _hmt || [];
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
+		isPost: true,
 		isArchive: false,
-		isTag: true,
+		isTag: false,
 		isCategory: false,
 		open_in_new: true,
 		toc_hide_index: true,
