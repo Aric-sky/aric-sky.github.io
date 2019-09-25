@@ -11,12 +11,14 @@ updated: 2019-05-30 21:59:18
 <!-- more -->
 
 
-> 完整的URL由这几个部分构成：
+### 完整的URL由这几个部分构成：
+
 ```
     scheme://host:port/path?query#fragment
 ```
 
-> 名词解释：
+### 名词解释：
+
 ```
     scheme:通信协议.常用的http,https,ftp,maito等.
     host:主机(带端口号). 主机名或IP 地址。
