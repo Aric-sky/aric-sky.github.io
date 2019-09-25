@@ -1,5 +1,5 @@
 layout: post
-title: URL
+title: URL组成
 comment: true
 tags: [js]
 date: 2019-05-30 21:59:18
@@ -10,18 +10,21 @@ updated: 2019-05-30 21:59:18
 
 <!-- more -->
 
-## URL组成
-- 完整的URL由这几个部分构成：
-    scheme://host:port/path?query#fragment
 
-- 名词解释：
+> 完整的URL由这几个部分构成：
+```
+    scheme://host:port/path?query#fragment
+```
+
+> 名词解释：
+```
     scheme:通信协议.常用的http,https,ftp,maito等.
     host:主机(带端口号). 主机名或IP 地址。
     port:端口号,可选，省略时使用默认端口，如http的默认端口为80。
     path:路径:由零或多个"/"符号隔开的字符串，一般用来表示主机上的一个目录或文件地址。
     query:查询参数,可选，用于给动态网页传递参数，可有多个参数，用"&"符号隔开，每个参数的名和值用"="符号隔开。
     fragment:信息片断，字符串，用于指定网络资源中的片断。(也称为锚点.)
-
+```
 
 ### 具体片段使用实例：
 
