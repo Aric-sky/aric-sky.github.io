@@ -94,7 +94,7 @@ deploy:
   branch: master
 
 
-duoshuo_shortname: wangyuanqi.info
+duoshuo_shortname: wangyuanqi.com
 
 jsonContent:
     meta: false
