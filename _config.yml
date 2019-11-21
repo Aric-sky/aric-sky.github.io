@@ -3,13 +3,13 @@
 ## Source: https://github.com/hexojs/hexo/
 
 # Site
-title: Aaron's blog
+title: 王元奇的博客
 subtitle: 满满正能量<br/>
 description: From small beginnings comes great things
 author: Aaron
 email: wangyuanqi518@163.com
 language: zh-Hans
-keywords: Aaron
+keywords: 博客;新闻;前端;程序员;爱好;
 
 # URL
 ## If your site is put in a subdirectory, set url as 'http://yoursite.com/child' and root as '/child/'

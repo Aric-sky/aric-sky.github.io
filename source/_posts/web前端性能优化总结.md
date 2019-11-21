@@ -10,7 +10,7 @@ updated: 2018-02-09 09:53:06
 <!-- more -->
 ### 浏览器访问优化
 浏览器请求处理流程如下图：
-![flowsheet](http://cdn.wangyuanqi.xyz/web%E8%AF%B7%E6%B1%82.png)
+![flowsheet](http://cdn.wangyuanqi.com/web%E8%AF%B7%E6%B1%82.png)
 
 1、 减少http请求，合理设置 HTTP缓存
 原因：http协议是无状态的应用层协议，意味着每次http请求都需要建立通信链路、进行数据传输，而在服务器端，每个http都需要启动独立的线程去处理。这些通信和服务的开销都很昂贵，减少http请求的数目可有效提高访问性能。
@@ -115,7 +115,7 @@ b. Reflow & Repaint　　
 - CDN加速
 CDN（contentdistribute network，内容分发网络）的本质仍然是一个缓存，而且将数据缓存在离用户最近的地方，使用户以最快速度获取数据，即所谓网络访问第一跳，如下图。
 
-![cdn网络](http://cdn.wangyuanqi.xyz/cdn.png)
+![cdn网络](http://cdn.wangyuanqi.com/cdn.png)
 
 - 由于CDN部署在网络运营商的机房，这些运营商又是终端用户的网络服务提供商，因此用户请求路由的第一跳就到达了CDN服务器，当CDN中存在浏览器请求的资源时，从CDN直接返回给浏览器，最短路径返回响应，加快用户访问速度，减少数据中心负载压力。 
 - CDN缓存的一般是静态资源，如图片、文件、CSS、script脚本、静态网页等，但是这些文件访问频度很高，将其缓存在CDN可极大改善网页的打开速度。
@@ -123,7 +123,7 @@ CDN（contentdistribute network，内容分发网络）的本质仍然是一个�
 - 反向代理
 传统代理服务器位于浏览器一侧，代理浏览器将http请求发送到互联网上，而反向代理服务器位于网站机房一侧，代理网站web服务器接收http请求。如下图所示：
 
-![反向代理](http://cdn.wangyuanqi.xyz/nginx%E5%8F%8D%E5%90%91%E4%BB%A3%E7%90%86.png)
+![反向代理](http://cdn.wangyuanqi.com/nginx%E5%8F%8D%E5%90%91%E4%BB%A3%E7%90%86.png)
 
 - 论坛网站，把热门词条、帖子、博客缓存在反向代理服务器上加速用户访问速度，当这些动态内容有变化时，通过内部通知机制通知反向代理缓存失效，反向代理会重新加载最新的动态内容再次缓存起来。
 

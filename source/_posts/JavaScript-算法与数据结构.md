@@ -180,7 +180,7 @@ npm test -- -t 'playground'
 
 大O符号中指定的算法的增长顺序。
 
-![Big O graphs](http://cdn.wangyuanqi.xyz/big-o-graph.png)
+![Big O graphs](http://cdn.wangyuanqi.com/big-o-graph.png)
 
 源: [Big O Cheat Sheet](http://bigocheatsheet.com/).
 

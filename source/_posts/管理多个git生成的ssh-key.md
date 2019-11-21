@@ -20,7 +20,7 @@ ssh-keygen -t rsa -C "yourmail@gmail.com"
 ```
 - 这里不要一路回传，让你选择在哪里选择存放key的时候写个名字，比如 id_rsa_github，之后的两个可以回车。
 
-![shhkey1](http://cdn.wangyuanqi.xyz/sshkey1.png)
+![shhkey1](http://cdn.wangyuanqi.com/sshkey1.png)
 - 上图的红色框框是自己输入的
 
 ## 生成第二个ssh key
@@ -30,10 +30,10 @@ ssh-keygen -t rsa -C "yourmail@gmail.com"
 ```
 一样不要一路回车
 
-![shhkey2](http://cdn.wangyuanqi.xyz/shhkey2.png)
+![shhkey2](http://cdn.wangyuanqi.com/shhkey2.png)
 
 最终结果是这样子的：
-![shhkey3](http://cdn.wangyuanqi.xyz/sshkey3.png)
+![shhkey3](http://cdn.wangyuanqi.com/sshkey3.png)
 图中的config文件是我自己建的，也就是接下来要说的
 
 ## 2.配置config
@@ -70,7 +70,7 @@ pbcopy < ~.ssh/id_rsa.pub
 ```
 > 然后粘贴到你登录的github账号上面Settings -->SSH keys -->Add SSH key 保存即可 Title 可以随便写，Key粘贴刚复制内容，这样SSH key 就添加到你的Github上了。
 
-![shhkey4](http://cdn.wangyuanqi.xyz/sshkey4.png)
+![shhkey4](http://cdn.wangyuanqi.com/sshkey4.png)
 
 ## 4.测试
 填上刚刚生成的，然后你就可以上传文件试试或者用下面方法测试
@@ -78,5 +78,5 @@ pbcopy < ~.ssh/id_rsa.pub
 ```bash
 ssh -T git@github.com
 ```
-![shhkey5](http://cdn.wangyuanqi.xyz/sshkey5.png)
+![shhkey5](http://cdn.wangyuanqi.com/sshkey5.png)
 
