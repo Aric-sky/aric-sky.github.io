@@ -6,23 +6,23 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="https://github.com/Aric-sky">
-  <title>web前端性能优化总结 | Aaron&#39;s blog</title>
+  <title>web前端性能优化总结 | 王元奇的博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta name="keywords" content="前端,优化">
 <meta property="og:type" content="article">
 <meta property="og:title" content="web前端性能优化总结">
 <meta property="og:url" content="https://github.com/Aric-sky/2018/02/09/web前端性能优化总结/index.html">
-<meta property="og:site_name" content="Aaron&#39;s blog">
+<meta property="og:site_name" content="王元奇的博客">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:image" content="http://cdn.wangyuanqi.xyz/web%E8%AF%B7%E6%B1%82.png">
-<meta property="og:image" content="http://cdn.wangyuanqi.xyz/cdn.png">
-<meta property="og:image" content="http://cdn.wangyuanqi.xyz/nginx%E5%8F%8D%E5%90%91%E4%BB%A3%E7%90%86.png">
+<meta property="og:image" content="http://cdn.wangyuanqi.com/web%E8%AF%B7%E6%B1%82.png">
+<meta property="og:image" content="http://cdn.wangyuanqi.com/cdn.png">
+<meta property="og:image" content="http://cdn.wangyuanqi.com/nginx%E5%8F%8D%E5%90%91%E4%BB%A3%E7%90%86.png">
 <meta property="og:updated_time" content="2018-02-09T01:53:06.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="web前端性能优化总结">
-<meta name="twitter:image" content="http://cdn.wangyuanqi.xyz/web%E8%AF%B7%E6%B1%82.png">
+<meta name="twitter:image" content="http://cdn.wangyuanqi.com/web%E8%AF%B7%E6%B1%82.png">
   
-    <link rel="alternative" href="/atom.xml" title="Aaron&#39;s blog" type="application/atom+xml">
+    <link rel="alternative" href="/atom.xml" title="王元奇的博客" type="application/atom+xml">
   
   
     <link rel="icon" href="/assets/images/favicon/favicon.ico">
@@ -192,7 +192,7 @@ var _hmt = _hmt || [];
       
         <hr>
 <a id="more"></a>
-<h3 id="浏览器访问优化"><a href="#浏览器访问优化" class="headerlink" title="浏览器访问优化"></a>浏览器访问优化</h3><p>浏览器请求处理流程如下图：<br><img src="http://cdn.wangyuanqi.xyz/web%E8%AF%B7%E6%B1%82.png" alt="flowsheet"></p>
+<h3 id="浏览器访问优化"><a href="#浏览器访问优化" class="headerlink" title="浏览器访问优化"></a>浏览器访问优化</h3><p>浏览器请求处理流程如下图：<br><img src="http://cdn.wangyuanqi.com/web%E8%AF%B7%E6%B1%82.png" alt="flowsheet"></p>
 <p>1、 减少http请求，合理设置 HTTP缓存<br>原因：http协议是无状态的应用层协议，意味着每次http请求都需要建立通信链路、进行数据传输，而在服务器端，每个http都需要启动独立的线程去处理。这些通信和服务的开销都很昂贵，减少http请求的数目可有效提高访问性能。</p>
 <p>方法：减少http的主要手段是合并CSS、合并javascript、合并图片。将浏览器一次访问需要的javascript和CSS合并成一个文件，这样浏览器就只需要一次请求。图片也可以合并，多张图片合并成一张，如果每张图片都有不同的超链接，可通过CSS偏移响应鼠标点击操作，构造不同的URL。</p>
 <p>2、 使用浏览器缓存<br>对一个网站而言，CSS、javascript、logo、图标这些静态资源文件更新的频率都比较低，而这些文件又几乎是每次http请求都需要的，如果将这些文件缓存在浏览器中，可以极好的改善性能。通过设置http头中的cache-control和expires的属性。</p>
@@ -219,7 +219,7 @@ var _hmt = _hmt || [];
 <h3 id="服务端优化"><a href="#服务端优化" class="headerlink" title="服务端优化"></a>服务端优化</h3><ul>
 <li>CDN加速<br>CDN（contentdistribute network，内容分发网络）的本质仍然是一个缓存，而且将数据缓存在离用户最近的地方，使用户以最快速度获取数据，即所谓网络访问第一跳，如下图。</li>
 </ul>
-<p><img src="http://cdn.wangyuanqi.xyz/cdn.png" alt="cdn网络"></p>
+<p><img src="http://cdn.wangyuanqi.com/cdn.png" alt="cdn网络"></p>
 <ul>
 <li>由于CDN部署在网络运营商的机房，这些运营商又是终端用户的网络服务提供商，因此用户请求路由的第一跳就到达了CDN服务器，当CDN中存在浏览器请求的资源时，从CDN直接返回给浏览器，最短路径返回响应，加快用户访问速度，减少数据中心负载压力。 </li>
 <li><p>CDN缓存的一般是静态资源，如图片、文件、CSS、script脚本、静态网页等，但是这些文件访问频度很高，将其缓存在CDN可极大改善网页的打开速度。</p>
@@ -227,7 +227,7 @@ var _hmt = _hmt || [];
 <li><p>反向代理<br>传统代理服务器位于浏览器一侧，代理浏览器将http请求发送到互联网上，而反向代理服务器位于网站机房一侧，代理网站web服务器接收http请求。如下图所示：</p>
 </li>
 </ul>
-<p><img src="http://cdn.wangyuanqi.xyz/nginx%E5%8F%8D%E5%90%91%E4%BB%A3%E7%90%86.png" alt="反向代理"></p>
+<p><img src="http://cdn.wangyuanqi.com/nginx%E5%8F%8D%E5%90%91%E4%BB%A3%E7%90%86.png" alt="反向代理"></p>
 <ul>
 <li><p>论坛网站，把热门词条、帖子、博客缓存在反向代理服务器上加速用户访问速度，当这些动态内容有变化时，通过内部通知机制通知反向代理缓存失效，反向代理会重新加载最新的动态内容再次缓存起来。</p>
 </li>

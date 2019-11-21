@@ -6,22 +6,22 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="https://github.com/Aric-sky">
-  <title>观察者模式和订阅/发布者模式 | Aaron&#39;s blog</title>
+  <title>观察者模式和订阅/发布者模式 | 王元奇的博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta name="keywords" content="js">
 <meta property="og:type" content="article">
 <meta property="og:title" content="观察者模式和订阅&#x2F;发布者模式">
 <meta property="og:url" content="https://github.com/Aric-sky/2019/01/30/观察者模式和订阅-发布者模式/index.html">
-<meta property="og:site_name" content="Aaron&#39;s blog">
+<meta property="og:site_name" content="王元奇的博客">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:image" content="http://cdn.wangyuanqi.xyz/looks.png">
-<meta property="og:image" content="http://cdn.wangyuanqi.xyz/orders.png">
+<meta property="og:image" content="http://cdn.wangyuanqi.com/looks.png">
+<meta property="og:image" content="http://cdn.wangyuanqi.com/orders.png">
 <meta property="og:updated_time" content="2019-01-30T08:42:29.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="观察者模式和订阅&#x2F;发布者模式">
-<meta name="twitter:image" content="http://cdn.wangyuanqi.xyz/looks.png">
+<meta name="twitter:image" content="http://cdn.wangyuanqi.com/looks.png">
   
-    <link rel="alternative" href="/atom.xml" title="Aaron&#39;s blog" type="application/atom+xml">
+    <link rel="alternative" href="/atom.xml" title="王元奇的博客" type="application/atom+xml">
   
   
     <link rel="icon" href="/assets/images/favicon/favicon.ico">
@@ -194,10 +194,10 @@ var _hmt = _hmt || [];
 <p>在翻阅资料的时候，有人把观察者（Observer）模式等同于发布（Publish）/订阅（Subscribe）模式，也有人认为这两种模式还是存在差异，而我认为确实是存在差异的，本质上的区别是调度的地方不同。</p>
 <h4 id="观察者模式"><a href="#观察者模式" class="headerlink" title="观察者模式"></a>观察者模式</h4><p>比较概念的解释是，目标和观察者是基类，目标提供维护观察者的一系列方法，观察者提供更新接口。具体观察者和具体目标继承各自的基类，然后具体观察者把自己注册到具体目标里，在具体目标发生变化时候，调度观察者的更新方法。</p>
 <p>比如有个“天气中心”的具体目标A，专门监听天气变化，而有个显示天气的界面的观察者B，B就把自己注册到A里，当A触发天气变化，就调度B的更新方法，并带上自己的上下文。</p>
-<p><img src="http://cdn.wangyuanqi.xyz/looks.png" alt="Login progress"></p>
+<p><img src="http://cdn.wangyuanqi.com/looks.png" alt="Login progress"></p>
 <h4 id="发布-订阅模式"><a href="#发布-订阅模式" class="headerlink" title="发布/订阅模式"></a>发布/订阅模式</h4><p>比较概念的解释是，订阅者把自己想订阅的事件注册到调度中心，当该事件触发时候，发布者发布该事件到调度中心（顺带上下文），由调度中心统一调度订阅者注册到调度中心的处理代码。</p>
 <p>比如有个界面是实时显示天气，它就订阅天气事件（注册到调度中心，包括处理程序），当天气变化时（定时获取数据），就作为发布者发布天气信息到调度中心，调度中心就调度订阅者的天气处理程序。</p>
-<p><img src="http://cdn.wangyuanqi.xyz/orders.png" alt="Login progress"></p>
+<p><img src="http://cdn.wangyuanqi.com/orders.png" alt="Login progress"></p>
 <h4 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h4><ol>
 <li>从两张图片可以看到，最大的区别是调度的地方。</li>
 </ol>
