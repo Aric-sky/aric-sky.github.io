@@ -124,4 +124,4 @@ leancloud_visitors:
 #添加一下js插件的 CDN地址
 js_cdn:
   jquery: https://cdn.bootcss.com/jquery/3.2.1/jquery.min.js
-  av : //cdn1.lncld.net/static/js/2.5.0/av-min.js
+  av : //cdn1.lncld.net/static/js/3.0.4/av-min.js
