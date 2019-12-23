@@ -14,9 +14,11 @@
 <meta property="og:url" content="https://github.com/Aric-sky/2019/02/25/常用git操作/index.html">
 <meta property="og:site_name" content="王元奇的博客">
 <meta property="og:locale" content="zh-Hans">
+<meta property="og:image" content="http://cdn.wangyuanqi.com/gitpng.png">
 <meta property="og:updated_time" content="2019-02-25T12:53:47.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="常用git操作">
+<meta name="twitter:image" content="http://cdn.wangyuanqi.com/gitpng.png">
   
     <link rel="alternative" href="/atom.xml" title="王元奇的博客" type="application/atom+xml">
   
@@ -197,6 +199,8 @@ var _hmt = _hmt || [];
 <h2 id="忽略已加入到版本库中的文件"><a href="#忽略已加入到版本库中的文件" class="headerlink" title="忽略已加入到版本库中的文件"></a>忽略已加入到版本库中的文件</h2><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">1、git <span class="keyword">update</span>-<span class="keyword">index</span> <span class="comment">--assume-unchanged file 忽略单个文件</span></span><br><span class="line"><span class="number">2</span>、git rm -r <span class="comment">--cached 文件/文件夹名字 (. 忽略全部文件)</span></span><br></pre></td></tr></table></figure>
 <h2 id="取消忽略文件"><a href="#取消忽略文件" class="headerlink" title="取消忽略文件"></a>取消忽略文件</h2><figure class="highlight vim"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git <span class="keyword">update</span>-<span class="built_in">index</span> --<span class="keyword">no</span>-assume-unchanged <span class="keyword">file</span></span><br></pre></td></tr></table></figure>
 <h2 id="拉取、上传免密码"><a href="#拉取、上传免密码" class="headerlink" title="拉取、上传免密码"></a>拉取、上传免密码</h2><figure class="highlight routeros"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git<span class="built_in"> config </span>--global credential.helper store</span><br></pre></td></tr></table></figure>
+<hr>
+<p><img src="http://cdn.wangyuanqi.com/gitpng.png" alt="git图"></p>
 
       
 
