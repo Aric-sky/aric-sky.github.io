@@ -67,6 +67,7 @@ updated: 2019-02-25 20:53:47
   git merge --no-ff -m '合并描述' 分支名 不使用Fast forward方式合并，采用这种方式合并可以看到合并记录
   git check-ignore -v 文件名 查看忽略规则
   git add -f 文件名 强制将文件提交
+  git push origin 分支名 --force   强制提交本地分支覆盖远程分支
 ```
 
 ## git创建项目仓库
