@@ -90,3 +90,7 @@ updated: 2019-02-25 20:53:47
 ```
   git config --global credential.helper store
 ```
+
+---
+
+![git图](http://cdn.wangyuanqi.com/gitpng.png)
