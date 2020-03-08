@@ -6,19 +6,21 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="https://github.com/Aric-sky">
-  <title>常用git操作 | 王元奇的博客</title>
+  <title>JavaScript 异步竞争态处理 | 王元奇的博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="keywords" content="git">
+  <meta name="keywords" content="js">
 <meta property="og:type" content="article">
-<meta property="og:title" content="常用git操作">
-<meta property="og:url" content="https://github.com/Aric-sky/2019/02/25/常用git操作/index.html">
+<meta property="og:title" content="JavaScript 异步竞争态处理">
+<meta property="og:url" content="https://github.com/Aric-sky/2020/03/08/JavaScript-异步竞争态处理/index.html">
 <meta property="og:site_name" content="王元奇的博客">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:image" content="http://cdn.wangyuanqi.com/gitpng.png">
-<meta property="og:updated_time" content="2019-02-25T12:53:47.000Z">
+<meta property="og:image" content="https://img.alicdn.com/tfs/TB1popNup67gK0jSZPfXXahhFXa-578-199.jpg">
+<meta property="og:image" content="https://img.alicdn.com/tfs/TB1eQSquuL2gK0jSZFmXXc7iXXa-1139-296.jpg">
+<meta property="og:image" content="https://img.alicdn.com/tfs/TB14aSsurj1gK0jSZFOXXc7GpXa-993-234.jpg">
+<meta property="og:updated_time" content="2020-03-08T04:02:36.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="常用git操作">
-<meta name="twitter:image" content="http://cdn.wangyuanqi.com/gitpng.png">
+<meta name="twitter:title" content="JavaScript 异步竞争态处理">
+<meta name="twitter:image" content="https://img.alicdn.com/tfs/TB1popNup67gK0jSZPfXXahhFXa-578-199.jpg">
   
     <link rel="alternative" href="/atom.xml" title="王元奇的博客" type="application/atom+xml">
   
@@ -162,26 +164,26 @@ var _hmt = _hmt || [];
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-常用git操作" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-JavaScript-异步竞争态处理" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="article-title" itemprop="name">
-      常用git操作
+      JavaScript 异步竞争态处理
     </h1>
   
 
 
 
   <a href="javascript:;" class="archive-article-date">
-      <i class="icon-smile icon"></i> 阅读数:<span id="/2019/02/25/常用git操作/" class="pageViews">0</span>次
+      <i class="icon-smile icon"></i> 阅读数:<span id="/2020/03/08/JavaScript-异步竞争态处理/" class="pageViews">0</span>次
   </a>
 
         
-        <a href="/2019/02/25/常用git操作/" class="archive-article-date">
-  	<time datetime="2019-02-25T12:53:47.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-02-25</time>
+        <a href="/2020/03/08/JavaScript-异步竞争态处理/" class="archive-article-date">
+  	<time datetime="2020-03-08T04:02:36.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-03-08</time>
 </a>
         
       </header>
@@ -190,17 +192,22 @@ var _hmt = _hmt || [];
       
         <hr>
 <a id="more"></a>
-<h2 id="分支操作"><a href="#分支操作" class="headerlink" title="分支操作"></a>分支操作</h2><figure class="highlight armasm"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="symbol">git</span> <span class="keyword">branch </span>创建分支</span><br><span class="line"><span class="symbol">git</span> <span class="keyword">branch </span>-<span class="keyword">b </span>创建并切换到新建的分支上</span><br><span class="line"><span class="symbol">git</span> checkout 切换分支</span><br><span class="line"><span class="symbol">git</span> <span class="keyword">branch </span>查看分支列表</span><br><span class="line"><span class="symbol">git</span> <span class="keyword">branch </span>-v 查看所有分支的最后一次操作</span><br><span class="line"><span class="symbol">git</span> <span class="keyword">branch </span>-vv 查看当前分支</span><br><span class="line"><span class="symbol">git</span> <span class="keyword">brabch </span>-<span class="keyword">b </span>分支名 origin/分支名 创建远程分支到本地</span><br><span class="line"><span class="symbol">git</span> <span class="keyword">branch </span>--merged 查看别的分支和当前分支合并过的分支</span><br><span class="line"><span class="symbol">git</span> <span class="keyword">branch </span>--no-merged 查看未与当前分支合并的分支</span><br><span class="line"><span class="symbol">git</span> <span class="keyword">branch </span>-d 分支名 删除本地分支</span><br><span class="line"><span class="symbol">git</span> <span class="keyword">branch </span>-D 分支名 强行删除分支</span><br><span class="line"><span class="symbol">git</span> <span class="keyword">push </span>origin --delete 分支名  // 删除远处仓库分支</span><br><span class="line"><span class="symbol">git</span> merge 分支名 合并分支到当前分支上</span><br></pre></td></tr></table></figure>
-<h2 id="暂存操作"><a href="#暂存操作" class="headerlink" title="暂存操作"></a>暂存操作</h2><figure class="highlight asciidoc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">1. 使用git stash命令先把当前进度保存起来，</span><br><span class="line">2. 然后切换到另一个分支去修改bug，修改完提交后，</span><br><span class="line">3. 再切回dev分支，</span><br><span class="line">4. 使用git stash pop来恢复之前的进度继续开发新功能。</span><br><span class="line">---</span><br><span class="line">git stash [save <span class="emphasis">'message...'</span>]  暂存当前修改，可以添加一些注释</span><br><span class="line">git stash apply [–index] [stash<span class="emphasis">_id] 恢复暂存不删除暂存记录</span></span><br><span class="line"><span class="emphasis">git stash pop [–index] [stash_</span>id] 恢复暂存并删除暂存记录</span><br><span class="line">git stash list 查看暂存列表</span><br><span class="line">git stash drop [stash<span class="emphasis">_id] 删除一个存储的进度。如果不指定stash_</span>id，则默认删除最新的存储进度。</span><br><span class="line">git stash clear 清除暂存</span><br></pre></td></tr></table></figure>
-<h2 id="回退操作"><a href="#回退操作" class="headerlink" title="回退操作"></a>回退操作</h2><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">git <span class="keyword">reset</span> <span class="comment">--hard HEAD^ 回退到上一个版本</span></span><br><span class="line">git <span class="keyword">reset</span> <span class="comment">--hard ahdhs1(commit_id) 回退到某个版本</span></span><br><span class="line">git checkout <span class="comment">-- file撤销修改的文件(如果文件加入到了暂存区，则回退到暂存区的，如果文件加入到了版本库，则还原至加入版本库之后的状态)</span></span><br><span class="line">git <span class="keyword">reset</span> <span class="keyword">HEAD</span> <span class="keyword">file</span> 撤回暂存区的文件修改到工作区</span><br></pre></td></tr></table></figure>
-<h2 id="标签操作"><a href="#标签操作" class="headerlink" title="标签操作"></a>标签操作</h2><figure class="highlight crmsh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">git <span class="keyword">tag</span> <span class="title">标签名 添加标签(默认对当前版本)</span></span><br><span class="line"><span class="title">git</span> <span class="keyword">tag</span> <span class="title">标签名 commit_id</span> 对某一提交记录打标签</span><br><span class="line">git <span class="keyword">tag</span> <span class="title">-a</span> 标签名 -m '描述' 创建新标签并增加备注</span><br><span class="line">git <span class="keyword">tag</span> <span class="title">列出所有标签列表</span></span><br><span class="line"><span class="title">git</span> show 标签名 查看标签信息</span><br><span class="line">git <span class="keyword">tag</span> <span class="title">-d</span> 标签名 删除本地标签</span><br><span class="line">git push origin 标签名 推送标签到远程仓库</span><br><span class="line">git push origin --tags 推送所有标签到远程仓库</span><br><span class="line">git push origin :refs/tags/标签名 从远程仓库中删除标签</span><br></pre></td></tr></table></figure>
-<h2 id="常规操作"><a href="#常规操作" class="headerlink" title="常规操作"></a>常规操作</h2><figure class="highlight smali"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">git push origin test 推送本地分支到远程仓库</span><br><span class="line">git rm -r --cached 文件/文件夹名字 取消文件被版本控制</span><br><span class="line">git reflog 获取执行过的命令</span><br><span class="line">git log --graph 查看分支合并图</span><br><span class="line">git merge --no-ff -m '合并描述' 分支名 不使用Fast forward方式合并，采用这种方式合并可以看到合并记录</span><br><span class="line">git<span class="built_in"> check-ignore </span>-v 文件名 查看忽略规则</span><br><span class="line">git<span class="built_in"> add </span>-f 文件名 强制将文件提交</span><br><span class="line">git push origin 分支名 --force   强制提交本地分支覆盖远程分支</span><br></pre></td></tr></table></figure>
-<h2 id="git创建项目仓库"><a href="#git创建项目仓库" class="headerlink" title="git创建项目仓库"></a>git创建项目仓库</h2><figure class="highlight basic"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">1</span>、git init 初始化</span><br><span class="line"><span class="number">2</span>、git <span class="comment">remote add origin url 关联远程仓库</span></span><br><span class="line"><span class="number">3</span>、git pull</span><br><span class="line"><span class="number">4</span>、git fetch 获取远程仓库中所有的分支到本地</span><br></pre></td></tr></table></figure>
-<h2 id="忽略已加入到版本库中的文件"><a href="#忽略已加入到版本库中的文件" class="headerlink" title="忽略已加入到版本库中的文件"></a>忽略已加入到版本库中的文件</h2><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">1、git <span class="keyword">update</span>-<span class="keyword">index</span> <span class="comment">--assume-unchanged file 忽略单个文件</span></span><br><span class="line"><span class="number">2</span>、git rm -r <span class="comment">--cached 文件/文件夹名字 (. 忽略全部文件)</span></span><br></pre></td></tr></table></figure>
-<h2 id="取消忽略文件"><a href="#取消忽略文件" class="headerlink" title="取消忽略文件"></a>取消忽略文件</h2><figure class="highlight vim"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git <span class="keyword">update</span>-<span class="built_in">index</span> --<span class="keyword">no</span>-assume-unchanged <span class="keyword">file</span></span><br></pre></td></tr></table></figure>
-<h2 id="拉取、上传免密码"><a href="#拉取、上传免密码" class="headerlink" title="拉取、上传免密码"></a>拉取、上传免密码</h2><figure class="highlight routeros"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git<span class="built_in"> config </span>--global credential.helper store</span><br></pre></td></tr></table></figure>
-<hr>
-<p><img src="http://cdn.wangyuanqi.com/gitpng.png" alt="git图"></p>
+<h1 id="JavaScript-异步竞争态处理"><a href="#JavaScript-异步竞争态处理" class="headerlink" title="JavaScript 异步竞争态处理"></a>JavaScript 异步竞争态处理</h1><p>编写 Web 应用的时候，一般来说，我们大多时候处理的都是同步的、线性的业务逻辑。但是正如开篇所说的“时间是程序里最复杂的因素”，应用一旦复杂，往往会遭遇很多异步问题，如果代码中涉及到多个异步请求的时候，这时候就需要慎重考虑了，我们需要意识到的是：</p>
+<p>到底我们的异步逻辑是易读的么？可维护的么？哪些是并发场景，哪些是竞态场景，我们有什么对策么？</p>
+<h2 id="请求时序问题"><a href="#请求时序问题" class="headerlink" title="请求时序问题"></a>请求时序问题</h2><p>一般而言，在前端而言我们经常遇到的异步场景，是请求问题。（当然对应到后端，有可能是各种 IO 操作，比如读写文件、操作数据库等）。<br>那笔者为何谈到请求，因为大多人都会忽略此类问题。我们往往有时候会发出多个同类型的请求（不一定符合我们意愿），但是每每觉得自己的应用十分健壮，实际上如果没有当心控制“野兽”的话，应用也会相当脆弱！</p>
+<p>如下图，应用依照 A1 -&gt; A2 -&gt; A3 顺序发起请求，我们也期望的是 A1 -&gt; A2 -&gt; A3 的顺序返回响应给应用。</p>
+<p><img src="https://img.alicdn.com/tfs/TB1popNup67gK0jSZPfXXahhFXa-578-199.jpg" alt="webserver-request"></p>
+<p>但实际上呢。但是每个请求都是十分野性的。我们根本无法把控它哪时候回来！请求的响应顺序极大程度依赖用户的网络环境。比如上图的响应顺序实际上就是 A3 -&gt; A1 -&gt; A2，此时应用将有概率会变得一团糟！</p>
+<p>不过也不用担心，实际上，一旦当你注意问题的时候，其实就离解决问题不远了。</p>
+<p>那么我们常见的做法会有什么呢？</p>
+<h3 id="结束标记"><a href="#结束标记" class="headerlink" title="结束标记"></a>结束标记</h3><p>通过应用中的标记状态，在需求请求完成后，标记成功，忽略多余请求，可以巧妙避开请求竞态的陷阱。(对比请求前后的入参值，只拿最新的数据渲染)；由于此写法比较常见，不再赘述。</p>
+<h3 id="队列化"><a href="#队列化" class="headerlink" title="队列化"></a>队列化</h3><p>将请求串行！某些特殊场景下可以使用。在时间线上将多个异步拍平成一条线。野兽请求们依序进入队列（相当于我们给请求们拉起了缰绳，划好了奔跑的道路），如下图：</p>
+<p><img src="https://img.alicdn.com/tfs/TB1eQSquuL2gK0jSZFmXXc7iXXa-1139-296.jpg" alt="img"></p>
+<p>只有当 A1 请求响应时，才进行 A2 请求，A2 响应成功时，进行 A3 请求。同理以此类推。（注意虽然请求的顺序强行被修改为串行，但并不意味这发起请求的动作也是串行）。因此在从时间维度上大大简化了场景，极大的减少了 bug 的发生概率。<br>缺点也很明显，请求串行后阻塞了，某些场景下也许做了很多无用功。</p>
+<h3 id="取消请求-最新"><a href="#取消请求-最新" class="headerlink" title="取消请求 + 最新"></a>取消请求 + 最新</h3><p>用过 redux-saga 的同学可能知道有个 API 叫做“takeLatest”。rxjs 里也有个操作符叫做“takeLast(1)”。前端可通过状态控制，管理多个请求。</p>
+<p><img src="https://img.alicdn.com/tfs/TB14aSsurj1gK0jSZFOXXc7GpXa-993-234.jpg" alt="cancle"></p>
+<p>实现思路主要为，每当触发最新的请求时，则取消前置的请求，使得永远只有最新的请求可以最终生效。</p>
+<p>备注，取消请求的方法，在原生的 XHR 对象里方法为：XMLHttpRequest.abort()。在 axios 里有 cancelToken 的 API 提供完成。</p>
 
       
 
@@ -245,7 +252,7 @@ var _hmt = _hmt || [];
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">git</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">js</a>
         		</li>
       		
 		</ul>
@@ -301,7 +308,7 @@ var _hmt = _hmt || [];
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="http://aric.leanapp.cn/qrimg/create_qrcode?url=https://github.com/Aric-sky/2019/02/25/常用git操作/" alt="微信分享二维码">
+      <img src="http://aric.leanapp.cn/qrimg/create_qrcode?url=https://github.com/Aric-sky/2020/03/08/JavaScript-异步竞争态处理/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -318,18 +325,9 @@ var _hmt = _hmt || [];
   
 <nav id="article-nav">
   
-    <a href="/2019/05/04/react-组件类型及使用场景/" id="article-nav-newer" class="article-nav-link-wrap">
-      <i class="icon-circle-left"></i>
-      <div class="article-nav-title">
-        
-          react-组件类型及使用场景
-        
-      </div>
-    </a>
   
-  
-    <a href="/2019/01/30/观察者模式和订阅-发布者模式/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">观察者模式和订阅/发布者模式</div>
+    <a href="/2019/12/15/tweenJs的使用及源码分析/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">tweenJs的使用及源码分析</div>
       <i class="icon-circle-right"></i>
     </a>
   
