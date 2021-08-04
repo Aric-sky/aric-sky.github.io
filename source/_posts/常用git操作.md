@@ -1,15 +1,18 @@
 layout: post
-title: 常用git操作
+title: 常用 git 操作
 comment: true
 tags: [git]
 date: 2019-02-25 20:53:47
 updated: 2019-02-25 20:53:47
+
 ---
 
-------
+---
+
 <!-- more -->
 
 ## 分支操作
+
 ```
   git branch 创建分支
   git branch -b 创建并切换到新建的分支上
@@ -25,7 +28,9 @@ updated: 2019-02-25 20:53:47
   git push origin --delete 分支名  // 删除远处仓库分支
   git merge 分支名 合并分支到当前分支上
 ```
+
 ## 暂存操作
+
 ```
   1. 使用git stash命令先把当前进度保存起来，
   2. 然后切换到另一个分支去修改bug，修改完提交后，
@@ -39,14 +44,30 @@ updated: 2019-02-25 20:53:47
   git stash drop [stash_id] 删除一个存储的进度。如果不指定stash_id，则默认删除最新的存储进度。
   git stash clear 清除暂存
 ```
+
 ## 回退操作
+
 ```
   git reset --hard HEAD^ 回退到上一个版本
   git reset --hard ahdhs1(commit_id) 回退到某个版本
   git checkout -- file撤销修改的文件(如果文件加入到了暂存区，则回退到暂存区的，如果文件加入到了版本库，则还原至加入版本库之后的状态)
   git reset HEAD file 撤回暂存区的文件修改到工作区
+  
+  参数说明：
+  --mixed
+  意思是：不删除工作空间改动代码，撤销commit，并且撤销git add . 操作
+  这个为默认参数,git reset --mixed HEAD^ 和 git reset HEAD^ 效果是一样的。
+
+  --soft
+  不删除工作空间改动代码，撤销commit，不撤销git add .
+
+  --hard
+  删除工作空间改动代码，撤销commit，撤销git add .
+  注意完成这个操作后，就恢复到了上一次的commit状态。
 ```
+
 ## 标签操作
+
 ```
   git tag 标签名 添加标签(默认对当前版本)
   git tag 标签名 commit_id 对某一提交记录打标签
@@ -58,7 +79,9 @@ updated: 2019-02-25 20:53:47
   git push origin --tags 推送所有标签到远程仓库
   git push origin :refs/tags/标签名 从远程仓库中删除标签
 ```
+
 ## 常规操作
+
 ```
   git push origin test 推送本地分支到远程仓库
   git rm -r --cached 文件/文件夹名字 取消文件被版本控制
@@ -70,23 +93,30 @@ updated: 2019-02-25 20:53:47
   git push origin 分支名 --force   强制提交本地分支覆盖远程分支
 ```
 
-## git创建项目仓库
+## git 创建项目仓库
+
 ```
   1、git init 初始化
   2、git remote add origin url 关联远程仓库
   3、git pull
   4、git fetch 获取远程仓库中所有的分支到本地
 ```
+
 ## 忽略已加入到版本库中的文件
+
 ```
   1、git update-index --assume-unchanged file 忽略单个文件
   2、git rm -r --cached 文件/文件夹名字 (. 忽略全部文件)
 ```
+
 ## 取消忽略文件
+
 ```
   git update-index --no-assume-unchanged file
 ```
+
 ## 拉取、上传免密码
+
 ```
   git config --global credential.helper store
 ```
